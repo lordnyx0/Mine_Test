@@ -108,12 +108,41 @@ def calcular_acao_otima_tatica(
 MODOS = ["alinhar", "sprint", "pulo", "strafe_esq", "strafe_dir", "recuar"]
 NUM_MODOS = len(MODOS)  # 6
 NUM_YAW = len(YAW_BINS_9)  # 9
+NUM_ACOES_FATORADAS = NUM_MODOS * NUM_YAW  # 54
 
 # Mapeamento do bin 3 [-5, 0, 5] para os índices dos 9 bins [-120, -60, -25, -5, 0, 5, 25, 60, 120] -> índices 3, 4, 5
 _MAPA_3_PARA_9 = [3, 4, 5]
 
+
+def fatorar_indice_54(idx_54: int) -> Tuple[int, int]:
+    """Converte o índice canônico 54 em tupla (modo: 0..5, yaw: 0..8)."""
+    idx_54 = max(0, min(NUM_ACOES_FATORADAS - 1, int(idx_54)))
+    modo = idx_54 // NUM_YAW
+    yaw = idx_54 % NUM_YAW
+    return modo, yaw
+
+
+def unificar_indice_54(modo: int, yaw: int) -> int:
+    """Converte (modo: 0..5, yaw: 0..8) no índice canônico de 54 ações (0..53)."""
+    modo = max(0, min(NUM_MODOS - 1, int(modo)))
+    yaw = max(0, min(NUM_YAW - 1, int(yaw)))
+    return modo * NUM_YAW + yaw
+
+
+def converter_36_para_54(idx_36: int) -> int:
+    """Converte o índice legado de 36 classes para o índice canônico de 54 classes."""
+    modo, yaw = fatorar_indice_36(idx_36)
+    return unificar_indice_54(modo, yaw)
+
+
+def converter_54_para_36(idx_54: int) -> int:
+    """Converte o índice de 54 classes de volta para o espaço aproximado de 36 classes."""
+    modo, yaw = fatorar_indice_54(idx_54)
+    return unificar_indices(modo, yaw)
+
+
 def fatorar_indice_36(idx: int) -> Tuple[int, int]:
-    """Converte o índice 36 unificado em tupla (modo: 0..5, yaw: 0..8)."""
+    """Converte o índice 36 legado em tupla (modo: 0..5, yaw: 0..8)."""
     idx = int(idx)
     if 0 <= idx <= 8:
         return 0, idx
@@ -131,7 +160,7 @@ def fatorar_indice_36(idx: int) -> Tuple[int, int]:
 
 
 def unificar_indices(modo: int, yaw: int) -> int:
-    """Converte (modo: 0..5, yaw: 0..8) de volta ao índice unificado de 36 classes."""
+    """Converte (modo: 0..5, yaw: 0..8) de volta ao índice unificado de 36 classes (legado)."""
     modo = max(0, min(5, int(modo)))
     yaw = max(0, min(8, int(yaw)))
     if modo == 0:
@@ -141,7 +170,7 @@ def unificar_indices(modo: int, yaw: int) -> int:
     elif modo == 2:
         return 18 + yaw
     else:
-        # Para modos com 3 micro-bins, mapeia yaw (0..8) para o micro-bin mais próximo (0..2)
+        # Para modos com 3 micro-bins legados, mapeia yaw (0..8) para o micro-bin mais próximo (0..2)
         if yaw <= 3:
             micro = 0  # -5
         elif yaw >= 5:
@@ -157,22 +186,23 @@ def unificar_indices(modo: int, yaw: int) -> int:
 
 
 def decodificar_acao_fatorada(modo: int, yaw_idx: int) -> Dict[str, Any]:
-    """Converte a decisão fatorada diretamente no comando físico do simulador."""
+    """Converte a decisão fatorada canônica (54 combinações) diretamente no comando físico do simulador."""
     modo = max(0, min(5, int(modo)))
     yaw_idx = max(0, min(8, int(yaw_idx)))
     dx = int(YAW_BINS_9[yaw_idx])
 
-    if modo == 0:  # Alinhar
+    if modo == 0:  # Alinhar / Giro Parado
         return {"hold": [], "mouse": [dx, 0], "duration_ms": 250, "tipo": "alinhar"}
     elif modo == 1:  # Sprint
         return {"hold": ["W"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "sprint"}
     elif modo == 2:  # Pulo
         return {"hold": ["W", "SPACE"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "pulo"}
-    elif modo == 3:  # Strafe Esquerda
+    elif modo == 3:  # Strafe Esquerda (com autoridade total de 9 yaws)
         return {"hold": ["W", "A"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "strafe_esq"}
-    elif modo == 4:  # Strafe Direita
+    elif modo == 4:  # Strafe Direita (com autoridade total de 9 yaws)
         return {"hold": ["W", "D"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "strafe_dir"}
-    elif modo == 5:  # Recuar
+    elif modo == 5:  # Recuar (com autoridade total de 9 yaws)
         return {"hold": ["S"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "recuar"}
     return {"hold": ["W"], "mouse": [0, 0], "duration_ms": 250, "tipo": "sprint"}
+
 

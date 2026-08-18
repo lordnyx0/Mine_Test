@@ -184,7 +184,7 @@ def rollout_rl_wasd_ppo(
         ) for i, t in enumerate(tarefas)
     ]
 
-    SV_L, IDS_L = [], []
+    SV_L, IDS_L, VEMB_L = [], [], []
     MODO_L, YAW_L, LOGP_L, VAL_L = [], [], [], []
     R_L, VIVO_L = [], []
 
@@ -208,6 +208,7 @@ def rollout_rl_wasd_ppo(
         u = pol.ultimo
         sv_passo   = u["sv"]         # [N, 32]
         ids_passo  = u["ids"]        # [N, 48]
+        vemb_passo = u["v_emb"]      # [N, 32, 896]
         modo_passo = u["idx_modo"]   # [N]
         yaw_passo  = u["idx_yaw"]    # [N]
         logp_passo = u["logp_old"]   # [N]
@@ -239,15 +240,13 @@ def rollout_rl_wasd_ppo(
 
             frame_i = u8_frames[i] if u8_frames is not None and i < len(u8_frames) else None
 
-            # Cálculo de Recompensa Não-Privilegiada (Baseada em Percepção Visual)
+            # Cálculo de Recompensa Puramente Visual (Looming + Gaze + Descoberta)
             r_passo, info = rastreador.calcular_recompensa_passo(
                 env_id=i,
                 estado=e,
                 frame_u8=frame_i,
                 cor_alvo=cor_alvo,
                 acao_exec=acoes[i],
-                dist_atual=d_atual,
-                dist_anterior=dant[i],
                 estagio_atual=estagio_atual[i]
             )
             rec[i] += r_passo
@@ -274,6 +273,7 @@ def rollout_rl_wasd_ppo(
 
         SV_L.append(sv_passo)
         IDS_L.append(ids_passo)
+        VEMB_L.append(vemb_passo)
         MODO_L.append(modo_passo)
         YAW_L.append(yaw_passo)
         LOGP_L.append(logp_passo)
@@ -295,6 +295,7 @@ def rollout_rl_wasd_ppo(
 
     SV_T   = np.array(SV_L)    # [T, N, 32]
     IDS_T  = np.array(IDS_L)   # [T, N, 48]
+    VEMB_T = np.array(VEMB_L)  # [T, N, 32, 896]
     MODO_T = np.array(MODO_L)  # [T, N]
     YAW_T  = np.array(YAW_L)   # [T, N]
     LOGP_T = np.array(LOGP_L)  # [T, N]
@@ -302,7 +303,7 @@ def rollout_rl_wasd_ppo(
     R_T    = np.array(R_L)     # [T, N]
     VIVO_T = np.array(VIVO_L)  # [T, N]
 
-    return (SV_T, IDS_T, MODO_T, YAW_T, LOGP_T, VAL_T, R_T, VIVO_T), met
+    return (SV_T, IDS_T, VEMB_T, MODO_T, YAW_T, LOGP_T, VAL_T, R_T, VIVO_T), met
 
 
 def treinar_ppo_bc_hibrido(
@@ -319,7 +320,7 @@ def treinar_ppo_bc_hibrido(
     seed:         int = 42
 ):
     print("=" * 80)
-    print(" [FASE 5.5] PPO VERDADEIRO + VALUE HEAD GAE + ANCORAGEM BC FATORADA")
+    print(" [FASE 5.5] PPO MULTIMODAL VERDADEIRO + CRITIC GAE + RECOMPENSA VISUAL PURA")
     print(f"    Dataset Base    : {dataset_path}")
     print(f"    Checkpoint Base : {ckpt_entrada}")
     print(f"    Checkpoint Fim  : {ckpt_saida}")
@@ -390,7 +391,7 @@ def treinar_ppo_bc_hibrido(
         pol.amostrar = True
         tarefas, blocos_tarefas = gerar_tarefas_busca_ativa(N, seed=seed + it * 17, nivel=2)
 
-        (SV_T, IDS_T, MODO_T, YAW_T, LOGP_T, VAL_T, R_T, VIVO_T), met = rollout_rl_wasd_ppo(
+        (SV_T, IDS_T, VEMB_T, MODO_T, YAW_T, LOGP_T, VAL_T, R_T, VIVO_T), met = rollout_rl_wasd_ppo(
             pol, tarefas, blocos=blocos_tarefas, passos=passos_ep
         )
 
@@ -406,6 +407,7 @@ def treinar_ppo_bc_hibrido(
 
         b_sv_rl       = torch.tensor(SV_T.reshape(T_len * N_len, -1)[mascara], dtype=torch.float32, device=dev)
         b_ids_rl      = torch.tensor(IDS_T.reshape(T_len * N_len, -1)[mascara], dtype=torch.long, device=dev)
+        b_vemb_rl     = torch.tensor(VEMB_T.reshape(T_len * N_len, 32, -1)[mascara], dtype=torch.bfloat16, device=dev)
         b_modo_rl     = torch.tensor(MODO_T.reshape(-1)[mascara], dtype=torch.long, device=dev)
         b_yaw_rl      = torch.tensor(YAW_T.reshape(-1)[mascara], dtype=torch.long, device=dev)
         b_logp_old_rl = torch.tensor(LOGP_T.reshape(-1)[mascara], dtype=torch.float32, device=dev)
@@ -447,6 +449,7 @@ def treinar_ppo_bc_hibrido(
                 mb_idx = indices_rl[mb:mb + minilote]
                 mb_sv = b_sv_rl[mb_idx]
                 mb_ids = b_ids_rl[mb_idx]
+                mb_vemb = b_vemb_rl[mb_idx]
                 mb_m = b_modo_rl[mb_idx]
                 mb_y = b_yaw_rl[mb_idx]
                 mb_logp_old = b_logp_old_rl[mb_idx]
@@ -456,10 +459,10 @@ def treinar_ppo_bc_hibrido(
                 otimizador.zero_grad()
 
                 with torch.amp.autocast("cuda", dtype=torch.bfloat16):
-                    # Forward RL
+                    # Forward RL Multimodal Completo (52 tokens: v_emb + s_emb + t_emb)
                     s_embeds = vla.state_encoder(mb_sv)
                     t_embeds = vla.qwen_model.get_input_embeddings()(mb_ids)
-                    inputs_embeds = torch.cat([s_embeds, t_embeds], dim=1)
+                    inputs_embeds = torch.cat([mb_vemb, s_embeds, t_embeds], dim=1)
 
                     outputs = vla.qwen_model(inputs_embeds=inputs_embeds)
                     last_hidden = outputs.last_hidden_state[:, -1, :]
@@ -498,7 +501,7 @@ def treinar_ppo_bc_hibrido(
 
                 loss_rl.backward()
 
-                # Minilote BC Supervisionado Fatorado
+                # Minilote BC Supervisionado Fatorado com Embeddings Padronizados
                 if bc_ptr < num_bc_amostra:
                     mb_bc_idx = indices_bc[bc_ptr:bc_ptr + minilote]
                     bc_ptr += minilote
@@ -508,9 +511,10 @@ def treinar_ppo_bc_hibrido(
                     mb_y_bc = b_yaw_bc_sub[mb_bc_idx]
 
                     with torch.amp.autocast("cuda", dtype=torch.bfloat16):
+                        mb_vemb_bc = torch.zeros((len(mb_bc_idx), 32, vla.hidden_size), dtype=torch.bfloat16, device=dev)
                         s_embeds_bc = vla.state_encoder(mb_sv_bc)
                         t_embeds_bc = vla.qwen_model.get_input_embeddings()(mb_ids_bc)
-                        inputs_embeds_bc = torch.cat([s_embeds_bc, t_embeds_bc], dim=1)
+                        inputs_embeds_bc = torch.cat([mb_vemb_bc, s_embeds_bc, t_embeds_bc], dim=1)
 
                         outputs_bc = vla.qwen_model(inputs_embeds=inputs_embeds_bc)
                         last_hidden_bc = outputs_bc.last_hidden_state[:, -1, :]

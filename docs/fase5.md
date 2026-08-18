@@ -125,24 +125,30 @@ Para evitar o **esquecimento catastrófico** (*catastrophic forgetting*), o trei
 
 ---
 
-## 8. 🚀 Fase 5.5 — PPO Verdadeiro, Critic GAE, Recompensa Visual e Cabeças Fatoradas
+## 8. 🚀 Fase 5.5 — PPO Multimodal Verdadeiro, Critic GAE, Looming Visual e Espaço Canônico 54D
 
-Em 2026-08-18, a Fase 5 recebeu 5 aprimoramentos fundamentais para consolidação teórica e prática do aprendizado por reforço:
+Em 2026-08-18, a Fase 5 foi consolidada com rigor matemático e alinhamento multimodal estrito:
 
-1. **PPO Verdadeiro com Surrogate Clipping:**
-   - Transição do REINFORCE com baseline para o PPO completo com buffer de $\log \pi_{\text{old}}$ e razão de probabilidades $r_t(\theta)$.
+1. **Consistência Multimodal Estrita no PPO (52 Tokens):**
+   - No rollout e na otimização PPO, a política processa exatamente a mesma sequência multimodal:
+     $$\text{inputs\_embeds} = [\underbrace{v_{\text{emb}}}_{\text{32 tokens}}, \; \underbrace{s_{\text{emb}}}_{\text{4 tokens}}, \; \underbrace{t_{\text{emb}}}_{\text{16 tokens}}] \quad (52 \text{ tokens})$$
+   - Os tensores $v_{\text{emb}}$ são preservados no buffer de rollout, garantindo que o ratio inicial seja $r_t(\theta) = 1.000000$ exato antes da primeira atualização de gradiente.
+2. **PPO Verdadeiro com Surrogate Clipping:**
+   - Razão de probabilidades $r_t(\theta) = \exp(\log \pi_\theta - \log \pi_{\text{old}})$.
    - Perda com clipping: $\mathcal{L}_{\text{PPO}} = -\min\big(r_t A_t, \; \text{clip}(r_t, 1-\epsilon, 1+\epsilon) A_t\big)$ com $\epsilon = 0.2$ e $K=3$ épocas em minilotes.
-2. **Critic / Value Head $V(s)$ e GAE ($\lambda=0.95, \gamma=0.98$):**
-   - Adicionada `cabeca_valor` no VLA para estimar $V(s_t)$.
-   - Estimador Generalized Advantage Estimation (GAE) reduzindo drasticamente a variância dos retornos Monte Carlo.
-   - Otimização conjunta de valor via $\mathcal{L}_{\text{VF}} = 0.5 \cdot \text{MSE}\big(V_\theta(s), \hat{G}_t\big)$.
-3. **Recompensa Não-Privilegiada e Visuomotora Pura ([`fase5/recompensa_visual.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/recompensa_visual.py)):**
-   - Eliminação do oráculo geométrico invisível: o agente é recompensado estritamente pela detecção direta do pilar-alvo no frame RGB da câmera.
-   - Bônus por **Descoberta Visual ($\Delta \text{Visão}$)** ($+0.50$) no primeiro avistamento do pilar no estágio.
-   - Bônus contínuo de mira centralizada no pilar visível ($+0.15 \times (1 - |\text{centro\_x}|)$).
-   - Penalidade de corrida cega ($-0.25$) se correr de frente sem ver o objetivo.
-4. **Espaço de Ações Fatorado (Modo 6 classes $\times$ Yaw 9 classes):**
-   - Desacoplamento da locomoção (`cabeca_modo`) da cinemática de câmera (`cabeca_yaw`), permitindo compartilhamento de representações de rotação entre sprint, pulo e manobras.
-5. **Annealing Curricular de Ancoragem BC:**
-   - Decaimento de $\lambda_{\text{BC}}$ de $0.85$ a $0.20$ via perfil de cosseno ao longo das iterações de treino.
+3. **Critic / Value Head $V(s)$ e GAE ($\lambda=0.95, \gamma=0.98$):**
+   - Cabeça linear de valor `cabeca_valor` no VLA estimando $V(s_t)$.
+   - Estimador Generalized Advantage Estimation (GAE) e perda conjunta $\mathcal{L}_{\text{VF}} = 0.5 \cdot \text{MSE}\big(V_\theta(s), \hat{G}_t\big)$.
+4. **Recompensa Puramente Visuomotora e Não-Privilegiada ([`fase5/recompensa_visual.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/recompensa_visual.py)):**
+   - Eliminação total do $\Delta d$ geométrico euclidiano no passo a passo: a aproximação é recompensada via **Looming Visual ($\Delta \text{Área}$ de pixels do pilar no frame RGB)**.
+   - Bônus por **Descoberta Visual ($\Delta \text{Visão}$)** ($+0.50$) no primeiro avistamento da torre.
+   - Bônus de mira centralizada no pilar visível ($+0.15 \times (1 - |\text{centro\_x}|) + 0.08$).
+   - Penalidade de corrida cega ($-0.25$) se avançar sem alvo visível.
+   - Coordenadas de mundo são usadas unicamente na condição terminal física de contato ($d \le 1.3\text{m}$).
+5. **Espaço Canônico Fatorado de 54 Ações ($6 \text{ Modos} \times 9 \text{ Yaws}$):**
+   - Produto cartesiano bijetivo $\text{idx}_{54} = \text{modo} \times 9 + \text{yaw\_idx}$ com autoridade angular plena em todos os modos motores (incluindo strafe e ré).
+   - Conversor bidirecional compatível com o dataset de 36 classes legadas.
+6. **Annealing Curricular de Ancoragem BC:**
+   - Decaimento de $\lambda_{\text{BC}}$ de $0.85$ a $0.20$ via perfil de cosseno ao longo das iterações.
+
 

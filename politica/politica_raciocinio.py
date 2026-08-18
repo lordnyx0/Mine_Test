@@ -90,26 +90,34 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
                 self.vla.cabeca_acao_36[2].weight.data.normal_(0.0, 0.02)
                 self.vla.cabeca_acao_36[2].bias.data.zero_()
 
-    def forward_pensamento(self, pixel_tensor, state_tensor, goal_tensor, input_ids):
+    def forward_pensamento(self, pixel_tensor, state_tensor, goal_tensor, input_ids, precomputed_v_emb=None):
         """Passa o fluxo de tokens pelo transformer e extrai representações latentes."""
         vla = self.vla
-        B = pixel_tensor.size(0)
+        B = state_tensor.size(0)
 
-        if pixel_tensor.dim() == 5:
-            px_flat = pixel_tensor.flatten(0, 1)
-        else:
-            px_flat = pixel_tensor
+        if precomputed_v_emb is not None:
+            v_emb = precomputed_v_emb
+        elif pixel_tensor is not None:
+            if pixel_tensor.dim() == 5:
+                px_flat = pixel_tensor.flatten(0, 1)
+            else:
+                px_flat = pixel_tensor
 
-        if not vla.vision_encoder.training:
-            with torch.no_grad():
+            if not vla.vision_encoder.training:
+                with torch.no_grad():
+                    v_feats = vla.vision_encoder(pixel_values=px_flat).last_hidden_state
+            else:
                 v_feats = vla.vision_encoder(pixel_values=px_flat).last_hidden_state
-        else:
-            v_feats = vla.vision_encoder(pixel_values=px_flat).last_hidden_state
 
-        v_res = vla.resampler(v_feats)
-        v_emb = vla.projector(v_res)
-        if pixel_tensor.dim() == 5:
-            v_emb = v_emb.view(B, pixel_tensor.size(1) * 32, -1)
+            v_res = vla.resampler(v_feats)
+            v_emb = vla.projector(v_res)
+            if pixel_tensor.dim() == 5:
+                v_emb = v_emb.view(B, pixel_tensor.size(1) * 32, -1)
+        else:
+            # Fallback neutro de tokens visuais se nenhuma imagem for passada
+            v_emb = torch.zeros((B, 32, vla.hidden_size), dtype=state_tensor.dtype, device=state_tensor.device)
+
+        self._ultimo_v_emb = v_emb
 
         s_emb = vla.state_encoder(state_tensor)
         t_emb = vla.qwen_model.get_input_embeddings()(input_ids) if input_ids is not None else None
@@ -158,6 +166,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
                                                  enabled=torch.cuda.is_available()):
             res = self.forward_pensamento(px, sv, gv, ids)
 
+        v_emb_salvo = self._ultimo_v_emb.detach().cpu().to(torch.float32).numpy()
+
         if self.fatorada:
             lg_modo, lg_yaw, values = res
             if self.amostrar:
@@ -195,6 +205,7 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
                 "u8": u8,
                 "sv": sv.detach().cpu().numpy(),
                 "gv": gv.detach().cpu().numpy(),
+                "v_emb": v_emb_salvo,
                 "idx": idx_36_np,
                 "idx_modo": modo_np,
                 "idx_yaw": yaw_np,
@@ -231,6 +242,7 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
                 "u8": u8,
                 "sv": sv.detach().cpu().numpy(),
                 "gv": gv.detach().cpu().numpy(),
+                "v_emb": v_emb_salvo,
                 "idx": idx_np,
                 "logp_old": logp_np,
                 "val": val_np,

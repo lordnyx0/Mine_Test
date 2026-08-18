@@ -100,11 +100,13 @@ class RastreadorVisualEpisodio:
         self.alvo_avistado = [False] * num_ambientes
         self.passos_sem_foco = [0] * num_ambientes
         self.cooldown_frenagem = [0] * num_ambientes
+        self.area_anterior = [0.0] * num_ambientes
 
     def reset_ambiente(self, env_id: int):
         self.alvo_avistado[env_id] = False
         self.passos_sem_foco[env_id] = 0
         self.cooldown_frenagem[env_id] = 0
+        self.area_anterior[env_id] = 0.0
 
     def reset_todos(self):
         for i in range(self.num_ambientes):
@@ -117,12 +119,14 @@ class RastreadorVisualEpisodio:
         frame_u8: Optional[np.ndarray],
         cor_alvo: str,
         acao_exec: Dict[str, Any],
-        dist_atual: float,
-        dist_anterior: float,
-        estagio_atual: int
+        estagio_atual: int,
+        shaping_geometrico: bool = False,
+        dist_atual: Optional[float] = None,
+        dist_anterior: Optional[float] = None
     ) -> Tuple[float, Dict[str, Any]]:
         """
-        Calcula a recompensa não-privilegiada do passo para o ambiente env_id.
+        Calcula a recompensa puramente não-privilegiada do passo para o ambiente env_id.
+        Toda a orientação espacial depende estritamente dos pixels do frame.
         """
         rec = 0.0
         info = {}
@@ -139,8 +143,10 @@ class RastreadorVisualEpisodio:
         visivel = det["visivel"]
         centro_x = det["centro_x"]
         centralizado = det["centralizado"]
+        fracao_area_atual = det["fracao_area"]
         info["visivel"] = visivel
         info["centro_x"] = centro_x
+        info["fracao_area"] = fracao_area_atual
 
         corre_frente = "W" in acao_exec.get("hold", [])
         gira = bool(acao_exec.get("mouse", [0, 0])[0] != 0)
@@ -162,7 +168,15 @@ class RastreadorVisualEpisodio:
             # Bônus adicional se estiver centralizado com precisão
             if centralizado:
                 rec += 0.08
+
+            # 5. Progresso Visuomotor por Looming (Expansão de Área Aparente do Pilar)
+            if self.area_anterior[env_id] > 0.0:
+                delta_area = fracao_area_atual - self.area_anterior[env_id]
+                rec += float(np.clip(delta_area * 80.0, -0.20, 0.40))
+
+            self.area_anterior[env_id] = fracao_area_atual
         else:
+            self.area_anterior[env_id] = 0.0
             if self.alvo_avistado[env_id]:
                 self.passos_sem_foco[env_id] += 1
                 # Penalidade progressiva se perdeu de vista o alvo previamente avistado
@@ -173,7 +187,7 @@ class RastreadorVisualEpisodio:
             if corre_frente and not self.alvo_avistado[env_id]:
                 rec -= 0.25
 
-        # 5. Recompensa de Frenagem e Amortecimento Pós-Submeta 1
+        # 6. Recompensa de Frenagem e Amortecimento Pós-Submeta 1
         if self.cooldown_frenagem[env_id] > 0:
             self.cooldown_frenagem[env_id] -= 1
             if not corre_frente:
@@ -181,8 +195,10 @@ class RastreadorVisualEpisodio:
             if gira and visivel:
                 rec += 0.25  # Recompensa girar até encontrar o Pilar 2
 
-        # 6. Recompensa de Aproximação Física
-        delta_d = dist_anterior - dist_atual
-        rec += float(np.clip(delta_d * 1.2, -0.4, 1.2))
+        # 7. Shaping geométrico auxiliar (opcional, desabilitado por padrão para visual puro)
+        if shaping_geometrico and dist_atual is not None and dist_anterior is not None:
+            delta_d = dist_anterior - dist_atual
+            rec += float(np.clip(delta_d * 1.0, -0.3, 1.0))
 
         return rec, info
+
