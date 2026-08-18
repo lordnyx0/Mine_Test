@@ -413,8 +413,9 @@ def treinar_ppo_bc_hibrido(
         b_logp_old_rl = torch.tensor(LOGP_T.reshape(-1)[mascara], dtype=torch.float32, device=dev)
         
         adv_ativo = ADV_T.reshape(-1)[mascara]
+        adv_mean = float(adv_ativo.mean()) if len(adv_ativo) > 0 else 0.0
         adv_std = float(adv_ativo.std()) if len(adv_ativo) > 1 else 1.0
-        adv_norm = (adv_ativo - adv_ativo.mean()) / (max(adv_std, 1e-4) + 1e-8)
+        adv_norm = (adv_ativo - adv_mean) / (max(adv_std, 1e-4) + 1e-8)
         b_adv_rl = torch.tensor(adv_norm, dtype=torch.float32, device=dev)
         
         b_target_g_rl = torch.tensor(TARGET_G_T.reshape(-1)[mascara], dtype=torch.float32, device=dev)
@@ -437,7 +438,10 @@ def treinar_ppo_bc_hibrido(
         total_val_loss = 0.0
         total_bc_loss  = 0.0
         total_clip_frac = 0.0
-        entropia_media = 0.0
+        total_ent_modo = 0.0
+        total_ent_yaw = 0.0
+        total_ent_total = 0.0
+        ent_totais_epoch0 = []
         num_updates = 0
 
         for epoch in range(ppo_epochs):
@@ -482,9 +486,16 @@ def treinar_ppo_bc_hibrido(
                     logp_yaw  = dist_yaw.log_prob(mb_y)
                     logp_total = logp_modo + logp_yaw
 
-                    ent_modo = dist_modo.entropy().mean()
-                    ent_yaw  = dist_yaw.entropy().mean()
-                    ent_total = ent_modo + ent_yaw
+                    ent_m_vec = dist_modo.entropy()
+                    ent_y_vec = dist_yaw.entropy()
+                    ent_tot_vec = ent_m_vec + ent_y_vec
+
+                    ent_modo = ent_m_vec.mean()
+                    ent_yaw  = ent_y_vec.mean()
+                    ent_total = ent_tot_vec.mean()
+
+                    if epoch == 0:
+                        ent_totais_epoch0.append(ent_tot_vec.detach().cpu())
 
                     # 1. PPO Ratio e Surrogate Clipping Loss
                     ratio = torch.exp(logp_total - mb_logp_old)
@@ -536,7 +547,9 @@ def treinar_ppo_bc_hibrido(
                 total_ppo_loss += ppo_loss.item()
                 total_val_loss += val_loss.item()
                 total_clip_frac += clip_frac.item()
-                entropia_media += ent_total.item()
+                total_ent_modo += ent_modo.item()
+                total_ent_yaw += ent_yaw.item()
+                total_ent_total += ent_total.item()
                 num_updates += 1
 
         scheduler.step()
@@ -545,18 +558,28 @@ def treinar_ppo_bc_hibrido(
         val_loss_final  = total_val_loss / max(1, num_updates)
         bc_loss_final   = total_bc_loss / max(1, num_updates)
         clip_frac_final = (total_clip_frac / max(1, num_updates)) * 100.0
-        ent_final       = entropia_media / max(1, num_updates)
+        ent_modo_final  = total_ent_modo / max(1, num_updates)
+        ent_yaw_final   = total_ent_yaw / max(1, num_updates)
+        ent_total_final = total_ent_total / max(1, num_updates)
+
+        if len(ent_totais_epoch0) > 0:
+            all_ent_np = torch.cat(ent_totais_epoch0, dim=0).to(torch.float32).numpy()
+            q75 = float(np.percentile(all_ent_np, 75))
+            high_ent_pct = float((all_ent_np >= q75).mean() * 100.0)
+        else:
+            high_ent_pct = 0.0
 
         print(
             f"  Iteração {it:2d}/{iteracoes} (lr={lr_atual:.1e}, λ_bc={lambda_bc_atual:.2f}) | "
             f"Rec: {recompensa_media:+6.2f} | "
             f"Submeta 1: {taxa_sub1:5.1f}% | "
             f"Sucesso: {taxa_tot:5.1f}% | "
-            f"PPO Loss: {ppo_loss_final:+.4f} | "
-            f"Val Loss: {val_loss_final:.4f} | "
-            f"BC Loss: {bc_loss_final:.4f} | "
-            f"Clip: {clip_frac_final:4.1f}% | "
-            f"Ent: {ent_final:.3f}",
+            f"Adv: mean={adv_mean:+6.3f}, std={adv_std:.3f} | "
+            f"Ent: mode={ent_modo_final:.3f}, yaw={ent_yaw_final:.3f}, total={ent_total_final:.3f} (HighEnt: {high_ent_pct:4.1f}%) | "
+            f"PPO: {ppo_loss_final:+.4f} | "
+            f"Value: {val_loss_final:.4f} | "
+            f"BC: {bc_loss_final:.4f} | "
+            f"Clip: {clip_frac_final:4.1f}%",
             flush=True
         )
 
@@ -572,9 +595,16 @@ def treinar_ppo_bc_hibrido(
             "taxa_submeta1": taxa_sub1,
             "taxa_total": taxa_tot,
             "recompensa": recompensa_media,
+            "adv_mean": adv_mean,
+            "adv_std": adv_std,
+            "ent_mode": ent_modo_final,
+            "ent_yaw": ent_yaw_final,
+            "ent_total": ent_total_final,
+            "high_ent_pct": high_ent_pct,
             "fatorada": True
         }
         torch.save(ckpt_dict, ckpt_saida)
+
 
         score_atual = taxa_tot * 2.0 + taxa_sub1 + recompensa_media * 0.1
         if score_atual > melhor_score:
