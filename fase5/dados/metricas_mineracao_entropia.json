@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-08-16 13:14:14",
+  "modelo_base": "checkpoints_vla/vla_fase5_coldstart.pt",
+  "passos_totais": 3852,
+  "picos_brutos_entropia": 3852,
+  "descartados_ruido_perdido": 3005,
+  "decisoes_limpas_retidas": 847,
+  "taxa_retencao": 21.98857736240914,
+  "submetas1_atingidas": 10,
+  "submetas2_atingidas": 2,
+  "duracao_segundos": 343.1708984375,
+  "distribuicao_tipos": {
+    "spawn": 117,
+    "transicao_submeta": 31,
+    "ajuste_fino": 699
+  }
+}

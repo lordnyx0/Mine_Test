@@ -1,0 +1,64 @@
+W0810 02:10:57.131000 14328 site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+=== CARREGANDO QWEN3LOOP VLA (CUDA) ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/408 [00:00<?, ?it/s]Loading weights:  97%|#########6| 394/408 [00:00<00:00, 3939.59it/s]Loading weights: 100%|##########| 408/408 [00:00<00:00, 3975.87it/s]
+[VLA] Carregando checkpoint 'checkpoints_vla/vla_locomotion.pt'...
+[VLA] Pesos carregados com sucesso.
+[BotVision] Renderer 'voxel' pronto! Iniciando captura de frames.
+[Reward] Mineflayer detectado. Usando progresso real na direcao encarada.
+
+======================================================================
+ A) LINHA DE BASE — politica atual, sem exploracao
+======================================================================
+`use_return_dict` is deprecated! Use `return_dict` instead!
+    [base] passo  25/40 | progresso medio +0.701 b | W em 100%
+  -> progresso +0.463 b/passo | W em 100% dos passos | reward +0.091
+
+======================================================================
+ B) COLETA — com exploracao (eps=0.30)
+======================================================================
+    [coleta] passo  25/200 | progresso medio -0.000 b | W em 48%
+    [coleta] passo  50/200 | progresso medio -0.037 b | W em 48%
+    [coleta] passo  75/200 | progresso medio -0.025 b | W em 40%
+    [coleta] passo 100/200 | progresso medio -0.023 b | W em 42%
+    [coleta] passo 125/200 | progresso medio -0.011 b | W em 40%
+    [coleta] passo 150/200 | progresso medio -0.002 b | W em 41%
+    [coleta] passo 175/200 | progresso medio -0.005 b | W em 41%
+    [coleta] passo 200/200 | progresso medio +0.005 b | W em 44%
+  -> progresso +0.005 b/passo | W em 44% | reward -0.015
+
+======================================================================
+ C) TREINO — self-imitation ponderado pelo reward
+======================================================================
+=================================================================
+ SELF-IMITATION RL FINE-TUNING — Trajetorias Positivas
+=================================================================
+Dispositivo: cuda
+Loading weights:   0%|          | 0/408 [00:00<?, ?it/s]Loading weights:  96%|#########6| 393/408 [00:00<00:00, 3920.91it/s]Loading weights: 100%|##########| 408/408 [00:00<00:00, 3975.65it/s]
+[Pesos] Carregando checkpoint: 'checkpoints_vla/vla_locomotion.pt'...
+[Pesos] Checkpoint carregado com sucesso.
+[Dataset] 20 trajetorias com reward > 0.15 | reward medio +0.27 | 20 (100%) com W
+Epoch [1/4] | Loss: 13.725489 | Tempo: 131.3s
+Epoch [2/4] | Loss: 14.044576 | Tempo: 128.4s
+Epoch [3/4] | Loss: 10.671207 | Tempo: 128.9s
+Epoch [4/4] | Loss: 10.600091 | Tempo: 135.1s
+
+[Self-Imitation] Pesos atualizados salvos em: 'checkpoints_vla/vla_locomotion.pt'
+=================================================================
+
+======================================================================
+ D) REAVALIACAO — mesmo protocolo de (A)
+======================================================================
+    [pos] passo  25/40 | progresso medio +0.000 b | W em 100%
+  -> progresso +0.000 b/passo | W em 100% | reward -0.300
+
+======================================================================
+ RESULTADO
+======================================================================
+  metrica                         antes     depois
+  progresso (blocos/passo)       +0.463     +0.000
+  passos apertando W               100%       100%
+  reward medio                   +0.091     -0.300
+
+  PIOROU: o treino degradou a locomocao.
+======================================================================

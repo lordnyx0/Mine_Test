@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+mineflayer_server/node_modules/
+npm-debug.log*
+
+# Modelos binários e pesos grandes
+checkpoints_vla/
+models_gguf/
+*.pt
+*.pth
+*.gguf
+*.safetensors
+*.bin
+
+# Logs e temporários
+*.log
+.tempmediaStorage/
+.system_generated/
+scratch/
+.codegraph/

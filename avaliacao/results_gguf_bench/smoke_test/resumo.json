@@ -1,0 +1,11 @@
+{
+  "modelo": "models_gguf/fase4_loop_q8_0.gguf",
+  "nome": "smoke_test",
+  "geral": 0.0,
+  "por_categoria": {
+    "general_knowledge": 0.0
+  },
+  "n": 2,
+  "minutos": 0.07460803985595703,
+  "tokens": 66
+}

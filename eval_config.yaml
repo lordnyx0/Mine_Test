@@ -1,0 +1,90 @@
+# Qwen3Loop Checkpoint Evaluation Configuration
+#
+# Drives run_evaluation.py. Every value here can be overridden on the CLI;
+# see `python run_evaluation.py --help`.
+
+benchmark:
+  path: "benchmarks/eval_benchmark.json"
+
+run:
+  results_dir: "results"
+  seed: 42            # Fixed seed — identical for every model
+  resume: true        # Skip items already present in responses.jsonl
+  device: "auto"      # "auto" | "cuda" | "cpu"
+  limit: 0            # 0 = all items; >0 truncates the suite (smoke tests)
+  categories: []      # [] = all categories
+
+model:
+  base_model_id: "Qwen/Qwen3-0.6B"
+  num_loops: 2              # Must match model.num_loops in config.yaml
+  dtype: "bfloat16"
+  enable_thinking: false    # Qwen3 chat template: suppress <think> blocks
+  trust_remote_code: false
+
+# Applied identically to the base model and to every checkpoint, so the
+# comparison isolates the architecture/adapter rather than numeric precision.
+# Mirrors the qlora block of config.yaml.
+quantization:
+  enabled: true
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_compute_dtype: "bfloat16"
+
+# Deterministic decoding: greedy search is exactly temperature=0 / top_p=1.
+# temperature and top_p are recorded in every JSONL row for provenance.
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  do_sample: false
+  repetition_penalty: 1.0
+  default_max_new_tokens: 256
+  max_new_tokens_by_category:
+    general_knowledge: 96
+    reasoning: 256
+    mathematics: 256
+    programming: 384
+    writing: 384
+    translation: 192
+    summarization: 320
+    instruction_following: 192
+    creativity: 384
+    context: 96
+    robustness: 96
+
+checkpoints:
+  root: "checkpoints/qwen3loop_v2"   # Fase 1 v2 destilada
+  auto_discover: true          # Pick up any checkpoint-N found on disk
+  include_base: true           # Original Qwen3-0.6B (num_loops=1) — recovery target
+  include_untrained_loop: true # Looped, no adapter — the "damage" baseline
+  final_adapter_dirs: ["final_adapter", "final", "final_model"]
+
+  # The trainer saves the last checkpoint twice — as checkpoint-N and again as
+  # final_adapter — with identical weights. Under greedy decoding those produce
+  # identical transcripts, so the duplicate is detected by weight hash and
+  # evaluated only once, under the name "final".
+  deduplicate_identical: true
+
+  # Leave empty to evaluate whatever auto_discover finds. This is the robust
+  # default: save_total_limit in config.yaml keeps only the last few numbered
+  # checkpoints, so any hardcoded list goes stale as soon as training advances.
+  #
+  # Populate it only to pin an explicit set or a fixed report order, e.g.:
+  #   list:
+  #     - name: "checkpoint-100"
+  #     - name: "final"
+  #       path: "checkpoints/qwen3loop_qlora/final_adapter"
+  # Entries whose directory is missing are reported and skipped, never fatal.
+  list: []
+
+reports:
+  markdown: true
+  csv: true
+  max_response_chars: 1200   # Response clipping in summary.md only
+  pairwise:
+    enabled: true
+    mode: "vs_base"          # "vs_base" (each model vs baseline) | "all_pairs"
+    baseline: "base"
+    seed: 1234               # Seeds the A/B side shuffle
+    max_response_chars: 4000
+    skip_identical: true     # Identical answers give a judge nothing to rank

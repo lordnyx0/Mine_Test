@@ -1,0 +1,7 @@
+==============================================================
+ Simulador offline — 6 ambientes, sem Minecraft aberto
+==============================================================
+[save]  C:/Users/Nyx/AppData/Roaming/.minecraft/saves/New World-
+[env]   6/6 ambientes posicionados em 7.9s | 707 colunas em memoria
+[http]  http://127.0.0.1:3002/lote/info
+==============================================================

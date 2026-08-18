@@ -1,0 +1,296 @@
+{
+  "name": "Qwen3Loop capability-recovery benchmark",
+  "version": "1.0",
+  "description": "Balanced prompt suite comparing Qwen3Loop QLoRA checkpoints against the original Qwen3-0.6B. Items are graded by objective, checkable constraints; open-ended items carry no checks and are compared via the pairwise LLM-as-a-Judge export.",
+  "items": [
+    {
+      "id": "gk-001",
+      "category": "general_knowledge",
+      "prompt": "What is the capital of Australia?",
+      "tags": [
+        "capitals",
+        "geography"
+      ],
+      "expected": {
+        "contains_any": [
+          "Canberra"
+        ]
+      },
+      "reference": "Canberra."
+    },
+    {
+      "id": "gk-002",
+      "category": "general_knowledge",
+      "prompt": "Who wrote the novel 'Dom Casmurro'?",
+      "tags": [
+        "literature"
+      ],
+      "expected": {
+        "contains_any": [
+          "Machado de Assis"
+        ]
+      },
+      "reference": "Machado de Assis."
+    },
+    {
+      "id": "gk-003",
+      "category": "general_knowledge",
+      "prompt": "What is the chemical symbol for gold?",
+      "tags": [
+        "science",
+        "chemistry"
+      ],
+      "expected": {
+        "regex": "\\bAu\\b"
+      },
+      "reference": "Au."
+    },
+    {
+      "id": "gk-004",
+      "category": "general_knowledge",
+      "prompt": "In which year did World War II end?",
+      "tags": [
+        "history"
+      ],
+      "expected": {
+        "contains_any": [
+          "1945"
+        ]
+      },
+      "reference": "1945."
+    },
+    {
+      "id": "gk-005",
+      "category": "general_knowledge",
+      "prompt": "Which is the largest ocean on Earth?",
+      "tags": [
+        "geography"
+      ],
+      "expected": {
+        "contains_any": [
+          "Pacific"
+        ]
+      },
+      "reference": "The Pacific Ocean."
+    },
+    {
+      "id": "rsn-001",
+      "category": "reasoning",
+      "prompt": "All roses are flowers. Some flowers fade quickly. Can we conclude that some roses fade quickly? Answer yes or no, then explain in one sentence.",
+      "tags": [
+        "logic",
+        "deduction"
+      ],
+      "expected": {
+        "regex": "\\b(no|cannot conclude|can not conclude|does not follow|doesn't follow|invalid)\\b"
+      },
+      "reference": "No \u2014 the premises do not license that conclusion."
+    },
+    {
+      "id": "rsn-002",
+      "category": "reasoning",
+      "prompt": "Alice is taller than Bob. Bob is taller than Carol. Who is the shortest?",
+      "tags": [
+        "logic",
+        "comparison"
+      ],
+      "expected": {
+        "contains_any": [
+          "Carol"
+        ]
+      },
+      "reference": "Carol."
+    },
+    {
+      "id": "rsn-003",
+      "category": "reasoning",
+      "prompt": "A train leaves at 14:00 and the journey takes 3 hours and 30 minutes. At what time does it arrive?",
+      "tags": [
+        "multi-step"
+      ],
+      "expected": {
+        "regex": "17\\s*[:h]\\s*30|5\\s*:\\s*30"
+      },
+      "reference": "17:30."
+    },
+    {
+      "id": "rsn-004",
+      "category": "reasoning",
+      "prompt": "Today is Wednesday. What day of the week will it be in 10 days?",
+      "tags": [
+        "multi-step"
+      ],
+      "expected": {
+        "contains_any": [
+          "Saturday"
+        ]
+      },
+      "reference": "Saturday."
+    },
+    {
+      "id": "rsn-005",
+      "category": "reasoning",
+      "prompt": "List, in the correct order, the steps needed to make a cup of tea with an electric kettle. Number each step.",
+      "tags": [
+        "planning"
+      ],
+      "expected": {
+        "min_bullets": 4
+      },
+      "reference": "Fill kettle, boil, put tea in cup, pour water, steep, remove bag."
+    },
+    {
+      "id": "mth-001",
+      "category": "mathematics",
+      "prompt": "Compute 17 x 24. Give the final number.",
+      "tags": [
+        "arithmetic"
+      ],
+      "expected": {
+        "contains_any": [
+          "408"
+        ]
+      },
+      "reference": "408."
+    },
+    {
+      "id": "mth-002",
+      "category": "mathematics",
+      "prompt": "Solve for x: 3x + 7 = 22. Show the final answer as 'x = ...'.",
+      "tags": [
+        "algebra"
+      ],
+      "expected": {
+        "regex": "x\\s*=\\s*5\\b"
+      },
+      "reference": "x = 5."
+    },
+    {
+      "id": "mth-003",
+      "category": "mathematics",
+      "prompt": "What is 2/3 + 1/4? Give the result as a simplified fraction.",
+      "tags": [
+        "fractions"
+      ],
+      "expected": {
+        "regex": "11\\s*/\\s*12"
+      },
+      "reference": "11/12."
+    },
+    {
+      "id": "mth-004",
+      "category": "mathematics",
+      "prompt": "Find the derivative of f(x) = 3x^4 - 5x^2 + 7.",
+      "tags": [
+        "calculus",
+        "derivatives"
+      ],
+      "expected": {
+        "regex": [
+          "12\\s*\\*?\\s*x",
+          "10\\s*\\*?\\s*x"
+        ]
+      },
+      "reference": "f'(x) = 12x^3 - 10x."
+    },
+    {
+      "id": "mth-005",
+      "category": "mathematics",
+      "prompt": "A car travels 240 km at a constant speed of 80 km/h. How long does the trip take?",
+      "tags": [
+        "word-problem"
+      ],
+      "expected": {
+        "regex": "\\b(3|three)\\s*(hours?|h)\\b"
+      },
+      "reference": "3 hours."
+    },
+    {
+      "id": "prg-001",
+      "category": "programming",
+      "prompt": "Write a Python function called reverse_words that takes a sentence and returns it with the word order reversed. Include a short docstring.",
+      "tags": [
+        "python",
+        "generation"
+      ],
+      "expected": {
+        "contains_any": [
+          "def reverse_words"
+        ],
+        "contains_code": true
+      },
+      "reference": "def reverse_words(s): return ' '.join(s.split()[::-1])"
+    },
+    {
+      "id": "prg-002",
+      "category": "programming",
+      "prompt": "Complete the following Python function so that it returns the n-th Fibonacci number:\n\ndef fib(n):\n    if n < 2:\n        return n\n    # complete here",
+      "tags": [
+        "python",
+        "completion"
+      ],
+      "expected": {
+        "regex": "fib\\s*\\(\\s*n\\s*-\\s*1",
+        "contains_code": true
+      },
+      "reference": "return fib(n - 1) + fib(n - 2)"
+    },
+    {
+      "id": "prg-003",
+      "category": "programming",
+      "prompt": "The Python function below is supposed to return the average of a list of numbers, but it crashes when the list is empty. Fix the bug and show the corrected function.\n\ndef average(values):\n    return sum(values) / len(values)",
+      "tags": [
+        "python",
+        "bugfix"
+      ],
+      "expected": {
+        "contains_any": [
+          "if not values",
+          "len(values) == 0",
+          "if values",
+          "if len(values)",
+          "== 0"
+        ],
+        "contains_code": true
+      },
+      "reference": "Guard the empty case and return 0 (or None) instead of dividing by zero."
+    },
+    {
+      "id": "prg-004",
+      "category": "programming",
+      "prompt": "Explain what this Python code does, in plain English:\n\nresult = [x**2 for x in range(10) if x % 2 == 0]",
+      "tags": [
+        "python",
+        "explanation"
+      ],
+      "expected": {
+        "contains_all": [
+          "square"
+        ],
+        "contains_any": [
+          "even",
+          "divisible by 2",
+          "divisible by two"
+        ]
+      },
+      "reference": "Builds a list of the squares of the even numbers from 0 to 9."
+    },
+    {
+      "id": "prg-005",
+      "category": "programming",
+      "prompt": "Write a C++ function that takes a std::vector<int> and returns the sum of its elements.",
+      "tags": [
+        "cpp",
+        "generation"
+      ],
+      "expected": {
+        "contains_any": [
+          "vector<int>",
+          "vector <int>"
+        ],
+        "contains_code": true
+      },
+      "reference": "int sum(const std::vector<int>& v) { return std::accumulate(v.begin(), v.end(), 0); }"
+    }
+  ]
+}

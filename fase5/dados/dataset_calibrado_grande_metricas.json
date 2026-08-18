@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-08-16 15:32:56",
+  "modelo_base": "checkpoints_vla/vla_fase5_sparse_anchored.pt",
+  "passos_totais": 31193,
+  "picos_brutos": 30760,
+  "descartados_corretos": 12805,
+  "descartados_perdido": 10958,
+  "descartados_janela": 2852,
+  "erros_bifurcacao": 4145,
+  "taxa_retencao": 13.475292587776334,
+  "submetas1": 67,
+  "submetas2": 16,
+  "duracao_s": 2616.2235009670258,
+  "tipos": {
+    "spawn": 732,
+    "erro_bifurcacao": 3168,
+    "transicao_submeta": 245
+  },
+  "erro_angular_medio": 85.69296639212885,
+  "erro_angular_mediana": 85.45754875308569
+}

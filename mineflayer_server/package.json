@@ -1,0 +1,23 @@
+{
+  "name": "mineflayer-vla-agent-server",
+  "version": "4.0.0",
+  "description": "Mineflayer bot agent com renderizador voxel em Node puro (visao 1a pessoa) + HTTP action API para Qwen3LoopVLA",
+  "main": "state_server.js",
+  "scripts": {
+    "start": "node state_server.js",
+    "test": "node test_renderer.js && node test_server_e2e.js",
+    "test:e2e": "node test_server_e2e.js",
+    "bench": "node test_renderer.js",
+    "profile": "node profile_renderer.js"
+  },
+  "dependencies": {
+    "canvas": "^3.2.3",
+    "mineflayer": "^4.23.0",
+    "prismarine-provider-anvil": "^2.13.0"
+  },
+  "comment:optionalDependencies": "Usadas so pelo caminho legado RENDERER=puppeteer. Para instalar sem elas: npm install --omit=optional",
+  "optionalDependencies": {
+    "prismarine-viewer": "^1.33.0",
+    "puppeteer": "^25.5.0"
+  }
+}

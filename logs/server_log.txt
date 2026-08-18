@@ -1,0 +1,5244 @@
+============================================================
+ Mineflayer VLA Agent Server v4
+============================================================
+[HTTP]     http://127.0.0.1:3001
+[Renderer] voxel  640x360 (scale 4, dist 64)
+[Frame]    http://127.0.0.1:3001/frame
+[Stats]    http://127.0.0.1:3001/stats
+============================================================
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...
+[Bot] Conectando a 192.168.0.210:52167 v1.8.9 como 'VLAAgent'...
+Error: connect ECONNREFUSED 192.168.0.210:52167
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '192.168.0.210',
+  port: 52167
+}
+[Bot] Erro: connect ECONNREFUSED 192.168.0.210:52167
+[Bot] Desconectado. Reconectando em 5s...

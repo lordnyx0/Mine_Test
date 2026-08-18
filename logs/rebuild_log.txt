@@ -1,0 +1,24 @@
+C:\Users\Nyx\Desktop\minecraft adapter\train_vla.py:40: SyntaxWarning: "\{" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\{"? A raw string is also an option.
+  A versao anterior usava re.search(r"\{.*?\}") — nao-gulosa. Em
+W0810 21:56:12.524000 15448 site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+=== TREINAMENTO VLA (Fase 1: Projector + Resampler + ActionHeads) ===
+Dispositivo: cuda
+C:\Users\Nyx\AppData\Local\Programs\Python\Python314\Lib\site-packages\torch\nn\modules\module.py:1370: UserWarning: expandable_segments not supported on this platform (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\c10/cuda/CUDAAllocatorConfig.h:39.)
+  return t.to(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/408 [00:00<?, ?it/s]Loading weights:  97%|#########7| 397/408 [00:00<00:00, 3961.51it/s]Loading weights: 100%|##########| 408/408 [00:00<00:00, 3988.72it/s]
+[VRAM] backbone em torch.bfloat16 | 4.35GB usados / 9.00GB reservados / 12.0GB
+[Dataset VLA] Carregadas 320 amostras de trajetória aprovadas com recompensa positiva (+1.0).
+`use_return_dict` is deprecated! Use `return_dict` instead!
+Epoch [1/5] | Loss Total: 2.9733 | Tempo: 56.45s
+  [ckpt] epoca 1 salva em checkpoints_vla/vla_locomotion.pt
+Epoch [2/5] | Loss Total: 0.3057 | Tempo: 54.02s
+  [ckpt] epoca 2 salva em checkpoints_vla/vla_locomotion.pt
+Epoch [3/5] | Loss Total: 0.0449 | Tempo: 55.09s
+  [ckpt] epoca 3 salva em checkpoints_vla/vla_locomotion.pt
+Epoch [4/5] | Loss Total: 0.0136 | Tempo: 54.68s
+  [ckpt] epoca 4 salva em checkpoints_vla/vla_locomotion.pt
+Epoch [5/5] | Loss Total: 0.0070 | Tempo: 54.49s
+  [ckpt] epoca 5 salva em checkpoints_vla/vla_locomotion.pt
+
+[TREINAMENTO CONCLUIDO] Pesos VLA salvos com sucesso em: checkpoints_vla/vla_locomotion.pt
