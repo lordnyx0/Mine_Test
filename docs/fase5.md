@@ -114,11 +114,35 @@ Para evitar o **esquecimento catastrófico** (*catastrophic forgetting*), o trei
 
 ## 7. 📁 Arquivos e Módulos Centrais da Fase 5
 
-* **[`fase5/acoes_taticas.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/acoes_taticas.py):** Mapeador ortogonal das 36 classes e oráculo tático.
-* **[`politica/politica_raciocinio.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/politica/politica_raciocinio.py):** Implementação do loop recursivo, cabeça 36D e filtro inercial.
-* **[`fase5/treinar_ppo_bc_hibrido.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/treinar_ppo_bc_hibrido.py):** Loop de otimização conjunta PPO-BC com ancoragem causal contínua e rastreamento de foco.
+* **[`fase5/acoes_taticas.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/acoes_taticas.py):** Mapeador ortogonal e funções de fatoração (Modo 6 classes + Yaw 9 classes) com compatibilidade 36 classes.
+* **[`fase5/recompensa_visual.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/recompensa_visual.py):** Motor de recompensa não-privilegiada baseado em percepção direta nos frames (Delta Visão e foco de mira).
+* **[`politica/politica_raciocinio.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/politica/politica_raciocinio.py):** Política de raciocínio multi-loops com suporte a cabeças fatoradas e Value Head $V(s)$.
+* **[`fase5/treinar_ppo_bc_hibrido.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/treinar_ppo_bc_hibrido.py):** Loop de PPO verdadeiro com clipping ($\epsilon=0.2$), GAE ($\lambda=0.95$), Critic MSE e BC Annealing.
 * **[`fase5/avaliar_fase5_topview.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/avaliar_fase5_topview.py):** Benchmark 2D Top-Down oficial com geração de mapas de trajetórias e relatórios interativos.
 * **[`checkpoints_vla/vla_fase5_it30.pt`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/checkpoints_vla/vla_fase5_it30.pt):** Checkpoint preservado da Iteração 30 com BC Loss recorde de 0.3888.
 * **[`fase5/gerar_dataset_wasd_tatico.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/gerar_dataset_wasd_tatico.py):** Construtor do dataset tático balanceado.
 * **[`fase5/treinar_wasd_tatico.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/treinar_wasd_tatico.py):** Pipeline de treino com salvamento de checkpoint por época.
-* **[`fase5/avaliar_fase5_topview.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/avaliar_fase5_topview.py):** Benchmark oficial com geração de gráficos 2D e relatórios HTML.
+
+---
+
+## 8. 🚀 Fase 5.5 — PPO Verdadeiro, Critic GAE, Recompensa Visual e Cabeças Fatoradas
+
+Em 2026-08-18, a Fase 5 recebeu 5 aprimoramentos fundamentais para consolidação teórica e prática do aprendizado por reforço:
+
+1. **PPO Verdadeiro com Surrogate Clipping:**
+   - Transição do REINFORCE com baseline para o PPO completo com buffer de $\log \pi_{\text{old}}$ e razão de probabilidades $r_t(\theta)$.
+   - Perda com clipping: $\mathcal{L}_{\text{PPO}} = -\min\big(r_t A_t, \; \text{clip}(r_t, 1-\epsilon, 1+\epsilon) A_t\big)$ com $\epsilon = 0.2$ e $K=3$ épocas em minilotes.
+2. **Critic / Value Head $V(s)$ e GAE ($\lambda=0.95, \gamma=0.98$):**
+   - Adicionada `cabeca_valor` no VLA para estimar $V(s_t)$.
+   - Estimador Generalized Advantage Estimation (GAE) reduzindo drasticamente a variância dos retornos Monte Carlo.
+   - Otimização conjunta de valor via $\mathcal{L}_{\text{VF}} = 0.5 \cdot \text{MSE}\big(V_\theta(s), \hat{G}_t\big)$.
+3. **Recompensa Não-Privilegiada e Visuomotora Pura ([`fase5/recompensa_visual.py`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/fase5/recompensa_visual.py)):**
+   - Eliminação do oráculo geométrico invisível: o agente é recompensado estritamente pela detecção direta do pilar-alvo no frame RGB da câmera.
+   - Bônus por **Descoberta Visual ($\Delta \text{Visão}$)** ($+0.50$) no primeiro avistamento do pilar no estágio.
+   - Bônus contínuo de mira centralizada no pilar visível ($+0.15 \times (1 - |\text{centro\_x}|)$).
+   - Penalidade de corrida cega ($-0.25$) se correr de frente sem ver o objetivo.
+4. **Espaço de Ações Fatorado (Modo 6 classes $\times$ Yaw 9 classes):**
+   - Desacoplamento da locomoção (`cabeca_modo`) da cinemática de câmera (`cabeca_yaw`), permitindo compartilhamento de representações de rotação entre sprint, pulo e manobras.
+5. **Annealing Curricular de Ancoragem BC:**
+   - Decaimento de $\lambda_{\text{BC}}$ de $0.85$ a $0.20$ via perfil de cosseno ao longo das iterações de treino.
+

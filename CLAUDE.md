@@ -88,6 +88,7 @@ solto.
 
 | pasta | o que é |
 |---|---|
+| `fase5/` | pipeline da Fase 5: PPO verdadeiro, Critic GAE, recompensa visual (`recompensa_visual.py`), ações táticas (`acoes_taticas.py`) e benchmark TopView |
 | `qwen3loop/` | implementação oficial do `Qwen3Loop` (modeling e config com `LoopSplit`) |
 | `evaluation/` | harness oficial de avaliação (scorer, render Jinja, tipos e relatórios) |
 | `benchmarks/` | dataset oficial de validação (`eval_benchmark.json`) |

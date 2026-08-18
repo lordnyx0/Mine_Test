@@ -1,4 +1,4 @@
-﻿# coding=utf-8
+# coding=utf-8
 """
 fase5/acoes_taticas.py — Mapeamento e Utilidades do Espaço de Ações Táticas Holonômico (36 Ações).
 
@@ -103,3 +103,76 @@ def calcular_acao_otima_tatica(
     # 5. Sprint Frontal padrão
     bin9 = calcular_bin_yaw_9(erro_yaw_graus)
     return 9 + bin9
+
+
+MODOS = ["alinhar", "sprint", "pulo", "strafe_esq", "strafe_dir", "recuar"]
+NUM_MODOS = len(MODOS)  # 6
+NUM_YAW = len(YAW_BINS_9)  # 9
+
+# Mapeamento do bin 3 [-5, 0, 5] para os índices dos 9 bins [-120, -60, -25, -5, 0, 5, 25, 60, 120] -> índices 3, 4, 5
+_MAPA_3_PARA_9 = [3, 4, 5]
+
+def fatorar_indice_36(idx: int) -> Tuple[int, int]:
+    """Converte o índice 36 unificado em tupla (modo: 0..5, yaw: 0..8)."""
+    idx = int(idx)
+    if 0 <= idx <= 8:
+        return 0, idx
+    elif 9 <= idx <= 17:
+        return 1, idx - 9
+    elif 18 <= idx <= 26:
+        return 2, idx - 18
+    elif 27 <= idx <= 29:
+        return 3, _MAPA_3_PARA_9[idx - 27]
+    elif 30 <= idx <= 32:
+        return 4, _MAPA_3_PARA_9[idx - 30]
+    elif 33 <= idx <= 35:
+        return 5, _MAPA_3_PARA_9[idx - 33]
+    return 1, 4  # Fallback: sprint reto (yaw 0)
+
+
+def unificar_indices(modo: int, yaw: int) -> int:
+    """Converte (modo: 0..5, yaw: 0..8) de volta ao índice unificado de 36 classes."""
+    modo = max(0, min(5, int(modo)))
+    yaw = max(0, min(8, int(yaw)))
+    if modo == 0:
+        return yaw
+    elif modo == 1:
+        return 9 + yaw
+    elif modo == 2:
+        return 18 + yaw
+    else:
+        # Para modos com 3 micro-bins, mapeia yaw (0..8) para o micro-bin mais próximo (0..2)
+        if yaw <= 3:
+            micro = 0  # -5
+        elif yaw >= 5:
+            micro = 2  # +5
+        else:
+            micro = 1  # 0
+        if modo == 3:
+            return 27 + micro
+        elif modo == 4:
+            return 30 + micro
+        else:
+            return 33 + micro
+
+
+def decodificar_acao_fatorada(modo: int, yaw_idx: int) -> Dict[str, Any]:
+    """Converte a decisão fatorada diretamente no comando físico do simulador."""
+    modo = max(0, min(5, int(modo)))
+    yaw_idx = max(0, min(8, int(yaw_idx)))
+    dx = int(YAW_BINS_9[yaw_idx])
+
+    if modo == 0:  # Alinhar
+        return {"hold": [], "mouse": [dx, 0], "duration_ms": 250, "tipo": "alinhar"}
+    elif modo == 1:  # Sprint
+        return {"hold": ["W"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "sprint"}
+    elif modo == 2:  # Pulo
+        return {"hold": ["W", "SPACE"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "pulo"}
+    elif modo == 3:  # Strafe Esquerda
+        return {"hold": ["W", "A"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "strafe_esq"}
+    elif modo == 4:  # Strafe Direita
+        return {"hold": ["W", "D"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "strafe_dir"}
+    elif modo == 5:  # Recuar
+        return {"hold": ["S"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "recuar"}
+    return {"hold": ["W"], "mouse": [0, 0], "duration_ms": 250, "tipo": "sprint"}
+

@@ -7,22 +7,23 @@ sabe, e onde procurar cada coisa.
 
 ## Em uma frase
 
-**Fase 5.4 (PPO-BC Híbrido + WASD Holonômico + Rastreamento de Foco e Torres Farol 3D):** O modelo atingiu o recorde histórico de menor perda supervisionada de ação (**$\text{BC Loss} = 0.3888$** na Iteração 30, preservada em [`checkpoints_vla/vla_fase5_it30.pt`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/checkpoints_vla/vla_fase5_it30.pt)). O simulador e renderizador voxel foram 100% blindados contra pilares fantasmas (`limparTodosBlocosTemporarios()`) e bugs de iluminação solar em seções altas (`skyLight = 15`), operando com torres farol de 50 blocos e raio de chegada estrito de $1.3\text{m}$. A função de recompensa foi calibrada com penalidade progressiva de perda de foco visual e busca ativa sem reward farming.
+**Fase 5.5 (PPO Verdadeiro + Critic GAE + Recompensa Visual Não-Privilegiada + Cabeças Fatoradas Modo 6 × Yaw 9):** Pipeline completamente modernizado com clipping PPO real ($\epsilon=0.2$, multi-epoch), Value Head $V(s)$ com GAE ($\lambda=0.95, \gamma=0.98$), recompensa visual visuomotora pura (eliminação do oráculo geométrico invisível via detecção RGB no frame com bônus de $\Delta \text{Visão}$), espaço de ações fatorado (Modo 6 classes + Yaw 9 classes) e annealing curricular de BC ($85\% \to 20\%$).
 
 ---
 
-## 🎯 Protocolo de Execução Imediata (Fase 5.4)
+## 🎯 Protocolo de Execução Imediata (Fase 5.5)
 
-1. **Retomar Treinamento PPO-BC Híbrido da IT 30:**
+1. **Treinamento PPO-BC Híbrido Modernizado:**
    ```bash
-   python fase5/treinar_ppo_bc_hibrido.py --base checkpoints_vla/vla_fase5_it30.pt --saida checkpoints_vla/vla_fase5_ppo_bc.pt --iteracoes 100 --passos 100 --lr 3e-5
+   python fase5/treinar_ppo_bc_hibrido.py --base checkpoints_vla/vla_fase5_it30.pt --saida checkpoints_vla/vla_fase5_ppo_bc.pt --iteracoes 20 --passos 50 --ppo-epochs 3 --clip-eps 0.2
    ```
 2. **Benchmark Oficial TopView 2D:**
    ```bash
-   python fase5/avaliar_fase5_topview.py --ckpt checkpoints_vla/vla_fase5_it30.pt --lotes 3 --passos 100
+   python fase5/avaliar_fase5_topview.py --ckpt checkpoints_vla/vla_fase5_ppo_bc.pt --lotes 3 --passos 100
    ```
-   - Relatório interativo: `fase5/relatorio_topview_it30.html`
-   - Gráfico de trajetórias: `docs/topview_fase5_it30.png`
+   - Relatório interativo: `fase5/relatorio_topview_ppo_bc.html`
+   - Gráfico de trajetórias: `docs/topview_fase5_ppo_bc.png`
+
 
 ---
 
