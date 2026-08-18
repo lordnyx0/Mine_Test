@@ -66,18 +66,16 @@ Para evitar o **esquecimento catastrófico** (*catastrophic forgetting*), o trei
 
 ## 4. 📊 Histórico Comparativo de Benchmarks TopView 2D
 
-| Modelo / Iteração | Espaço de Ação | Submeta 1 | **Sucesso Total (1 $\rightarrow$ 2)** | Comportamento Observado |
+| Subfase / Modelo | Espaço de Ação | Submeta 1 | **Sucesso Total (1 $\rightarrow$ 2)** | Comportamento Observado |
 |---|---|---|---|---|
-| **Sparse Policy Isolada** | 18 Classes | 4.2% (1/24) | **0.0%** (0/24) | Perdeu locomoção densa; colapso em espirais. |
-| **Calibrado Puro (Small)** | 18 Classes | 8.3% (2/24) | **0.0%** (0/24) | Overfitting em 793 amostras; memorização rígida. |
-| **Sparse Ancorada (Small)** | 18 Classes | 20.8% (5/24) | **4.2%** (1/24) | Locomoção recuperada; 1 sucesso de ponta a ponta. |
-| **Sparse Ancorada (Grande)** | 18 Classes | 20.8% (5/24) | **12.5%** (3/24) | 3 sucessos completos; gargalo residual no efeito pião. |
-| **WASD Tático Holonômico (Ép 3)** | 36 Classes | 12.5% (3/24) | **4.2%** (1/24) | Trajetórias em arcos abertos (subtreinado). |
-| **WASD Tático Holonômico (Ép 12)** | **36 Classes** | **37.5% (9/24)** 🚀 | **0.0%** (0/24) | **Míssil direto em 5–12 passos** para Submeta 1; gargalo de frenagem pós-meta. |
-| **WASD + RL Refinement (Fase 5.3)** | **36 Classes** | **16.7% (4/24)** | **4.2% (1/24)** 🎯 | Primeiro sucesso de ponta a ponta (Ep 21), mas com perda de tiro direto. |
-| **PPO-BC Híbrido 70/30 (15 it)** | **36 Classes** | **29.2% (7/24)** 🚀 | **8.3% (2/24)** 🎯🎯 | Ancoragem de 70% BC recuperou a precisão na Submeta 1 e PPO dobrou os sucessos de ponta a ponta (Ep 7 e 21). |
-| **PPO-BC Híbrido 70/30 (100 it - Melhor)** | **36 Classes** | **37.5% (9/24)** 🚀 | **4.2% (1/24)** 🎯 | BC Loss convergiu para 0.3880; 9 acertos cravados na Submeta 1 e Sucesso Total no Ep 10 (0.41m / 2.14m). |
-| **PPO-BC Híbrido 70/30 (IT 30 - Raio 1.3m)** | **36 Classes** | **4.2% (1/24)** 🎯 | **0.0% (0/24)** | Avaliado sob raio físico estrito ($1.3\text{m}$); chegadas milimétricas em Ep 14 ($0.82\text{m}$), Ep 3 ($1.48\text{m}$), Ep 16 ($1.55\text{m}$) e Ep 20 ($1.59\text{m}$); BC Loss atingiu recorde de **0.3888**. |
+| **Fase 5.1 (Sparse Policy Isolada)** | 18 Classes | 4.2% (1/24) | **0.0%** (0/24) | Perdeu locomoção densa; colapso em espirais. |
+| **Fase 5.2.1 (Mineração por Entropia)** | 18 Classes | 8.3% (2/24) | **0.0%** (0/24) | Overfitting em 793 amostras; memorização rígida de ruído. |
+| **Fase 5.2.2 (Calibração Direcional)** | 18 Classes | 20.8% (5/24) | **4.2%** (1/24) | Locomoção recuperada na curva; 1 sucesso de ponta a ponta. |
+| **Fase 5.2.3 (Ancoragem Densa Grande)** | 18 Classes | 20.8% (5/24) | **12.5%** (3/24) | 3 sucessos completos; gargalo residual no efeito pião por falta de strafe/ré. |
+| **Fase 5.3 (WASD Tático Holonômico - Ép 12)** | **36 Classes** | **37.5% (9/24)** 🚀 | **0.0%** (0/24) | **Míssil direto em 5–12 passos** para Submeta 1; gargalo de frenagem pós-meta. |
+| **Fase 5.3 (WASD + RL Refinement)** | **36 Classes** | **16.7% (4/24)** | **4.2% (1/24)** 🎯 | Primeiro sucesso de ponta a ponta (Ep 21), mas com perda de tiro direto. |
+| **Fase 5.4 (PPO-BC Híbrido 70/30 - 100 it)** | **36 Classes** | **37.5% (9/24)** 🚀 | **4.2% (1/24)** 🎯 | BC Loss convergiu para 0.3880; 9 acertos cravados na Submeta 1 e Sucesso Total no Ep 10. |
+| **Fase 5.4 (PPO-BC Híbrido IT 30 - Raio 1.3m)** | **36 Classes** | **4.2% (1/24)** 🎯 | **0.0% (0/24)** | Avaliado sob raio físico estrito ($1.3\text{m}$); chegadas milimétricas em Ep 14 ($0.82\text{m}$), Ep 3 ($1.48\text{m}$), Ep 16 ($1.55\text{m}$) e Ep 20 ($1.59\text{m}$); BC Loss atingiu recorde de **0.3888**. |
 
 ---
 
