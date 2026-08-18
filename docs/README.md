@@ -17,7 +17,7 @@ devem ser remedidos. Estes documentos são a referência de profundidade.
 | [fase2.md](fase2.md) | terreno real, obstáculos e `SPACE` — onde a visão foi comprovada causalmente |
 | [fase3.md](fase3.md) | servo-visão pura sem coordenadas, multi-cores (Roxo, Amarelo, Azul) e Cérebro |
 | [fase4.md](fase4.md) | raciocínio lógico sequencial, submetas e 3 loops recursivos no Qwen3Loop |
-| [fase5.md](fase5.md) | sparse policy selection, ancoragem de buffer causal e raciocínio tático holonômico (WASD 36 ações) |
+| [fase5.md](fase5.md) | sparse policy, PPO multimodal verdadeiro, critic GAE, looming visual e raciocínio tático fatorado (54 ações) |
 | [playbook_scaling_vla.md](playbook_scaling_vla.md) | **guia mestre de escalonamento para modelos maiores (1.5B/7B), passo a passo e armadilhas evitadas** |
 | [roadmap_futuro.md](roadmap_futuro.md) | expansão de capacidade cognitiva com LoRA, World Model e transferência para Qwen3Loop v2 |
 | [metodo.md](metodo.md) | as regras de medição e de treino de RL que este projeto aprendeu na marra, mais as leis da literatura que sustentam cada uma |

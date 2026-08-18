@@ -73,29 +73,42 @@ quatro chegam do outro lado, e o que as separa são esses três campos.
 
 ---
 
-## 2. Arquitetura do modelo (`vla_model.py`)
+## 2. Arquitetura do modelo (`vla_model.py` e `politica_raciocinio.py`)
 
 ```
-frames (K×3×224×224)              state_vec (32)        objetivo (4)   instrução
+frames (K×3×224×224)              state_vec (32)        objetivo (4)   instrução (16 tokens)
         │                              │                     │            │
    SigLIP (congelado)                  │                     │            │
         │                              │                     │            │
   PerceiverResampler  N→32 tokens      │                     │            │
         │                              │                     │            │
-   VisualProjector  →1024         StateEncoder          GoalEncoder   embeddings
-        │                          →4 tokens            →2 tokens         │
+   VisualProjector  →896/1024     StateEncoder          GoalEncoder   Embedding Table
+  (32 tokens visuais)              (4 tokens)           (2 tokens)      (16 tokens)
+        │                              │                     │            │
         └──────────────┬───────────────┴─────────────────────┴────────────┘
                        ▼
-              Qwen3Loop 0.6B (CONGELADO)
-              28 camadas, LoopSplit → 56 execuções
+              Sequência Multimodal Concatenada: 52 TOKENS
+                       ▼
+              Qwen3Loop 0.6B Backbone (LoRA rank=16, alpha=32)
+              28 camadas, LoopSplit → 3 Loops Recursivos Latentes
                        │
-              last_hidden_state[:, -1, :]   →  1024
+              last_hidden_state[:, -1, :]   →  896/1024
                        │
-        ┌──────────────┼──────────────┬─────────────┐
-     botões(8)      yaw(9 bins)   pitch(3)      rotas(12)
+         ┌─────────────┼──────────────┬──────────────┐
+         ▼             ▼              ▼              ▼
+   cabeca_modo(6) cabeca_yaw(9)  cabeca_valor(1)  cabeca_36 (legado)
+   [Parado, W,    [-120°..+120°]  Critic V(s)     [Espaço Unificado]
+    W+Space, W+A,                 para GAE
+    W+D, S]
+         │             │              │
+         └──────┬──────┘              │
+                ▼                     ▼
+     Ação Canônica 54D            Alvo GAE G_t
+     (Modo x Yaw)
 ```
 
 ### Decisões e seus porquês
+
 
 **Backbone e visão congelados.** Só treinam resampler, projetor, state_encoder,
 goal_encoder e as cabeças — 10,6 M parâmetros. O checkpoint não contém o

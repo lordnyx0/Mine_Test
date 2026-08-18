@@ -512,3 +512,44 @@ defeito de incentivo numa habilidade (o próximo "pule sempre" ou "gire
 sempre para o mesmo lado") deixa de ser um problema isolado daquela
 habilidade — vale auditar se o vício aparece em contextos onde a habilidade
 nem deveria ter sido chamada, não só medir a taxa de sucesso dela sozinha.
+
+---
+
+## 28. Consistência Multimodal Estrita entre Rollout e PPO: a Regra dos 52 Tokens
+
+Em modelos VLA (Vision-Language-Action), a amostragem de ação no rollout e a
+otimização dos gradientes no PPO **devem receber exatamente a mesma sequência
+de embeddings**:
+$$\text{inputs\_embeds} = [\underbrace{v_{\text{emb}}}_{\text{32 tokens}}, \; \underbrace{s_{\text{emb}}}_{\text{4 tokens}}, \; \underbrace{t_{\text{emb}}}_{\text{16 tokens}}] \quad (52 \text{ tokens})$$
+
+Se o rollout é gerado com visão ativa (52 tokens) mas o minilote do PPO é
+avaliado omitindo os tokens de imagem (20 tokens de estado + texto), a razão de
+probabilidade $r_t(\theta) = \frac{\pi_\theta(a \mid \text{cego})}{\pi_{\text{old}}(a \mid \text{visual})}$
+compara distribuições de regimes completamente divergentes. O ratio vira ruído
+e o clipping do PPO não protege os pesos contra colapso.
+
+**Regra:** os embeddings visuais $v_{\text{emb}}$ gerados durante o rollout devem
+ser preservados no buffer de trajetória e injetados de volta no forward pass do
+PPO, assegurando $r_t(\theta) \equiv 1.000000$ exato antes da primeira atualização
+de parâmetros.
+
+---
+
+## 29. Recompensa Sem Oráculo: Looming Visual ($\Delta \text{Área}$) vs. Distância Geométrica Privilegiada
+
+Um agente visuomotor puro não recebe coordenadas absolutas do mundo no seu vetor
+de estado proprioceptivo. Consequentemente, fornecer uma função de recompensa
+passo a passo baseada na distância euclidiana exata ($\Delta d = d_{\text{ant}} - d_{\text{atual}}$)
+cria um **oráculo métrico privilegiado**: o crítico aprende a guiar os gradientes
+a partir de um sinal invisível para a percepção do agente.
+
+**A Solução Visuomotora (Looming Visual):**
+A aproximação física em direção a um alvo visível gera naturalmente uma expansão
+angular na imagem da câmera (efeito de *looming*):
+$$\Delta \text{Área} = \text{Área}_{\text{atual}} - \text{Área}_{\text{anterior}}$$
+$$\mathcal{R}_{\text{looming}} = +1.0 \times \text{clip}(\Delta \text{Área} \times 80.0, -0.20, +0.40)$$
+
+**Regra:** informações geométricas globais (coordenadas $x, y, z$ do alvo) devem
+ser reservadas estritamente para o verificador de contato terminal físico
+($d \le 1.3\text{m}$), nunca como guia contínuo de aproximação durante a trajetória.
+
