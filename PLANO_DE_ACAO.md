@@ -4,30 +4,21 @@ Documento mestre de decisões de engenharia, marcos concluídos e protocolos de 
 
 ---
 
-## 🎯 Marco Atual: Avaliação de Raciocínio Lógico (`Testes`) & Conclusão da Fase 4
+## 🎯 Marco Atual: Fase 5.5 (PPO-BC Híbrido 70 it & Avaliação TopView 2D)
 
-Após a conclusão do treinamento da **Fase 4 (Lógica Sequencial + Pulo Neural)** e a fusão dos 112 tensores LoRA em `checkpoints_vla/vla_fase4_merged.pt`, o modelo passa pela avaliação de dupla via:
+Após a conclusão das 70 iterações de treinamento com clipping PPO real ($\epsilon=0.2$), Critic GAE e espaço de ação fatorado 54D, o modelo alcançou novo recorde de recompensa ($\text{Rec} = -3.56$) e erro mínimo do Critic ($Value\_Loss = 0.026$).
 
-### 1. Avaliação Espacial Corporificada (Minecraft)
-Mede a navegação sequencial multi-estágios (*Pilar 1 ➔ Pilar 2*) e superação de desníveis topológicos com pulo neural:
+### 1. Avaliação Espacial TopView 2D (Minecraft)
+Mede a navegação sequencial com raio padrão de $1.5\text{m}$:
 ```bash
-python avaliacao/avaliar_fase4_topview.py --ckpt checkpoints_vla/vla_fase4_merged.pt --lotes 5 --passos 100
+python fase5/avaliar_fase5_topview.py --ckpt checkpoints_vla/vla_fase5_ppo_bc_melhor.pt --lotes 3 --passos 100 --raio 1.5
 ```
-- Relatório visual: `avaliacao/relatorio_topview.html` e `docs/topview_avaliacao_fase4.png`.
+- Relatório visual interativo: `fase5/relatorio_topview_ppo_bc_melhor.html`
+- Gráfico de trajetórias 2D: `docs/imagens/topview_fase5_ppo_bc_melhor.png`
 
-### 2. Validação Cruzada de Raciocínio & Matemática (Auto-contida)
-Avalia se o treinamento corporificado preservou e expandiu as capacidades cognitivas do `Qwen3Loop` no benchmark oficial [`benchmarks/eval_benchmark.json`](file:///c:/Users/Nyx/Desktop/minecraft%20adapter/benchmarks/eval_benchmark.json):
-```bash
-# Modo de Alta Velocidade: GGUF True Loop Q8_0 (125+ tok/s, 604 MiB VRAM):
-python avaliacao/bench_gguf.py --modelo models_gguf/fase4_loop_q8_0.gguf --nome fase4_loop_q8
-
-# Ou via avaliar_logica_testes:
-python avaliacao/avaliar_logica_testes.py --modo gguf
-
-# Modo direto na GPU com PyTorch bfloat16:
-python avaliacao/avaliar_logica_testes.py --ckpt checkpoints_vla/vla_fase4_merged.pt --modo direto
-```
-> Detalhes completos e tabela de métricas em [`docs/benchmark_raciocinio_testes.md`](docs/benchmark_raciocinio_testes.md).
+### 2. Checkpoints Oficiais Salvos
+- **Melhor Modelo:** `checkpoints_vla/vla_fase5_ppo_bc_melhor.pt` (Iteração 66, Rec: -3.56, Submeta 1: 12.5%)
+- **Modelo Final:** `checkpoints_vla/vla_fase5_ppo_bc.pt` (Iteração 70, Rec: -4.12, Entropia: 1.25)
 
 ---
 

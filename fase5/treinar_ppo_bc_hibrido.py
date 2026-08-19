@@ -404,10 +404,12 @@ def treinar_ppo_bc_hibrido(
 
         mascara = VIVO_T.reshape(-1) > 0
         T_len, N_len = VIVO_T.shape
+        num_v_tokens = VEMB_T.shape[2]
+        hidden_dim = VEMB_T.shape[3]
 
         b_sv_rl       = torch.tensor(SV_T.reshape(T_len * N_len, -1)[mascara], dtype=torch.float32, device=dev)
         b_ids_rl      = torch.tensor(IDS_T.reshape(T_len * N_len, -1)[mascara], dtype=torch.long, device=dev)
-        b_vemb_rl     = torch.tensor(VEMB_T.reshape(T_len * N_len, 32, -1)[mascara], dtype=torch.bfloat16, device=dev)
+        b_vemb_rl     = torch.tensor(VEMB_T.reshape(T_len * N_len, num_v_tokens, hidden_dim)[mascara], dtype=torch.bfloat16, device=dev)
         b_modo_rl     = torch.tensor(MODO_T.reshape(-1)[mascara], dtype=torch.long, device=dev)
         b_yaw_rl      = torch.tensor(YAW_T.reshape(-1)[mascara], dtype=torch.long, device=dev)
         b_logp_old_rl = torch.tensor(LOGP_T.reshape(-1)[mascara], dtype=torch.float32, device=dev)
@@ -441,7 +443,7 @@ def treinar_ppo_bc_hibrido(
         total_ent_modo = 0.0
         total_ent_yaw = 0.0
         total_ent_total = 0.0
-        ent_totais_epoch0 = []
+        ent_totais_epoch0 = torch.zeros(num_rl, dtype=torch.float32)
         num_updates = 0
 
         for epoch in range(ppo_epochs):
@@ -463,7 +465,7 @@ def treinar_ppo_bc_hibrido(
                 otimizador.zero_grad()
 
                 with torch.amp.autocast("cuda", dtype=torch.bfloat16):
-                    # Forward RL Multimodal Completo (52 tokens: v_emb + s_emb + t_emb)
+                    # Forward RL Multimodal Completo (v_emb + s_emb + t_emb)
                     s_embeds = vla.state_encoder(mb_sv)
                     t_embeds = vla.qwen_model.get_input_embeddings()(mb_ids)
                     inputs_embeds = torch.cat([mb_vemb, s_embeds, t_embeds], dim=1)
@@ -479,8 +481,8 @@ def treinar_ppo_bc_hibrido(
                     lg_modo = torch.tanh(lg_modo / LOGIT_CLIP) * LOGIT_CLIP
                     lg_yaw  = torch.tanh(lg_yaw / LOGIT_CLIP) * LOGIT_CLIP
 
-                    dist_modo = torch.distributions.Categorical(logits=lg_modo)
-                    dist_yaw  = torch.distributions.Categorical(logits=lg_yaw)
+                    dist_modo = torch.distributions.Categorical(logits=lg_modo.to(torch.float32))
+                    dist_yaw  = torch.distributions.Categorical(logits=lg_yaw.to(torch.float32))
 
                     logp_modo = dist_modo.log_prob(mb_m)
                     logp_yaw  = dist_yaw.log_prob(mb_y)
@@ -495,10 +497,11 @@ def treinar_ppo_bc_hibrido(
                     ent_total = ent_tot_vec.mean()
 
                     if epoch == 0:
-                        ent_totais_epoch0.append(ent_tot_vec.detach().cpu())
+                        ent_totais_epoch0[mb_idx] = ent_tot_vec.detach().cpu().to(torch.float32)
 
-                    # 1. PPO Ratio e Surrogate Clipping Loss
-                    ratio = torch.exp(logp_total - mb_logp_old)
+                    # 1. PPO Ratio e Surrogate Clipping Loss com Proteção Numérica
+                    log_ratio = torch.clamp(logp_total - mb_logp_old, -10.0, 10.0)
+                    ratio = torch.exp(log_ratio)
                     surr1 = ratio * mb_adv
                     surr2 = torch.clamp(ratio, 1.0 - clip_eps, 1.0 + clip_eps) * mb_adv
                     ppo_loss = -torch.min(surr1, surr2).mean()
@@ -506,7 +509,7 @@ def treinar_ppo_bc_hibrido(
                     clip_frac = ((ratio - 1.0).abs() > clip_eps).float().mean()
 
                     # 2. Value Function Loss (Critic MSE)
-                    val_loss = 0.5 * nn.functional.mse_loss(v_pred, mb_target_g)
+                    val_loss = 0.5 * nn.functional.mse_loss(v_pred.to(torch.float32), mb_target_g)
 
                     loss_rl = ppo_loss + 0.5 * val_loss - 0.005 * ent_total
 
@@ -522,10 +525,9 @@ def treinar_ppo_bc_hibrido(
                     mb_y_bc = b_yaw_bc_sub[mb_bc_idx]
 
                     with torch.amp.autocast("cuda", dtype=torch.bfloat16):
-                        mb_vemb_bc = torch.zeros((len(mb_bc_idx), 32, vla.hidden_size), dtype=torch.bfloat16, device=dev)
                         s_embeds_bc = vla.state_encoder(mb_sv_bc)
                         t_embeds_bc = vla.qwen_model.get_input_embeddings()(mb_ids_bc)
-                        inputs_embeds_bc = torch.cat([mb_vemb_bc, s_embeds_bc, t_embeds_bc], dim=1)
+                        inputs_embeds_bc = torch.cat([s_embeds_bc, t_embeds_bc], dim=1)
 
                         outputs_bc = vla.qwen_model(inputs_embeds=inputs_embeds_bc)
                         last_hidden_bc = outputs_bc.last_hidden_state[:, -1, :]
@@ -533,8 +535,8 @@ def treinar_ppo_bc_hibrido(
                         lg_modo_bc = torch.tanh(vla.cabeca_modo(last_hidden_bc) / LOGIT_CLIP) * LOGIT_CLIP
                         lg_yaw_bc  = torch.tanh(vla.cabeca_yaw(last_hidden_bc) / LOGIT_CLIP) * LOGIT_CLIP
 
-                        bc_loss_m = loss_ce(lg_modo_bc, mb_m_bc)
-                        bc_loss_y = loss_ce(lg_yaw_bc, mb_y_bc)
+                        bc_loss_m = loss_ce(lg_modo_bc.to(torch.float32), mb_m_bc)
+                        bc_loss_y = loss_ce(lg_yaw_bc.to(torch.float32), mb_y_bc)
                         bc_loss = bc_loss_m + bc_loss_y
                         loss_bc_step = lambda_bc_atual * bc_loss
 
@@ -562,12 +564,28 @@ def treinar_ppo_bc_hibrido(
         ent_yaw_final   = total_ent_yaw / max(1, num_updates)
         ent_total_final = total_ent_total / max(1, num_updates)
 
-        if len(ent_totais_epoch0) > 0:
-            all_ent_np = torch.cat(ent_totais_epoch0, dim=0).to(torch.float32).numpy()
+        all_ent_np = ent_totais_epoch0.numpy() if isinstance(ent_totais_epoch0, torch.Tensor) else np.array([])
+        if len(all_ent_np) > 0 and len(all_ent_np) == len(adv_ativo):
             q75 = float(np.percentile(all_ent_np, 75))
             high_ent_pct = float((all_ent_np >= q75).mean() * 100.0)
+            high_ent_mask = all_ent_np >= q75
+            low_ent_mask = ~high_ent_mask
+
+            adv_high = adv_ativo[high_ent_mask]
+            adv_low  = adv_ativo[low_ent_mask]
+
+            adv_high_mean = float(adv_high.mean()) if len(adv_high) > 0 else 0.0
+            adv_high_std  = float(adv_high.std()) if len(adv_high) > 0 else 0.0
+            adv_high_abs  = float(np.abs(adv_high).mean()) if len(adv_high) > 0 else 0.0
+
+            adv_low_mean  = float(adv_low.mean()) if len(adv_low) > 0 else 0.0
+            adv_low_std   = float(adv_low.std()) if len(adv_low) > 0 else 0.0
+            adv_low_abs   = float(np.abs(adv_low).mean()) if len(adv_low) > 0 else 0.0
         else:
+            q75 = 0.0
             high_ent_pct = 0.0
+            adv_high_mean = adv_high_std = adv_high_abs = 0.0
+            adv_low_mean = adv_low_std = adv_low_abs = 0.0
 
         print(
             f"  Iteração {it:2d}/{iteracoes} (lr={lr_atual:.1e}, λ_bc={lambda_bc_atual:.2f}) | "
@@ -575,7 +593,9 @@ def treinar_ppo_bc_hibrido(
             f"Submeta 1: {taxa_sub1:5.1f}% | "
             f"Sucesso: {taxa_tot:5.1f}% | "
             f"Adv: mean={adv_mean:+6.3f}, std={adv_std:.3f} | "
-            f"Ent: mode={ent_modo_final:.3f}, yaw={ent_yaw_final:.3f}, total={ent_total_final:.3f} (HighEnt: {high_ent_pct:4.1f}%) | "
+            f"Adv[HighH]: mean={adv_high_mean:+6.3f}, |adv|={adv_high_abs:.3f} | "
+            f"Adv[LowH]: mean={adv_low_mean:+6.3f}, |adv|={adv_low_abs:.3f} | "
+            f"Ent: mode={ent_modo_final:.3f}, yaw={ent_yaw_final:.3f}, total={ent_total_final:.3f} (q75={q75:.3f}) | "
             f"PPO: {ppo_loss_final:+.4f} | "
             f"Value: {val_loss_final:.4f} | "
             f"BC: {bc_loss_final:.4f} | "
@@ -597,10 +617,17 @@ def treinar_ppo_bc_hibrido(
             "recompensa": recompensa_media,
             "adv_mean": adv_mean,
             "adv_std": adv_std,
+            "adv_high_mean": adv_high_mean,
+            "adv_high_std": adv_high_std,
+            "adv_high_abs": adv_high_abs,
+            "adv_low_mean": adv_low_mean,
+            "adv_low_std": adv_low_std,
+            "adv_low_abs": adv_low_abs,
             "ent_mode": ent_modo_final,
             "ent_yaw": ent_yaw_final,
             "ent_total": ent_total_final,
             "high_ent_pct": high_ent_pct,
+            "q75_ent": q75,
             "fatorada": True
         }
         torch.save(ckpt_dict, ckpt_saida)

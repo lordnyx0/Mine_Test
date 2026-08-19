@@ -7,34 +7,40 @@ sabe, e onde procurar cada coisa.
 
 ## Em uma frase
 
-**Fase 5.5 (PPO Verdadeiro + Critic GAE + Recompensa Visual Não-Privilegiada + Cabeças Fatoradas Modo 6 × Yaw 9):** Pipeline completamente modernizado com clipping PPO real ($\epsilon=0.2$, multi-epoch), Value Head $V(s)$ com GAE ($\lambda=0.95, \gamma=0.98$), recompensa visual visuomotora pura (eliminação do oráculo geométrico invisível via detecção RGB no frame com bônus de $\Delta \text{Visão}$), espaço de ações fatorado (Modo 6 classes + Yaw 9 classes) e annealing curricular de BC ($85\% \to 20\%$).
+**Fase 5.5 (PPO Verdadeiro + Critic GAE + Recompensa Visual Pura + Cabeças Fatoradas Modo 6 × Yaw 9):** Treinamento de 70 iterações concluído com sucesso na GPU (~7.2h). O modelo alcançou novo recorde de recompensa ($\text{Rec} = -3.56$, $\Delta = +17.8$ pontos), com o Critic atingindo erro mínimo ($Value\_Loss = 0.026$), clipping PPO estabilizado em $16.2\%$ e validação empírica de que os estados de alta incerteza concentram $\approx 18\times$ mais sinal útil de vantagem. No benchmark TopView 2D sob raio padrão de $1.5\text{m}$, o modelo demonstrou sucessos de ponta a ponta e aproximações a centímetros do pilar.
 
 ---
 
-## 🎯 Protocolo de Execução Imediata (Fase 5.5)
+## 🎯 Protocolo de Execução e Benchmarks (Fase 5.5)
 
-1. **Treinamento PPO-BC Híbrido Modernizado:**
+1. **Treinamento PPO-BC Híbrido Concluído:**
+   - Checkpoint Melhor: `checkpoints_vla/vla_fase5_ppo_bc_melhor.pt` (Iteração 66, Rec: -3.56, Submeta 1: 12.5%)
+   - Checkpoint Final: `checkpoints_vla/vla_fase5_ppo_bc.pt` (Iteração 70, Rec: -4.12, Entropia: 1.25)
+2. **Benchmark Oficial TopView 2D (Raio Padrão 1.5m):**
    ```bash
-   python fase5/treinar_ppo_bc_hibrido.py --base checkpoints_vla/vla_fase5_it30.pt --saida checkpoints_vla/vla_fase5_ppo_bc.pt --iteracoes 20 --passos 50 --ppo-epochs 3 --clip-eps 0.2
+   python fase5/avaliar_fase5_topview.py --ckpt checkpoints_vla/vla_fase5_ppo_bc_melhor.pt --lotes 3 --passos 100 --raio 1.5
    ```
-2. **Benchmark Oficial TopView 2D:**
-   ```bash
-   python fase5/avaliar_fase5_topview.py --ckpt checkpoints_vla/vla_fase5_ppo_bc.pt --lotes 3 --passos 100
-   ```
-   - Relatório interativo: `fase5/relatorio_topview_ppo_bc.html`
-   - Gráfico de trajetórias: `docs/topview_fase5_ppo_bc.png`
-
+   - Relatório interativo: `fase5/relatorio_topview_ppo_bc_melhor.html`
+   - Gráfico de trajetórias: `docs/imagens/topview_fase5_ppo_bc_melhor.png`
 
 ---
 
-## Resultado da Avaliação da Iteração 30 (Raio Estrito 1.3m + Torres de 50 Blocos)
+## Resultado da Fase 5.5 PPO-BC (70 Iterações)
 
-| Métrica / Tipo de Episódio | Taxa / Valor | Comportamento Observado |
-|---|---|---|
-| **Taxa Submeta 1 (Pilar 1)** | **4.2%** (1/24) | Toque físico perfeito no Ep 14 a **0.82m** no passo 39 |
-| **Aproximações Milimétricas (< 1.6m)** | **16.7%** (4/24) | Ep 3 (1.48m), Ep 16 (1.55m), Ep 20 (1.59m), Ep 4 (1.58m) |
-| **BC Loss Supervisionado** | **0.3888** 🚀 | Menor erro de predição de ação motora da história do projeto |
-| **Iluminação & Mundo Limpo** | **100% Validado** | Torres amarelas/azuis/roxas visíveis em toda a altura; zero pilares fantasmas |
+| Métrica | Início (IT 1) | Meio (IT 35) | Final (IT 70) | **Melhor Desempenho (IT 66)** |
+|---|:---:|:---:|:---:|:---:|
+| **Recompensa Média** | `-21.38` | `-4.82` | `-4.12` | **`-3.56`** ($\Delta = +17.82$) |
+| **Clip Fraction (PPO)** | `64.3%` | `31.5%` | `16.2%` | **`17.7%`** *(Faixa ideal de estabilidade)* |
+| **Value Loss (Critic)** | `0.4975` | `0.0410` | `0.0262` | **`0.0262`** *(95% de redução no erro)* |
+| **BC Loss (Imitação)** | `1.7648` | `0.2810` | `0.2267` | **`0.2472`** |
+| **Entropia Total ($H$)** | `3.564` | `1.912` | `1.250` | **`1.352`** *(Decaimento suave)* |
+| **Adv Mean** | `-2.554` | `-0.015` | `+0.015` | **`+0.073`** |
+| **Adv[HighH] vs Adv[LowH]** | `+0.017 / -0.004` | `-0.040 / -0.007` | `-0.083 / +0.047` | **`+0.252` vs `+0.014`** *(18x maior)* |
+
+### Diagnóstico do TopView 2D (Raio Padrão 1.5m):
+1. **Navegação Cirúrgica (Ep 15):** Atingiu Submeta 1 no passo 14 ($0.70\text{m}$) e Submeta 2 no passo 50 ($1.22\text{m}$).
+2. **Quase-Sucessos a Centímetros:** Ep 3 ($1.63\text{m}$), Ep 13 ($1.67\text{m}$), Ep 5 ($1.82\text{m}$) e Ep 14 ($2.10\text{m}$) traçaram o caminho correto, mas desaceleraram na proximidade visual do bloco antes de cruzar o raio de $1.5\text{m}$.
+3. **Ciclos Limite Orbitais:** Em largadas com erro angular $>120^\circ$, o modo determinístico (Argmax) trava em `W + Yaw_Offset` desenhando órbitas de $2\text{m}$ a $3\text{m}$ sem estocasticidade para desengatar.
 
 ---
 

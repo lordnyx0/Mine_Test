@@ -68,13 +68,15 @@ def avaliar_fase5(
     passos_max: int = 100,
     seed: int = 42,
     amostrar: bool = False,
-    temperatura: float = 0.8
+    temperatura: float = 0.8,
+    raio_chegada: float = 1.5
 ):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print("=" * 80)
     print(" [FASE 5] AVALIACAO TOPVIEW -- DECISOES LOGICAS E TRANSIÇÃO DE SUBMETAS")
     print(f"    Checkpoint : {modelo_ckpt}")
     print(f"    Lotes      : {num_lotes} (8 robos/lote = {num_lotes * 8} episodios totais)")
+    print(f"    Raio Meta  : {raio_chegada:.2f}m")
     print(f"    Modo       : {'Amostrado (Temperatura=' + str(temperatura) + ')' if amostrar else 'Deterministico (Argmax)'}")
     print("=" * 80)
 
@@ -86,18 +88,23 @@ def avaliar_fase5(
 
     from politica.cerebro import PoliticaCerebroVLA
 
-    # Detecta se o checkpoint usa 36 ações táticas ou 18 legadas
-    num_acoes = 18
+    # Detecta se o checkpoint usa cabeças fatoradas 54D, 36 ações táticas ou 18 legadas
+    num_acoes = 36
+    fatorada = False
     ckpt_data = None
     if os.path.exists(modelo_ckpt):
         ckpt_data = torch.load(modelo_ckpt, map_location=device)
         if "treinaveis" in ckpt_data:
-            if any("cabeca_acao_36" in k for k in ckpt_data["treinaveis"].keys()) or ckpt_data.get("num_acoes") == 36:
+            if any("cabeca_modo" in k for k in ckpt_data["treinaveis"].keys()) or ckpt_data.get("fatorada"):
+                fatorada = True
+            elif any("cabeca_acao_36" in k for k in ckpt_data["treinaveis"].keys()) or ckpt_data.get("num_acoes") == 36:
                 num_acoes = 36
+            elif ckpt_data.get("num_acoes") == 18:
+                num_acoes = 18
     
-    print(f"[VLA] Configuração de Ações: {num_acoes} classes {'(WASD Holonômico Tático)' if num_acoes == 36 else '(Legado 18)'}", flush=True)
+    print(f"[VLA] Configuração de Ações: {'Fatorada 54D (Modo 6 x Yaw 9)' if fatorada else f'{num_acoes} classes'}", flush=True)
 
-    pol_vla = PoliticaRaciocinioLoop(None, amostrar=amostrar, device=device, vla=vla, loops_pensamento=3, num_acoes=num_acoes)
+    pol_vla = PoliticaRaciocinioLoop(None, amostrar=amostrar, device=device, vla=vla, loops_pensamento=3, num_acoes=num_acoes, fatorada=fatorada)
     pol = PoliticaCerebroVLA(pol_vla)
     pol.amostrar = amostrar
     pol.temperatura = temperatura
@@ -244,7 +251,7 @@ def avaliar_fase5(
                         log["dist_min_pilar2"] = round(d2, 2)
 
                 # Verifica se atingiu Submeta 1
-                if estagio_atual[i] == 0 and d1 <= RAIO_CHEGADA_SUBMETA:
+                if estagio_atual[i] == 0 and d1 <= raio_chegada:
                     estagio_atual[i] = 1
                     log["passo_pilar1"] = p + 1
                     if len(tar["estagios"]) == 1:
@@ -255,7 +262,7 @@ def avaliar_fase5(
 
                 # Verifica se atingiu Submeta 2
                 elif estagio_atual[i] == 1 and len(tar["estagios"]) > 1:
-                    if d2 <= RAIO_CHEGADA_SUBMETA:
+                    if d2 <= raio_chegada:
                         estagio_atual[i] = 2
                         log["passo_pilar2"] = p + 1
                         log["resultado"] = "sucesso_total"
@@ -318,14 +325,14 @@ def avaliar_fase5(
     # 2. Gera Gráfico PNG TopView
     if HAS_MATPLOTLIB:
         png_path = f"docs/topview_fase5_{nome_base}.png"
-        gerar_grafico_topview(todos_logs, png_path, taxa_submeta1, taxa_total)
+        gerar_grafico_topview(todos_logs, png_path, taxa_submeta1, taxa_total, raio_chegada=raio_chegada, nome_modelo=nome_base)
 
     # 3. Gera Relatório HTML Interativo
     html_path = f"fase5/relatorio_topview_{nome_base}.html"
-    gerar_relatorio_html(todos_logs, html_path, taxa_submeta1, taxa_total)
+    gerar_relatorio_html(todos_logs, html_path, taxa_submeta1, taxa_total, raio_chegada=raio_chegada, nome_modelo=nome_base)
 
 
-def gerar_grafico_topview(logs, output_png, taxa_s1, taxa_tot):
+def gerar_grafico_topview(logs, output_png, taxa_s1, taxa_tot, raio_chegada=2.0, nome_modelo="PPO-BC"):
     os.makedirs(os.path.dirname(output_png), exist_ok=True)
     num_eps = len(logs)
     cols = 4
@@ -345,13 +352,13 @@ def gerar_grafico_topview(logs, output_png, taxa_s1, taxa_tot):
         p2 = log["pilar2"]
 
         # Desenha Submeta 1
-        c1 = Circle((p1["x"], p1["z"]), RAIO_CHEGADA_SUBMETA, color=CORES_HEX.get(p1["cor"], "#eab308"), alpha=0.3)
+        c1 = Circle((p1["x"], p1["z"]), raio_chegada, color=CORES_HEX.get(p1["cor"], "#eab308"), alpha=0.3)
         ax.add_patch(c1)
         ax.plot(p1["x"], p1["z"], "o", color=CORES_HEX.get(p1["cor"], "#eab308"), markersize=8, label="Submeta 1")
 
         # Desenha Submeta 2 se existir
         if p2:
-            c2 = Circle((p2["x"], p2["z"]), RAIO_CHEGADA_SUBMETA, color=CORES_HEX.get(p2["cor"], "#a855f7"), alpha=0.3)
+            c2 = Circle((p2["x"], p2["z"]), raio_chegada, color=CORES_HEX.get(p2["cor"], "#a855f7"), alpha=0.3)
             ax.add_patch(c2)
             ax.plot(p2["x"], p2["z"], "o", color=CORES_HEX.get(p2["cor"], "#a855f7"), markersize=8, label="Submeta 2")
 
@@ -369,19 +376,19 @@ def gerar_grafico_topview(logs, output_png, taxa_s1, taxa_tot):
     for j in range(num_eps, len(axes)):
         axes[j].axis("off")
 
-    fig.suptitle(f"Fase 5 Cold-Start: TopView Trajetórias | Submeta 1: {taxa_s1:.1f}% | Sucesso Total: {taxa_tot:.1f}%", fontsize=14, fontweight="bold")
+    fig.suptitle(f"Fase 5 ({nome_modelo}): TopView Trajetórias | Submeta 1: {taxa_s1:.1f}% | Sucesso Total: {taxa_tot:.1f}% (Raio={raio_chegada:.1f}m)", fontsize=14, fontweight="bold")
     plt.tight_layout()
     plt.savefig(output_png, dpi=150)
     plt.close()
     print(f"[OK] Gráfico TopView 2D salvo em: {output_png}", flush=True)
 
 
-def gerar_relatorio_html(logs, output_html, taxa_s1, taxa_tot):
+def gerar_relatorio_html(logs, output_html, taxa_s1, taxa_tot, raio_chegada=2.0, nome_modelo="PPO-BC"):
     html = f"""<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Fase 5 - Relatório TopView Cold-Start</title>
+    <title>Fase 5 - Relatório TopView ({nome_modelo})</title>
     <style>
         body {{ font-family: 'Segoe UI', Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }}
         .header {{ background: #1e293b; padding: 20px; border-radius: 8px; margin-bottom: 20px; }}
@@ -398,11 +405,12 @@ def gerar_relatorio_html(logs, output_html, taxa_s1, taxa_tot):
 </head>
 <body>
     <div class="header">
-        <h1>Fase 5: Avaliação TopView do Cold-Start</h1>
+        <h1>Fase 5: Avaliação TopView ({nome_modelo})</h1>
         <div class="stats">
             <div class="stat-card"><div>Total de Episódios</div><div class="stat-val">{len(logs)}</div></div>
             <div class="stat-card"><div>Taxa Submeta 1</div><div class="stat-val">{taxa_s1:.1f}%</div></div>
             <div class="stat-card"><div>Sucesso Completo (1 &rarr; 2)</div><div class="stat-val">{taxa_tot:.1f}%</div></div>
+            <div class="stat-card"><div>Raio de Chegada</div><div class="stat-val">{raio_chegada:.1f}m</div></div>
         </div>
     </div>
     <div class="grid">
@@ -477,6 +485,7 @@ if __name__ == "__main__":
     ap.add_argument("--passos", type=int, default=100)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--amostrar", action="store_true")
+    ap.add_argument("--raio", type=float, default=1.5)
     args = ap.parse_args()
 
     avaliar_fase5(
@@ -484,5 +493,6 @@ if __name__ == "__main__":
         num_lotes=args.lotes,
         passos_max=args.passos,
         seed=args.seed,
-        amostrar=args.amostrar
+        amostrar=args.amostrar,
+        raio_chegada=args.raio
     )

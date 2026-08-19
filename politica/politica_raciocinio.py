@@ -171,8 +171,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
         if self.fatorada:
             lg_modo, lg_yaw, values = res
             if self.amostrar:
-                p_modo = torch.softmax(lg_modo / self.temperatura, dim=-1)
-                p_yaw = torch.softmax(lg_yaw / self.temperatura, dim=-1)
+                p_modo = torch.softmax(lg_modo.to(torch.float32) / self.temperatura, dim=-1)
+                p_yaw = torch.softmax(lg_yaw.to(torch.float32) / self.temperatura, dim=-1)
                 dist_modo = torch.distributions.Categorical(probs=p_modo)
                 dist_yaw = torch.distributions.Categorical(probs=p_yaw)
                 a_modo = dist_modo.sample()
@@ -185,8 +185,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
 
             modo_np = a_modo.detach().cpu().numpy()
             yaw_np = a_yaw.detach().cpu().numpy()
-            val_np = values.detach().cpu().numpy()
-            logp_np = logp_old.detach().cpu().numpy()
+            val_np = values.detach().cpu().to(torch.float32).numpy()
+            logp_np = logp_old.detach().cpu().to(torch.float32).numpy()
             
             idx_36_np = np.array([unificar_indices(m, y) for m, y in zip(modo_np, yaw_np)], dtype=np.int64)
 
@@ -203,8 +203,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
 
             self.ultimo = {
                 "u8": u8,
-                "sv": sv.detach().cpu().numpy(),
-                "gv": gv.detach().cpu().numpy(),
+                "sv": sv.detach().cpu().to(torch.float32).numpy(),
+                "gv": gv.detach().cpu().to(torch.float32).numpy() if gv is not None else None,
                 "v_emb": v_emb_salvo,
                 "idx": idx_36_np,
                 "idx_modo": modo_np,
@@ -216,7 +216,7 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
         else:
             logits, values = res
             if self.amostrar:
-                probs = torch.softmax(logits / self.temperatura, dim=-1)
+                probs = torch.softmax(logits.to(torch.float32) / self.temperatura, dim=-1)
                 dist = torch.distributions.Categorical(probs=probs)
                 acoes_idx = dist.sample()
                 logp_old = dist.log_prob(acoes_idx)
@@ -225,8 +225,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
                 logp_old = torch.zeros_like(acoes_idx, dtype=torch.float32)
 
             idx_np = acoes_idx.detach().cpu().numpy()
-            val_np = values.detach().cpu().numpy()
-            logp_np = logp_old.detach().cpu().numpy()
+            val_np = values.detach().cpu().to(torch.float32).numpy()
+            logp_np = logp_old.detach().cpu().to(torch.float32).numpy()
 
             acoes = []
             for i, k in enumerate(idx_np):
@@ -240,8 +240,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
 
             self.ultimo = {
                 "u8": u8,
-                "sv": sv.detach().cpu().numpy(),
-                "gv": gv.detach().cpu().numpy(),
+                "sv": sv.detach().cpu().to(torch.float32).numpy(),
+                "gv": gv.detach().cpu().to(torch.float32).numpy() if gv is not None else None,
                 "v_emb": v_emb_salvo,
                 "idx": idx_np,
                 "logp_old": logp_np,
