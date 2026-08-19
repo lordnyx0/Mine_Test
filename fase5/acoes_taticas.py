@@ -18,15 +18,18 @@ from typing import Dict, Any, List, Tuple
 YAW_BINS_9 = [-120, -60, -25, -5, 0, 5, 25, 60, 120]
 YAW_BINS_3 = [-5, 0, 5]
 
+
 def calcular_bin_yaw_9(erro_graus: float) -> int:
     """Encontra o bin mais próximo entre os 9 níveis de rotação."""
     diffs = [abs(erro_graus - b) for b in YAW_BINS_9]
     return int(diffs.index(min(diffs)))
 
+
 def calcular_bin_yaw_3(erro_graus: float) -> int:
     """Encontra o bin mais próximo entre os 3 micro-níveis de rotação."""
     diffs = [abs(erro_graus - b) for b in YAW_BINS_3]
     return int(diffs.index(min(diffs)))
+
 
 def decodificar_acao_36(idx: int) -> Dict[str, Any]:
     """Converte o índice 0-35 no pacote de ação física para o simulador."""
@@ -59,48 +62,54 @@ def decodificar_acao_36(idx: int) -> Dict[str, Any]:
         # Fallback neutro
         return {"hold": ["W"], "mouse": [0, 0], "duration_ms": 250, "tipo": "sprint"}
 
+
 def calcular_acao_otima_tatica(
     erro_yaw_graus: float,
     distancia: float,
     deve_pular: bool = False,
     is_spawn: bool = False,
+    is_transicao: bool = False,
+    is_alinhar: bool = False,
     esta_colidindo: bool = False,
     offset_lateral: float = 0.0
 ) -> int:
     """
-    Raciocínio de oráculo tático:
-      1. Se está colidindo ou deu overshoot -> Recuo S (33..35)
-      2. Se é spawn e erro angular > 50° -> Giro Parado [] (0..8) para não correr cego
-      3. Se erro angular está entre 15° e 50° com distância curta/média -> Strafe A/D (27..32) para manter mira
-      4. Se deve pular -> Sprint + Pulo (18..26)
+    Raciocínio de oráculo tático balanceado (36 classes):
+      1. Se está colidindo ou deu overshoot -> Recuo S (33..35) com micro-yaw [-5, 0, +5]
+      2. Se é spawn, transição entre submetas ou alinhamento com erro > 30° -> Giro Parado [] (0..8)
+      3. Se erro angular está entre 10° e 45° com distância média/curta -> Strafe A/D (27..32)
+         com micro-compensação angular cobrindo os 3 micro-bins por direção
+      4. Se deve pular relevo/obstáculo -> Sprint + Pulo (18..26)
       5. Caso contrário -> Sprint frontal W (9..17)
     """
     abs_erro = abs(erro_yaw_graus)
 
-    # 1. Situação de desengate
+    # 1. Situação de desengate / colisão / recuperação de overshoot
     if esta_colidindo:
-        bin3 = calcular_bin_yaw_3(erro_yaw_graus)
+        bin3 = calcular_bin_yaw_3(erro_yaw_graus + offset_lateral)
         return 33 + bin3
 
-    # 2. Alinhamento no Spawn para alvos fora do FOV frontal
-    if is_spawn and abs_erro > 45.0:
+    # 2. Alinhamento Estacionário (Spawn, Transição de Submeta ou Grande Desvio Angular)
+    if is_alinhar or is_spawn or is_transicao or (abs_erro > 40.0 and distancia < 4.0):
         bin9 = calcular_bin_yaw_9(erro_yaw_graus)
         return 0 + bin9
 
-    # 3. Strafe lateral tático (fixação visual com câmera no alvo)
-    if 12.0 < abs_erro <= 45.0 and distancia < 8.0:
-        bin3 = calcular_bin_yaw_3(erro_yaw_graus * 0.3) # micro-giro
-        if erro_yaw_graus < 0: # alvo à esquerda -> Strafe Esquerda (W+A)
+    # 3. Strafe Lateral Tático (Manutenção de Fixação Visual + Deslocamento)
+    if 10.0 < abs_erro <= 45.0 and distancia < 9.0:
+        # Micro-compensação relativa de mira durante strafe
+        compensacao = (erro_yaw_graus - (-25.0 if erro_yaw_graus < 0 else 25.0)) + offset_lateral
+        bin3 = calcular_bin_yaw_3(compensacao)
+        if erro_yaw_graus < 0:  # Alvo à esquerda -> Strafe Esquerda (W+A) (27, 28, 29)
             return 27 + bin3
-        else: # alvo à direita -> Strafe Direita (W+D)
+        else:  # Alvo à direita -> Strafe Direita (W+D) (30, 31, 32)
             return 30 + bin3
 
-    # 4. Pulo
+    # 4. Sprint + Pulo para transposição
     if deve_pular:
         bin9 = calcular_bin_yaw_9(erro_yaw_graus)
         return 18 + bin9
 
-    # 5. Sprint Frontal padrão
+    # 5. Sprint Frontal padrão (9..17)
     bin9 = calcular_bin_yaw_9(erro_yaw_graus)
     return 9 + bin9
 
@@ -110,7 +119,7 @@ NUM_MODOS = len(MODOS)  # 6
 NUM_YAW = len(YAW_BINS_9)  # 9
 NUM_ACOES_FATORADAS = NUM_MODOS * NUM_YAW  # 54
 
-# Mapeamento do bin 3 [-5, 0, 5] para os índices dos 9 bins [-120, -60, -25, -5, 0, 5, 25, 60, 120] -> índices 3, 4, 5
+# Mapeamento do bin 3 [-5, 0, 5] para os índices dos 9 bins [-120, -60, -25, -5, 0, 5, 25, 60, 120] -> Índices 3, 4, 5
 _MAPA_3_PARA_9 = [3, 4, 5]
 
 
@@ -204,5 +213,3 @@ def decodificar_acao_fatorada(modo: int, yaw_idx: int) -> Dict[str, Any]:
     elif modo == 5:  # Recuar (com autoridade total de 9 yaws)
         return {"hold": ["S"], "mouse": [dx, 0], "duration_ms": 250, "tipo": "recuar"}
     return {"hold": ["W"], "mouse": [0, 0], "duration_ms": 250, "tipo": "sprint"}
-
-

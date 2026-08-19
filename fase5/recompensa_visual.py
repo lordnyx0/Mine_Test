@@ -120,25 +120,48 @@ class RastreadorVisualEpisodio:
         cor_alvo: str,
         acao_exec: Dict[str, Any],
         estagio_atual: int,
-        shaping_geometrico: bool = False,
+        shaping_geometrico: bool = True,
+        lambda_potencial: float = 0.10,
         dist_atual: Optional[float] = None,
         dist_anterior: Optional[float] = None
     ) -> Tuple[float, Dict[str, Any]]:
         """
-        Calcula a recompensa puramente não-privilegiada do passo para o ambiente env_id.
-        Toda a orientação espacial depende estritamente dos pixels do frame.
+        Calcula a recompensa modular do passo para o ambiente env_id:
+          R_total = R_visual + lambda * [Phi(s') - Phi(s)] + R_terminal
+          com Phi(s) = -distancia ate o objetivo atual (ou seja, Phi(s') - Phi(s) = dist_anterior - dist_atual)
+
+        O potencial geometrico e usado ESTRITAMENTE como shaping de recompensa escalar para treino GAE,
+        sem nunca expor coordenadas, angulos ou direcoes do alvo as observacoes/entradas do modelo.
+
+        Retorna:
+          rec_total (float): recompensa total do passo
+          info (dict): estatisticas e decomposicao (rec_visual, rec_potencial, rec_terminal, visivel, etc.)
         """
-        rec = 0.0
-        info = {}
+        rec_visual = 0.0
+        rec_potencial = 0.0
+        rec_terminal = 0.0
+        info: Dict[str, Any] = {}
 
-        # 1. Penalidade de Perigo Fatal (Água / Lava)
+        # 1. Penalidade de Perigo Fatal (Agua / Lava)
         if estado.get("in_water") or estado.get("in_lava"):
-            return -3.0, {"motivo": "morte_liquido", "visivel": False}
+            rec_terminal = -3.0
+            info.update({
+                "rec_visual": 0.0,
+                "rec_potencial": 0.0,
+                "rec_terminal": rec_terminal,
+                "rec_total": rec_terminal,
+                "motivo": "morte_liquido",
+                "visivel": False,
+                "centro_x": 0.0,
+                "fracao_area": 0.0,
+                "descoberta": False
+            })
+            return rec_terminal, info
 
-        # 2. Custo básico de tempo (evita loop estático)
-        rec -= 0.04
+        # 2. Custo basico de tempo (evita loop estatico)
+        rec_visual -= 0.04
 
-        # 3. Análise Visual da Câmera
+        # 3. Analise Visual da Camera
         det = detectar_alvo_no_frame(frame_u8, cor_alvo)
         visivel = det["visivel"]
         centro_x = det["centro_x"]
@@ -147,32 +170,33 @@ class RastreadorVisualEpisodio:
         info["visivel"] = visivel
         info["centro_x"] = centro_x
         info["fracao_area"] = fracao_area_atual
+        info["descoberta"] = False
 
         corre_frente = "W" in acao_exec.get("hold", [])
         gira = bool(acao_exec.get("mouse", [0, 0])[0] != 0)
 
-        # 4. Recompensa de Busca e Descoberta Visual (Delta Visão)
+        # 4. Recompensa de Busca e Descoberta Visual (Delta Visao)
         if visivel:
             if not self.alvo_avistado[env_id]:
-                # Primeiro avistamento do pilar no estágio -> Grande Bônus de Descoberta
-                rec += 0.50
+                # Primeiro avistamento do pilar no estagio -> Bonus de Descoberta
+                rec_visual += 0.50
                 self.alvo_avistado[env_id] = True
                 info["descoberta"] = True
 
             self.passos_sem_foco[env_id] = 0
 
-            # Bônus por Mira Centralizada no Pilar Visível
+            # Bonus por Mira Centralizada no Pilar Visivel
             alinhamento_visual = max(0.0, 1.0 - abs(centro_x))
-            rec += 0.15 * alinhamento_visual
+            rec_visual += 0.15 * alinhamento_visual
 
-            # Bônus adicional se estiver centralizado com precisão
+            # Bonus adicional se estiver centralizado com precisao
             if centralizado:
-                rec += 0.08
+                rec_visual += 0.08
 
-            # 5. Progresso Visuomotor por Looming (Expansão de Área Aparente do Pilar)
+            # 5. Progresso Visuomotor por Looming (Expansao de Area Aparente do Pilar)
             if self.area_anterior[env_id] > 0.0:
                 delta_area = fracao_area_atual - self.area_anterior[env_id]
-                rec += float(np.clip(delta_area * 80.0, -0.20, 0.40))
+                rec_visual += float(np.clip(delta_area * 80.0, -0.20, 0.40))
 
             self.area_anterior[env_id] = fracao_area_atual
         else:
@@ -181,24 +205,35 @@ class RastreadorVisualEpisodio:
                 self.passos_sem_foco[env_id] += 1
                 # Penalidade progressiva se perdeu de vista o alvo previamente avistado
                 if self.passos_sem_foco[env_id] > 5:
-                    rec -= 0.04 * min(self.passos_sem_foco[env_id] - 5, 5)
+                    rec_visual -= 0.04 * min(self.passos_sem_foco[env_id] - 5, 5)
 
-            # Penalidade de Corrida Cega (sprint para frente sem pilar visível)
+            # Penalidade de Corrida Cega (sprint para frente sem pilar visivel)
             if corre_frente and not self.alvo_avistado[env_id]:
-                rec -= 0.25
+                rec_visual -= 0.25
 
-        # 6. Recompensa de Frenagem e Amortecimento Pós-Submeta 1
+        # 6. Recompensa de Frenagem e Amortecimento Pos-Submeta 1
         if self.cooldown_frenagem[env_id] > 0:
             self.cooldown_frenagem[env_id] -= 1
             if not corre_frente:
-                rec += 0.20  # Recompensa soltar W após cruzar o Pilar 1 para reorientar a câmera
+                rec_visual += 0.20  # Recompensa soltar W apos cruzar o Pilar 1 para reorientar a camera
             if gira and visivel:
-                rec += 0.25  # Recompensa girar até encontrar o Pilar 2
+                rec_visual += 0.25  # Recompensa girar ate encontrar o Pilar 2
 
-        # 7. Shaping geométrico auxiliar (opcional, desabilitado por padrão para visual puro)
+        # 7. Shaping de Potencial Geometrico: lambda * [Phi(s') - Phi(s)] = lambda * [d_ant - d_atual]
         if shaping_geometrico and dist_atual is not None and dist_anterior is not None:
             delta_d = dist_anterior - dist_atual
-            rec += float(np.clip(delta_d * 1.0, -0.3, 1.0))
+            # Limita a variacao fisica por passo (maximo ~0.35m por tick em sprint) para evitar picos espurios
+            delta_d_clamped = float(np.clip(delta_d, -1.0, 1.0))
+            rec_potencial = float(lambda_potencial * delta_d_clamped)
 
-        return rec, info
+        rec_total = rec_visual + rec_potencial + rec_terminal
+
+        info.update({
+            "rec_visual": float(rec_visual),
+            "rec_potencial": float(rec_potencial),
+            "rec_terminal": float(rec_terminal),
+            "rec_total": float(rec_total)
+        })
+
+        return rec_total, info
 

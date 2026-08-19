@@ -1,13 +1,26 @@
 # coding=utf-8
 """
-fase5/treinar_ppo_bc_hibrido.py — Treinamento PPO Verdadeiro com Ancoragem BC Fatorada e Recompensa Visual.
+fase5/treinar_ppo_bc_hibrido.py — Treinamento PPO Multimodal Verdadeiro com Ancoragem BC Fatorada,
+Shaping de Potencial Geométrico Não-Privilegiado e Currículo Progressivo (Fase 5.5).
 
 Melhorias Algorítmicas e Arquiteturais:
-  1. Algoritmo PPO Verdadeiro: Surrogate clipping com ratio r_t, epsilon=0.2 e múltiplos epochs.
-  2. Critic / Value Head V(s): Vantagem Generalizada (GAE lambda=0.95, gamma=0.98) e regressão MSE de valor.
-  3. Recompensa Visual Não-Privilegiada: Eliminação do oráculo geométrico invisível; bônus por primeiro contato visual (Delta Visão).
-  4. Cabeça Fatorada: Modo (6 classes) + Yaw (9 classes) desacoplados com representação compartilhada.
-  5. Annealing Curricular de BC: Decaimento de ancoragem supervisionada de 85% a 20%.
+  1. REWARD / HORIZONTE DE CRÉDITO:
+     - R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal
+     - com Φ(s) = -distância até a submeta atual (ΔΦ = dist_anterior - dist_atual)
+     - λ padrão = 0.10 (proporcional ao passo físico de ~0.21m por tick, sem ofuscar a visão)
+     - Decomposição explícita: RewardVisual, RewardPotential, RewardTerminal, RewardTotal
+     - Cobertura de horizonte GAE: γ=0.98, λ_gae=0.95 para 100 passos
+  2. CURRÍCULO PROGRESSIVO DA TAREFA:
+     - ETAPA A: Pilar 1 apenas (curto: 4-6.5m, frontal: ±35°)
+     - ETAPA B: Pilar 1 -> Pilar 2 (médio: 5.5-8m, moderado: ±60°/±75°)
+     - ETAPA C: Tarefa completa com dispersão total (6.5-10m, ±75°/±110°)
+     - Modos: 'auto' (avanço adaptativo por métricas de Submeta 1 e Sucesso) ou fixo ('A', 'B', 'C')
+  3. QUALIDADE DO DATASET:
+     - Integração com dataset_wasd_tatico_36_v2.pt (36 ações cobertas, sem colapso de strafe)
+     - Ancoragem causal fatorada (Modo 6 classes + Yaw 9 classes)
+  4. QUANTIDADE DE PPO / PIPELINE:
+     - Orçamentos estruturados: warmup (λ_bc: 0.85->0.50), adaptação (0.50->0.25), refinamento (0.25->0.05), completo (0.85->0.15)
+     - Checkpoints intermediários e melhor modelo preservados
 """
 from __future__ import annotations
 
@@ -30,24 +43,21 @@ if _ROOT not in sys.path:
 
 from ambiente.arena_plana import post, get
 from ambiente.tarefas_logicas import (
-    montar_tarefas_logicas,
     RAIO_CHEGADA_SUBMETA,
     BONUS_SUBMETA,
-    BONUS_FINAL,
-    CORES_MAP
+    BONUS_FINAL
 )
 from politica.politica_raciocinio import PoliticaRaciocinioLoop
 from modelo.lora_vla import aplicar_lora
 from infra.gpu_utils import compactar_backbone
 from infra.run_vla_agent import load_vla_agent
 from fase5.acoes_taticas import (
-    decodificar_acao_fatorada,
     fatorar_indice_36,
-    unificar_indices,
     NUM_MODOS,
     NUM_YAW
 )
 from fase5.recompensa_visual import RastreadorVisualEpisodio
+from fase5.curriculo_fase5 import CurriculoFase5
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -90,78 +100,25 @@ def calcular_gae(
     return ADV, TARGET_G
 
 
-def gerar_tarefas_busca_ativa(num_ambientes: int, seed: int = 42, nivel: int = 2) -> tuple[list, list]:
-    """Gera tarefas com dispersão angular ampla no Pilar 1 (±75°) e Pilar 2 (±110°) para forçar busca ativa."""
-    caminho_secas = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "dataset", "largadas_secas.json")
-    if os.path.exists(caminho_secas):
-        banco = json.load(open(caminho_secas, "r", encoding="utf-8"))
-    else:
-        from ambiente.tarefas_logicas import BANCO_LARGADAS
-        banco = BANCO_LARGADAS
-
-    rng = random.Random(seed)
-    coords = rng.sample(banco, min(num_ambientes, len(banco)))
-    
-    post("/lote/reset", {"posicoes": [[c[0], c[1]] for c in coords]})
-    r = post("/lote/passo", {"acoes": [{"hold": [], "mouse": [0, 0], "duration_ms": 50}] * num_ambientes, "frames": False})
-    
-    tarefas = []
-    blocos = []
-    for env_id, o in enumerate(r["obs"][:num_ambientes]):
-        e = o["estado"]
-        lx, ly, lz = e["x"], e["y"], e["z"]
-        lyaw = math.radians(e["yaw"])
-        
-        cor1, cor2 = rng.sample(list(CORES_MAP.keys()), 2)
-        id1, id2 = CORES_MAP[cor1], CORES_MAP[cor2]
-        
-        lim_p1 = 75.0 if nivel == 2 else 120.0
-        desvio1 = math.radians(rng.uniform(-lim_p1, lim_p1))
-        y1 = lyaw + desvio1
-        d1 = rng.uniform(6.5, 9.5)
-        tx1 = round(lx - math.sin(y1) * d1, 1)
-        tz1 = round(lz - math.cos(y1) * d1, 1)
-        ty1 = math.floor(ly)
-        
-        desvio2 = math.radians(rng.uniform(-110.0, 110.0))
-        y2 = y1 + desvio2
-        d2 = rng.uniform(7.0, 10.0)
-        tx2 = round(tx1 - math.sin(y2) * d2, 1)
-        tz2 = round(tz1 - math.cos(y2) * d2, 1)
-        ty2 = math.floor(ly)
-        
-        tarefas.append({
-            "tipo": "sequencia",
-            "env": env_id,
-            "largada": (round(lx, 2), round(ly, 2), round(lz, 2), lyaw),
-            "prompt": f"Vá até a coluna {cor1} por terra firme sem entrar na água, e depois vá até a coluna {cor2}.",
-            "estagios": [
-                {"cor": cor1, "bloco_id": id1, "alvo_abs": (tx1, tz1), "alvo_y": ty1, "prompt_estagio": f"Objetivo: vá até a coluna {cor1} por terra firme (evite água) [Etapa 1/2]"},
-                {"cor": cor2, "bloco_id": id2, "alvo_abs": (tx2, tz2), "alvo_y": ty2, "prompt_estagio": f"Objetivo: vá até a coluna {cor2} por terra firme (evite água) [Etapa 2/2]"}
-            ]
-        })
-        blocos.append({"env": env_id, "x": math.floor(tx1), "y": ty1, "z": math.floor(tz1), "id": id1, "altura": 50})
-        blocos.append({"env": env_id, "x": math.floor(tx2), "y": ty2, "z": math.floor(tz2), "id": id2, "altura": 50})
-        
-    return tarefas, blocos
-
-
 def rollout_rl_wasd_ppo(
     pol: PoliticaRaciocinioLoop,
     tarefas: list,
     blocos: list = None,
-    passos: int = 100
+    passos: int = 100,
+    shaping_geometrico: bool = True,
+    lambda_shaping: float = 0.10
 ) -> tuple[tuple, list]:
     """
-    Coleta trajetórias completas armazenando log_probs da política antiga e predições do Critic V(s).
+    Coleta trajetórias completas armazenando log_probs da política antiga, predições do Critic V(s)
+    e decomposição detalhada de recompensas (visual, potencial, terminal, total).
     """
     n = len(tarefas)
     rastreador = RastreadorVisualEpisodio(n)
-    
+
     r = post("/lote/reset", {"posicoes": [[t["largada"][0], t["largada"][2]] for t in tarefas]})
     if blocos:
         post("/lote/colocar_bloco", {"blocos": blocos})
-        
+
     alvos_web = []
     for t in tarefas:
         a0 = t["estagios"][0]["alvo_abs"]
@@ -176,13 +133,20 @@ def rollout_rl_wasd_ppo(
     submeta_atingida = [False] * n
     vivo = [True] * n
     concluiu_em = [None] * n
+    avistou_alguma_vez = [False] * n
 
-    dant = [
+    d_ini = [
         math.hypot(
             t["estagios"][0]["alvo_abs"][0] - est[i]["x"],
             t["estagios"][0]["alvo_abs"][1] - est[i]["z"]
         ) for i, t in enumerate(tarefas)
     ]
+    dant = list(d_ini)
+    d_final = list(d_ini)
+
+    rec_vis_acc = [0.0] * n
+    rec_pot_acc = [0.0] * n
+    rec_term_acc = [0.0] * n
 
     SV_L, IDS_L, VEMB_L = [], [], []
     MODO_L, YAW_L, LOGP_L, VAL_L = [], [], [], []
@@ -200,6 +164,8 @@ def rollout_rl_wasd_ppo(
             for i, t in enumerate(tarefas)
         ]
 
+        # O modelo recebe apenas entradas padrão (pixels, vetor de estado relativo, prompt)
+        # NUNCA coordenadas absolutas privilegiadas do alvo
         acoes = pol.agir(est, alvos_ativos_abs, obs, prompts=prompts_ativos, estagios=estagio_atual)
         for i in range(n):
             if not vivo[i]:
@@ -226,7 +192,7 @@ def rollout_rl_wasd_ppo(
         for i in range(n):
             if not vivo[i]:
                 continue
-            
+
             vivo_passo[i] = 1.0
             e = est[i]
             t_i = tarefas[i]
@@ -237,18 +203,31 @@ def rollout_rl_wasd_ppo(
             dx = alvo_atual[0] - e["x"]
             dz = alvo_atual[1] - e["z"]
             d_atual = math.hypot(dx, dz)
+            d_final[i] = d_atual
 
             frame_i = u8_frames[i] if u8_frames is not None and i < len(u8_frames) else None
 
-            # Cálculo de Recompensa Puramente Visual (Looming + Gaze + Descoberta)
+            # Cálculo de Recompensa: R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal
             r_passo, info = rastreador.calcular_recompensa_passo(
                 env_id=i,
                 estado=e,
                 frame_u8=frame_i,
                 cor_alvo=cor_alvo,
                 acao_exec=acoes[i],
-                estagio_atual=estagio_atual[i]
+                estagio_atual=estagio_atual[i],
+                shaping_geometrico=shaping_geometrico,
+                lambda_potencial=lambda_shaping,
+                dist_atual=d_atual,
+                dist_anterior=dant[i]
             )
+
+            if info.get("visivel"):
+                avistou_alguma_vez[i] = True
+
+            rec_vis_acc[i] += info.get("rec_visual", 0.0)
+            rec_pot_acc[i] += info.get("rec_potencial", 0.0)
+            rec_term_acc[i] += info.get("rec_terminal", 0.0)
+
             rec[i] += r_passo
             dant[i] = d_atual
 
@@ -257,17 +236,32 @@ def rollout_rl_wasd_ppo(
                 continue
 
             # Verificação de Chegada em Submetas
+            num_estagios_tarefa = len(t_i["estagios"])
             if d_atual <= RAIO_CHEGADA_SUBMETA:
                 if estagio_atual[i] == 0:
-                    rec[i] += BONUS_SUBMETA
-                    submeta_atingida[i] = True
-                    estagio_atual[i] = 1
-                    rastreador.cooldown_frenagem[i] = 4
-                    rastreador.reset_ambiente(i)
-                    novo_alvo = t_i["estagios"][1]["alvo_abs"]
-                    dant[i] = math.hypot(novo_alvo[0] - e["x"], novo_alvo[1] - e["z"])
+                    if num_estagios_tarefa == 1:
+                        # Tarefa de estágio único (ETAPA A) concluída com sucesso no Pilar 1!
+                        rec[i] += BONUS_FINAL
+                        rec_term_acc[i] += BONUS_FINAL
+                        submeta_atingida[i] = True
+                        concluiu_em[i] = p
+                        vivo[i] = False
+                    else:
+                        # Tarefa de 2 estágios (ETAPA B/C): cruzou Pilar 1, avança para Pilar 2
+                        rec[i] += BONUS_SUBMETA
+                        rec_term_acc[i] += BONUS_SUBMETA
+                        submeta_atingida[i] = True
+                        estagio_atual[i] = 1
+                        rastreador.cooldown_frenagem[i] = 4
+                        rastreador.reset_ambiente(i)
+                        novo_alvo = t_i["estagios"][1]["alvo_abs"]
+                        # Reseta potencial para o novo alvo evitando descontinuidade
+                        dant[i] = math.hypot(novo_alvo[0] - e["x"], novo_alvo[1] - e["z"])
+
                 elif estagio_atual[i] == 1:
+                    # Alcançou Pilar 2 (conclusão total)
                     rec[i] += BONUS_FINAL
+                    rec_term_acc[i] += BONUS_FINAL
                     concluiu_em[i] = p
                     vivo[i] = False
 
@@ -290,7 +284,14 @@ def rollout_rl_wasd_ppo(
             "submeta_ok": submeta_atingida[i],
             "concluiu": concluiu_em[i] is not None,
             "passos": concluiu_em[i] if concluiu_em[i] is not None else passos,
-            "estagio_final": estagio_atual[i]
+            "estagio_final": estagio_atual[i],
+            "avistou": avistou_alguma_vez[i],
+            "dist_ini": d_ini[i],
+            "dist_fim": d_final[i],
+            "rec_vis": rec_vis_acc[i],
+            "rec_pot": rec_pot_acc[i],
+            "rec_term": rec_term_acc[i],
+            "rec_total": rec_vis_acc[i] + rec_pot_acc[i] + rec_term_acc[i]
         })
 
     SV_T   = np.array(SV_L)    # [T, N, 32]
@@ -307,27 +308,43 @@ def rollout_rl_wasd_ppo(
 
 
 def treinar_ppo_bc_hibrido(
-    dataset_path: str = "fase5/dados/dataset_wasd_tatico_36.pt",
-    ckpt_entrada: str = "checkpoints_vla/vla_fase5_wasd_tatico.pt",
+    dataset_path: str = "fase5/dados/dataset_wasd_tatico_36_v2.pt",
+    ckpt_entrada: str = "checkpoints_vla/vla_fase5_ppo_bc.pt",
     ckpt_saida:   str = "checkpoints_vla/vla_fase5_ppo_bc.pt",
-    iteracoes:    int = 20,
-    passos_ep:    int = 50,
+    iteracoes:    int = 100,
+    passos_ep:    int = 100,
     lr:         float = 3e-5,
     gamma:      float = 0.98,
     gae_lambda: float = 0.95,
     ppo_epochs:   int = 3,
     clip_eps:   float = 0.2,
+    lambda_shaping: float = 0.10,
+    curriculo_estagio: str = "auto",
+    criterio_a: float = 0.35,
+    criterio_b: float = 0.20,
+    fase_treino: str = "completo",
+    salvar_cada: int = 20,
     seed:         int = 42
 ):
     print("=" * 80)
-    print(" [FASE 5.5] PPO MULTIMODAL VERDADEIRO + CRITIC GAE + RECOMPENSA VISUAL PURA")
-    print(f"    Dataset Base    : {dataset_path}")
-    print(f"    Checkpoint Base : {ckpt_entrada}")
-    print(f"    Checkpoint Fim  : {ckpt_saida}")
-    print(f"    Iterações       : {iteracoes} | Passos/Ep: {passos_ep} | PPO Epochs: {ppo_epochs} | Clip: {clip_eps} | LR: {lr}")
+    print(" [FASE 5.5] PPO MULTIMODAL VERDADEIRO + CRITIC GAE + SHAPING POTENCIAL + CURRÍCULO")
+    print(f"    Dataset Base      : {dataset_path}")
+    print(f"    Checkpoint Base   : {ckpt_entrada}")
+    print(f"    Checkpoint Fim    : {ckpt_saida}")
+    print(f"    Iterações         : {iteracoes} | Passos/Ep: {passos_ep} | PPO Epochs: {ppo_epochs} | Clip: {clip_eps} | LR: {lr}")
+    print(f"    GAE: γ={gamma}, λ={gae_lambda} | Shaping: λ_pot={lambda_shaping} (Φ=-dist)")
+    print(f"    Currículo         : Modo={curriculo_estagio} (Critério A={criterio_a*100:.0f}%, B={criterio_b*100:.0f}%)")
+    print(f"    Fase de Treino    : {fase_treino}")
     print("=" * 80)
 
-    # 1. Carrega modelo VLA e Tokenizer
+    # 1. Inicializa Gerenciador de Currículo
+    curriculo = CurriculoFase5(
+        modo_estagio=curriculo_estagio,
+        criterio_a=criterio_a,
+        criterio_b=criterio_b
+    )
+
+    # 2. Carrega modelo VLA e Tokenizer
     vla, dev = load_vla_agent(None)
     compactar_backbone(vla)
     vla.to(dev)
@@ -355,14 +372,18 @@ def treinar_ppo_bc_hibrido(
     scheduler = optim.lr_scheduler.CosineAnnealingLR(otimizador, T_max=iteracoes, eta_min=lr * 0.1)
     loss_ce = nn.CrossEntropyLoss()
 
-    # 2. Carrega Dataset Offline para Ancoragem Causal Fatorada
+    # 3. Carrega Dataset Offline para Ancoragem Causal Fatorada
+    if not os.path.exists(dataset_path):
+        caminho_alt = "fase5/dados/dataset_wasd_tatico_36.pt"
+        print(f"[Aviso] Dataset {dataset_path} não encontrado, usando {caminho_alt}")
+        dataset_path = caminho_alt
+
     dados_offline = torch.load(dataset_path, weights_only=False)
     print(f"[Dataset BC] {len(dados_offline)} amostras carregadas para ancoragem fatorada.")
 
     todos_sv_bc = torch.stack([d["sv"] for d in dados_offline]).to(dev)
     todas_acoes_36 = [int(d["acao_otima"]) for d in dados_offline]
-    
-    # Fatora ações offline em modo (6) e yaw (9)
+
     todos_modos_bc = torch.tensor([fatorar_indice_36(a)[0] for a in todas_acoes_36], dtype=torch.long, device=dev)
     todos_yaws_bc  = torch.tensor([fatorar_indice_36(a)[1] for a in todas_acoes_36], dtype=torch.long, device=dev)
 
@@ -374,7 +395,7 @@ def treinar_ppo_bc_hibrido(
     N = get("/lote/info")["envs"]
     print(f"[Simulador] Conectado a {N} ambientes paralelos.")
     print(f"[Otimizador] {len(treinaveis)} tensores ativos para otimização conjunta PPO + Value + BC.")
-    print("--- Iniciando Iterações PPO-BC Híbridas Modernizadas ---")
+    print("--- Iniciando Iterações PPO-BC Híbridas com Currículo e Shaping ---")
 
     t_ini = time.time()
     melhor_score = -999.0
@@ -382,22 +403,52 @@ def treinar_ppo_bc_hibrido(
 
     for it in range(1, iteracoes + 1):
         lr_atual = otimizador.param_groups[0]["lr"]
-        # Decaimento curricular da ancoragem BC (Annealing 85% -> 20%)
-        progresso = (it - 1) / max(1, iteracoes - 1)
-        lambda_bc_atual = float(0.20 + (0.85 - 0.20) * 0.5 * (1.0 + math.cos(math.pi * progresso)))
 
-        # 1. Coleta Rollout RL nos N robôs
+        # Escalonamento curricular de BC conforme a fase de treino
+        progresso = (it - 1) / max(1, iteracoes - 1)
+        if fase_treino == "warmup":
+            lambda_bc_atual = float(0.50 + (0.85 - 0.50) * (1.0 - progresso))
+        elif fase_treino == "adaptacao":
+            lambda_bc_atual = float(0.25 + (0.50 - 0.25) * (1.0 - progresso))
+        elif fase_treino == "refinamento":
+            lambda_bc_atual = float(0.05 + (0.25 - 0.05) * (1.0 - progresso))
+        else:  # completo (cosine annealing 0.85 -> 0.15)
+            lambda_bc_atual = float(0.15 + (0.85 - 0.15) * 0.5 * (1.0 + math.cos(math.pi * progresso)))
+
+        # 1. Coleta Rollout RL com Tarefas geradas pelo Currículo
         vla.eval()
         pol.amostrar = True
-        tarefas, blocos_tarefas = gerar_tarefas_busca_ativa(N, seed=seed + it * 17, nivel=2)
+        tarefas, blocos_tarefas = curriculo.gerar_tarefas(N, seed=seed + it * 19)
 
         (SV_T, IDS_T, VEMB_T, MODO_T, YAW_T, LOGP_T, VAL_T, R_T, VIVO_T), met = rollout_rl_wasd_ppo(
-            pol, tarefas, blocos=blocos_tarefas, passos=passos_ep
+            pol,
+            tarefas,
+            blocos=blocos_tarefas,
+            passos=passos_ep,
+            shaping_geometrico=True,
+            lambda_shaping=lambda_shaping
         )
 
         taxa_sub1 = sum(m["submeta_ok"] for m in met) / len(met) * 100.0
         taxa_tot  = sum(m["concluiu"] for m in met) / len(met) * 100.0
-        recompensa_media = float(R_T.sum() / max(1, len(met)))
+        taxa_desc = sum(m["avistou"] for m in met) / len(met) * 100.0
+
+        rec_tot_media = float(sum(m["rec_total"] for m in met) / max(1, len(met)))
+        rec_vis_media = float(sum(m["rec_vis"] for m in met) / max(1, len(met)))
+        rec_pot_media = float(sum(m["rec_pot"] for m in met) / max(1, len(met)))
+        rec_term_media = float(sum(m["rec_term"] for m in met) / max(1, len(met)))
+
+        dist_ini_media = float(sum(m["dist_ini"] for m in met) / max(1, len(met)))
+        dist_fim_media = float(sum(m["dist_fim"] for m in met) / max(1, len(met)))
+
+        # Atualiza métricas no gerenciador de currículo
+        avancou_curriculo, msg_curriculo = curriculo.atualizar_desempenho(
+            taxa_sub1=taxa_sub1 / 100.0,
+            taxa_sucesso=taxa_tot / 100.0,
+            recompensa=rec_tot_media
+        )
+        if avancou_curriculo:
+            print(f"\n{msg_curriculo}\n")
 
         # 2. Calcula Vantagem Generalizada (GAE) e Target de Retorno
         ADV_T, TARGET_G_T = calcular_gae(R_T, VIVO_T, VAL_T, gamma=gamma, lmbda=gae_lambda)
@@ -413,13 +464,13 @@ def treinar_ppo_bc_hibrido(
         b_modo_rl     = torch.tensor(MODO_T.reshape(-1)[mascara], dtype=torch.long, device=dev)
         b_yaw_rl      = torch.tensor(YAW_T.reshape(-1)[mascara], dtype=torch.long, device=dev)
         b_logp_old_rl = torch.tensor(LOGP_T.reshape(-1)[mascara], dtype=torch.float32, device=dev)
-        
+
         adv_ativo = ADV_T.reshape(-1)[mascara]
         adv_mean = float(adv_ativo.mean()) if len(adv_ativo) > 0 else 0.0
         adv_std = float(adv_ativo.std()) if len(adv_ativo) > 1 else 1.0
         adv_norm = (adv_ativo - adv_mean) / (max(adv_std, 1e-4) + 1e-8)
         b_adv_rl = torch.tensor(adv_norm, dtype=torch.float32, device=dev)
-        
+
         b_target_g_rl = torch.tensor(TARGET_G_T.reshape(-1)[mascara], dtype=torch.float32, device=dev)
 
         num_rl = len(b_modo_rl)
@@ -431,7 +482,7 @@ def treinar_ppo_bc_hibrido(
         b_modo_bc_sub = todos_modos_bc[idx_bc_rand]
         b_yaw_bc_sub  = todos_yaws_bc[idx_bc_rand]
 
-        # 3. Otimização Conjunta com PPO Clipping Multi-Epoch (K épocas)
+        # 3. Otimização Conjunta com PPO Clipping Multi-Epoch
         vla.train()
         torch.cuda.empty_cache()
         minilote = 16
@@ -465,7 +516,6 @@ def treinar_ppo_bc_hibrido(
                 otimizador.zero_grad()
 
                 with torch.amp.autocast("cuda", dtype=torch.bfloat16):
-                    # Forward RL Multimodal Completo (v_emb + s_emb + t_emb)
                     s_embeds = vla.state_encoder(mb_sv)
                     t_embeds = vla.qwen_model.get_input_embeddings()(mb_ids)
                     inputs_embeds = torch.cat([mb_vemb, s_embeds, t_embeds], dim=1)
@@ -499,7 +549,7 @@ def treinar_ppo_bc_hibrido(
                     if epoch == 0:
                         ent_totais_epoch0[mb_idx] = ent_tot_vec.detach().cpu().to(torch.float32)
 
-                    # 1. PPO Ratio e Surrogate Clipping Loss com Proteção Numérica
+                    # PPO Ratio e Surrogate Clipping Loss
                     log_ratio = torch.clamp(logp_total - mb_logp_old, -10.0, 10.0)
                     ratio = torch.exp(log_ratio)
                     surr1 = ratio * mb_adv
@@ -508,14 +558,14 @@ def treinar_ppo_bc_hibrido(
 
                     clip_frac = ((ratio - 1.0).abs() > clip_eps).float().mean()
 
-                    # 2. Value Function Loss (Critic MSE)
+                    # Value Function Loss (Critic MSE)
                     val_loss = 0.5 * nn.functional.mse_loss(v_pred.to(torch.float32), mb_target_g)
 
                     loss_rl = ppo_loss + 0.5 * val_loss - 0.005 * ent_total
 
                 loss_rl.backward()
 
-                # Minilote BC Supervisionado Fatorado com Embeddings Padronizados
+                # Minilote BC Supervisionado Fatorado
                 if bc_ptr < num_bc_amostra:
                     mb_bc_idx = indices_bc[bc_ptr:bc_ptr + minilote]
                     bc_ptr += minilote
@@ -587,20 +637,16 @@ def treinar_ppo_bc_hibrido(
             adv_high_mean = adv_high_std = adv_high_abs = 0.0
             adv_low_mean = adv_low_std = adv_low_abs = 0.0
 
+        cur_est = curriculo.estagio_atual
         print(
-            f"  Iteração {it:2d}/{iteracoes} (lr={lr_atual:.1e}, λ_bc={lambda_bc_atual:.2f}) | "
-            f"Rec: {recompensa_media:+6.2f} | "
-            f"Submeta 1: {taxa_sub1:5.1f}% | "
-            f"Sucesso: {taxa_tot:5.1f}% | "
+            f"  Iteração {it:2d}/{iteracoes} [ETAPA {cur_est}] (lr={lr_atual:.1e}, λ_bc={lambda_bc_atual:.2f}) | "
+            f"Rec: Tot={rec_tot_media:+5.2f} (Vis={rec_vis_media:+5.2f}, Pot={rec_pot_media:+5.2f}, Term={rec_term_media:+5.2f}) | "
+            f"Sub1: {taxa_sub1:5.1f}% | Suc: {taxa_tot:5.1f}% | Desc: {taxa_desc:5.1f}% | Dist: {dist_ini_media:.1f}m->{dist_fim_media:.1f}m | "
             f"Adv: mean={adv_mean:+6.3f}, std={adv_std:.3f} | "
             f"Adv[HighH]: mean={adv_high_mean:+6.3f}, |adv|={adv_high_abs:.3f} | "
             f"Adv[LowH]: mean={adv_low_mean:+6.3f}, |adv|={adv_low_abs:.3f} | "
-            f"Ent: mode={ent_modo_final:.3f}, yaw={ent_yaw_final:.3f}, total={ent_total_final:.3f} (q75={q75:.3f}) | "
-            f"PPO: {ppo_loss_final:+.4f} | "
-            f"Value: {val_loss_final:.4f} | "
-            f"BC: {bc_loss_final:.4f} | "
-            f"Clip: {clip_frac_final:4.1f}%",
-            flush=True
+            f"Ent: m={ent_modo_final:.2f}, y={ent_yaw_final:.2f}, tot={ent_total_final:.2f} (q75={q75:.2f}) | "
+            f"PPO: {ppo_loss_final:+.4f} | Val: {val_loss_final:.4f} | BC: {bc_loss_final:.4f} | Clip: {clip_frac_final:4.1f}%"
         )
 
         # Salva checkpoint com suporte às cabeças fatoradas e critic
@@ -612,9 +658,16 @@ def treinar_ppo_bc_hibrido(
         ckpt_dict = {
             "treinaveis": tensores_treinaveis,
             "iteracao": it,
+            "estagio_curriculo": cur_est,
             "taxa_submeta1": taxa_sub1,
             "taxa_total": taxa_tot,
-            "recompensa": recompensa_media,
+            "taxa_descoberta": taxa_desc,
+            "recompensa": rec_tot_media,
+            "recompensa_vis": rec_vis_media,
+            "recompensa_pot": rec_pot_media,
+            "recompensa_term": rec_term_media,
+            "dist_ini_media": dist_ini_media,
+            "dist_fim_media": dist_fim_media,
             "adv_mean": adv_mean,
             "adv_std": adv_std,
             "adv_high_mean": adv_high_mean,
@@ -628,36 +681,52 @@ def treinar_ppo_bc_hibrido(
             "ent_total": ent_total_final,
             "high_ent_pct": high_ent_pct,
             "q75_ent": q75,
+            "ppo_loss": ppo_loss_final,
+            "val_loss": val_loss_final,
+            "bc_loss": bc_loss_final,
+            "clip_frac": clip_frac_final,
             "fatorada": True
         }
         torch.save(ckpt_dict, ckpt_saida)
 
+        # Checkpoints intermediários periódicos
+        if salvar_cada > 0 and it % salvar_cada == 0:
+            ckpt_periodico = ckpt_saida.replace(".pt", f"_it{it}.pt")
+            torch.save(ckpt_dict, ckpt_periodico)
+            print(f"    [CHECKPOINT] Snapshot periódico salvo: {ckpt_periodico}")
 
-        score_atual = taxa_tot * 2.0 + taxa_sub1 + recompensa_media * 0.1
+        # Avalia melhor modelo pelo score composto
+        score_atual = taxa_tot * 3.0 + taxa_sub1 * 1.5 + rec_tot_media * 0.1
         if score_atual > melhor_score:
             melhor_score = score_atual
             torch.save(ckpt_dict, ckpt_melhor)
 
     duracao = time.time() - t_ini
     print("=" * 80)
-    print(f"[OK] Treinamento PPO-BC Híbrido Modernizado ({iteracoes} iterações) concluído em {duracao:.1f}s.")
+    print(f"[OK] Treinamento PPO-BC Híbrido com Currículo e Shaping ({iteracoes} iterações) concluído em {duracao:.1f}s.")
     print(f"[OK] Checkpoint final salvo em: {ckpt_saida}")
     print(f"[OK] Melhor checkpoint salvo em: {ckpt_melhor}")
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset",     default="fase5/dados/dataset_wasd_tatico_36.pt")
-    ap.add_argument("--base",        default="checkpoints_vla/vla_fase5_ppo_bc.pt")
-    ap.add_argument("--saida",       default="checkpoints_vla/vla_fase5_ppo_bc.pt")
-    ap.add_argument("--iteracoes",   type=int,   default=20)
-    ap.add_argument("--passos",      type=int,   default=50)
-    ap.add_argument("--lr",          type=float, default=3e-5)
-    ap.add_argument("--gamma",       type=float, default=0.98)
-    ap.add_argument("--gae-lambda",  type=float, default=0.95)
-    ap.add_argument("--ppo-epochs",  type=int,   default=3)
-    ap.add_argument("--clip-eps",    type=float, default=0.2)
-    ap.add_argument("--seed",        type=int,   default=42)
+    ap = argparse.ArgumentParser(description="Treinamento PPO-BC Híbrido com Shaping e Currículo (Fase 5.5)")
+    ap.add_argument("--dataset",           default="fase5/dados/dataset_wasd_tatico_36_v2.pt", help="Caminho do dataset ancorado")
+    ap.add_argument("--base",              default="checkpoints_vla/vla_fase5_ppo_bc.pt", help="Checkpoint base de entrada")
+    ap.add_argument("--saida",             default="checkpoints_vla/vla_fase5_ppo_bc.pt", help="Checkpoint de saída")
+    ap.add_argument("--iteracoes",         type=int,   default=100, help="Número de iterações PPO")
+    ap.add_argument("--passos",            type=int,   default=100, help="Número máximo de passos por episódio")
+    ap.add_argument("--lr",                type=float, default=3e-5, help="Taxa de aprendizado")
+    ap.add_argument("--gamma",             type=float, default=0.98, help="Fator de desconto temporal γ")
+    ap.add_argument("--gae-lambda",        type=float, default=0.95, help="Parâmetro λ do GAE")
+    ap.add_argument("--ppo-epochs",        type=int,   default=3,    help="Épocas PPO por iteração")
+    ap.add_argument("--clip-eps",          type=float, default=0.2,  help="Epsilon de clipping PPO")
+    ap.add_argument("--lambda-shaping",    type=float, default=0.10, help="Peso λ do shaping de potencial físico Φ=-dist")
+    ap.add_argument("--curriculo-estagio", type=str,   default="auto", choices=["auto", "A", "B", "C"], help="Estágio do currículo")
+    ap.add_argument("--criterio-a",        type=float, default=0.35, help="Taxa Submeta 1 para avançar de A para B")
+    ap.add_argument("--criterio-b",        type=float, default=0.20, help="Taxa Sucesso para avançar de B para C")
+    ap.add_argument("--fase-treino",       type=str,   default="completo", choices=["completo", "warmup", "adaptacao", "refinamento"])
+    ap.add_argument("--salvar-cada",       type=int,   default=20,   help="Intervalo de iterações para checkpoints intermediários")
+    ap.add_argument("--seed",              type=int,   default=42,   help="Semente aleatória")
     args = ap.parse_args()
 
     treinar_ppo_bc_hibrido(
@@ -671,5 +740,11 @@ if __name__ == "__main__":
         gae_lambda=args.gae_lambda,
         ppo_epochs=args.ppo_epochs,
         clip_eps=args.clip_eps,
+        lambda_shaping=args.lambda_shaping,
+        curriculo_estagio=args.curriculo_estagio,
+        criterio_a=args.criterio_a,
+        criterio_b=args.criterio_b,
+        fase_treino=args.fase_treino,
+        salvar_cada=args.salvar_cada,
         seed=args.seed
     )
