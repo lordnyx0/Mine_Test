@@ -16,6 +16,9 @@ Valida:
      - Preservação da compatibilidade com o espaço fatorado (6 modos, 9 yaws)
   4. CHECKPOINT & COMPATIBILIDADE:
      - Compatibilidade de tensores treináveis
+  5. PERCEPÇÃO VISUAL (BUG FIX):
+     - Suporte a tensores 4D [K, H, W, 3], 3D [H, W, 3] e [3, H, W]
+     - Detecção correta de todas as cores reais renderizadas (amarelo, azul, roxo, verde, vermelho)
 """
 import os
 import sys
@@ -27,7 +30,7 @@ _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
-from fase5.recompensa_visual import RastreadorVisualEpisodio
+from fase5.recompensa_visual import RastreadorVisualEpisodio, detectar_alvo_no_frame, _obter_mascara_cor
 from fase5.curriculo_fase5 import CurriculoFase5
 from fase5.acoes_taticas import fatorar_indice_36, unificar_indices, calcular_acao_otima_tatica
 from fase5.treinar_ppo_bc_hibrido import calcular_gae
@@ -150,6 +153,62 @@ def test_gae():
     print("  [OK] Teste 4 passou com sucesso!")
 
 
+def test_percepcao_visual_dimensoes_e_cores():
+    print("\n[TESTE 5] Validando Percepção Visual (Suporte 4D/3D e Cores Reais)...")
+
+    # 5.1 Validação de dimensões: 4D [K, H, W, 3] vs 3D [H, W, 3]
+    H, W, C = 224, 224, 3
+    frame_3d = np.zeros((H, W, C), dtype=np.uint8)
+    # Pinta um pilar amarelo no centro (ouro: [245, 215, 20])
+    frame_3d[50:180, 100:124] = [245, 215, 20]
+
+    # Cria pilha 4D de 3 frames onde o frame 0 tem o pilar
+    frame_4d = np.zeros((3, H, W, C), dtype=np.uint8)
+    frame_4d[0] = frame_3d
+
+    # Teste 3D
+    det_3d = detectar_alvo_no_frame(frame_3d, "amarelo")
+    assert det_3d["visivel"] is True, "Pilar amarelo deve ser detectado em frame 3D"
+    assert det_3d["contagem_pixels"] == (180 - 50) * (124 - 100)
+    assert det_3d["centralizado"] is True
+    print("  -> Detecção em frame 3D [224, 224, 3] validada.")
+
+    # Teste 4D (pilha temporal do VLA)
+    det_4d = detectar_alvo_no_frame(frame_4d, "amarelo")
+    assert det_4d["visivel"] is True, "Pilar amarelo deve ser detectado em pilha 4D [3, 224, 224, 3]"
+    assert det_4d["contagem_pixels"] == det_3d["contagem_pixels"]
+    print("  -> Detecção em pilha temporal 4D [3, 224, 224, 3] validada (bug corrigido).")
+
+    # 5.2 Validação de cores renderizadas pelo voxel_renderer
+    # Ouro
+    f_amarelo = np.zeros((50, 50, 3), dtype=np.uint8)
+    f_amarelo[:] = [245, 215, 20]
+    assert detectar_alvo_no_frame(f_amarelo, "amarelo")["visivel"] is True
+
+    # Lapis
+    f_azul = np.zeros((50, 50, 3), dtype=np.uint8)
+    f_azul[:] = [25, 110, 245]
+    assert detectar_alvo_no_frame(f_azul, "azul")["visivel"] is True
+
+    # Obsidiana do voxel_renderer
+    f_roxo = np.zeros((50, 50, 3), dtype=np.uint8)
+    f_roxo[:] = [155, 38, 182]
+    assert detectar_alvo_no_frame(f_roxo, "roxo")["visivel"] is True
+
+    # Esmeralda
+    f_verde = np.zeros((50, 50, 3), dtype=np.uint8)
+    f_verde[:] = [42, 203, 87]
+    assert detectar_alvo_no_frame(f_verde, "verde")["visivel"] is True
+
+    # Redstone
+    f_vermelho = np.zeros((50, 50, 3), dtype=np.uint8)
+    f_vermelho[:] = [175, 24, 5]
+    assert detectar_alvo_no_frame(f_vermelho, "vermelho")["visivel"] is True
+
+    print("  -> Todas as cores de blocos suportadas (amarelo, azul, roxo, verde, vermelho) validadas.")
+    print("  [OK] Teste 5 passou com sucesso!")
+
+
 if __name__ == "__main__":
     print("=" * 70)
     print(" EXECUTANDO BATERIA DE TESTES DE VALIDAÇÃO (FASE 5.5)")
@@ -158,6 +217,7 @@ if __name__ == "__main__":
     test_curriculo()
     test_dataset_v2()
     test_gae()
+    test_percepcao_visual_dimensoes_e_cores()
     print("\n" + "=" * 70)
     print(" TODOS OS TESTES PASSARAM COM 100% DE SUCESSO!")
     print("=" * 70)

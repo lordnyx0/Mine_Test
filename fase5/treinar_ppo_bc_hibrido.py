@@ -205,7 +205,15 @@ def rollout_rl_wasd_ppo(
             d_atual = math.hypot(dx, dz)
             d_final[i] = d_atual
 
-            frame_i = u8_frames[i] if u8_frames is not None and i < len(u8_frames) else None
+            if u8_frames is not None and i < len(u8_frames):
+                if u8_frames.ndim == 5:
+                    frame_i = u8_frames[i, 0]
+                elif u8_frames.ndim == 4:
+                    frame_i = u8_frames[i]
+                else:
+                    frame_i = None
+            else:
+                frame_i = None
 
             # Cálculo de Recompensa: R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal
             r_passo, info = rastreador.calcular_recompensa_passo(
