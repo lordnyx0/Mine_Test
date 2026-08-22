@@ -1,3 +1,4 @@
+import math
 # coding=utf-8
 """
 FASE 4 — Política de Raciocínio Recursivo Multi-Loop com Pulo Neural Aprendido (18 Ações).
@@ -119,7 +120,10 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
 
         self._ultimo_v_emb = v_emb
 
-        s_emb = vla.state_encoder(state_tensor)
+        if state_tensor.shape[-1] > vla.state_encoder.state_dim:
+            s_emb = vla.state_encoder(state_tensor[:, :vla.state_encoder.state_dim])
+        else:
+            s_emb = vla.state_encoder(state_tensor)
         t_emb = vla.qwen_model.get_input_embeddings()(input_ids) if input_ids is not None else None
 
         embeds_list = [v_emb, s_emb]
@@ -128,7 +132,8 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
         if t_emb is not None:
             embeds_list.append(t_emb)
 
-        inputs_embeds = torch.cat(embeds_list, dim=1)
+        target_dtype = next(vla.qwen_model.parameters()).dtype
+        inputs_embeds = torch.cat([e.to(dtype=target_dtype) for e in embeds_list], dim=1)
         qwen_out = vla.qwen_model(inputs_embeds=inputs_embeds, use_cache=False)
         last_hidden = qwen_out.last_hidden_state[:, -1, :]
         
@@ -149,7 +154,7 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
         else:
             raise AttributeError("Nenhuma cabeça de ação compatível encontrada no VLA.")
 
-    def agir(self, ests, alvos_abs, obs, prompts=None, estagios=None):
+    def agir(self, ests, alvos_abs, obs, prompts=None, estagios=None, mascara_modo=None):
         if prompts is not None:
             self.prompts_atuais = list(prompts)
         px, sv, gv, u8 = self._entradas(ests, alvos_abs, obs)
@@ -170,8 +175,12 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
 
         if self.fatorada:
             lg_modo, lg_yaw, values = res
+            lg_modo_amostragem = lg_modo.clone()
+            if mascara_modo is not None:
+                lg_modo_amostragem = lg_modo_amostragem.masked_fill(mascara_modo, -1e9)
+
             if self.amostrar:
-                p_modo = torch.softmax(lg_modo.to(torch.float32) / self.temperatura, dim=-1)
+                p_modo = torch.softmax(lg_modo_amostragem.to(torch.float32) / self.temperatura, dim=-1)
                 p_yaw = torch.softmax(lg_yaw.to(torch.float32) / self.temperatura, dim=-1)
                 dist_modo = torch.distributions.Categorical(probs=p_modo)
                 dist_yaw = torch.distributions.Categorical(probs=p_yaw)
@@ -179,7 +188,7 @@ class PoliticaRaciocinioLoop(PoliticaFase3):
                 a_yaw = dist_yaw.sample()
                 logp_old = dist_modo.log_prob(a_modo) + dist_yaw.log_prob(a_yaw)
             else:
-                a_modo = lg_modo.argmax(-1)
+                a_modo = lg_modo_amostragem.argmax(-1)
                 a_yaw = lg_yaw.argmax(-1)
                 logp_old = torch.zeros_like(a_modo, dtype=torch.float32)
 

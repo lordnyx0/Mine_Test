@@ -60,9 +60,13 @@ class EstadoEpisodio:
 
     def passo(self, estado_novo, frame_bytes=None):
         """Avanca um passo. Retorna (reward, descontinuidade)."""
+        if estado_novo is None or estado_novo.get("x") is None:
+            return 0.0, False
         s0 = self._st or estado_novo
-        dx = estado_novo["x"] - s0["x"]
-        dz = estado_novo["z"] - s0["z"]
+        if s0.get("x") is None:
+            s0 = estado_novo
+        dx = (estado_novo.get("x") or 0.0) - (s0.get("x") or 0.0)
+        dz = (estado_novo.get("z") or 0.0) - (s0.get("z") or 0.0)
         deslocamento = math.hypot(dx, dz)
 
         if deslocamento > SALTO_MAX:      # morte/teleporte

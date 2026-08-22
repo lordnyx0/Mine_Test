@@ -1,0 +1,21 @@
+{
+  "modelo": "models_gguf/fase5_loop_q8_0.gguf",
+  "nome": "fase5_loop_q8_completo",
+  "geral": 0.5481099656357388,
+  "por_categoria": {
+    "general_knowledge": 0.4,
+    "reasoning": 0.6,
+    "mathematics": 0.4,
+    "programming": 0.7333333333333333,
+    "writing": 0.75,
+    "translation": 0.21666666666666665,
+    "summarization": 0.7380952380952381,
+    "instruction_following": 0.65,
+    "creativity": 1.0,
+    "context": 0.2857142857142857,
+    "robustness": 0.375
+  },
+  "n": 97,
+  "minutos": 1.8332266370455423,
+  "tokens": 14338
+}

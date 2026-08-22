@@ -1,23 +1,25 @@
 # coding=utf-8
 """
-fase5/recompensa_visual.py — Sistema de Recompensa Não-Privilegiada Baseada em Percepção Visual.
+fase5/recompensa_visual.py — Sistema de Recompensa Visual e Modelagem Não-Privilegiada (Fase 5.5).
 
-Elimina o oráculo geométrico invisível:
-  1. A recompensa de alinhamento é estritamente vinculada à presença e centralização
-     do pilar-alvo no frame RGB da câmera do robô.
-  2. Recompensa de "Busca Ativa" é concedida por Descoberta Visual (Delta Visão: 0 -> 1),
-     e não por mera ausência de locomoção.
-  3. Penalidade de "Corrida Cega" se o agente corre para frente sem que o alvo esteja visível.
-  4. Suporta shaping de potencial geométrico não-privilegiado R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal.
+Elimina o oráculo geométrico invisível e previne a degeneração por fixação estacionária (Gaze Fixation):
+  1. A recompensa de centralização da mira é estritamente vinculada ao movimento ativo (W / W+A / W+D).
+     Se o agente estiver parado no modo alinhar (hold=[]), NÃO recebe o bônus contínuo de centralização.
+  2. Penalidade de Fixação Estacionária (-0.08 configurável): aplicada quando o alvo já foi avistado em passos anteriores,
+     está centralizado (|cx| < 0.30) e o robô permanece parado (hold=[]) em vez de avançar.
+  3. Recompensa de "Busca Ativa": Bônus de Descoberta Visual (+0.50) concedido na primeira detecção,
+     mesmo durante giro parado preparatório (sem penalidade no passo exato da descoberta).
+  4. Penalidade de "Corrida Cega" (-0.25) se o agente corre para frente com W sem avistar o alvo.
+  5. Suporta shaping de potencial geométrico não-privilegiado R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal.
 """
 from __future__ import annotations
 import math
 import numpy as np
 from typing import Dict, Any, Tuple, Optional
 
-# Definição de máscaras RGB para os blocos de pilares do Minecraft
-# Formato do frame suportado: [H, W, 3], [3, H, W] ou pilha temporal 4D [K, H, W, 3]
+
 def _obter_mascara_cor(frame: np.ndarray, cor: str) -> np.ndarray:
+    """Extrai máscara booleana para as cores dos pilares, aceitando frames 3D [H,W,3] ou 4D [K,H,W,3]."""
     if frame is None:
         return np.zeros((1, 1), dtype=bool)
 
@@ -118,8 +120,9 @@ def detectar_alvo_no_frame(frame_u8: np.ndarray, cor_alvo: str, min_pixels: int 
 class RastreadorVisualEpisodio:
     """Acompanha métricas de percepção visual e calcula recompensas não-privilegiadas por ambiente."""
 
-    def __init__(self, num_ambientes: int):
+    def __init__(self, num_ambientes: int = 8, penalidade_fixacao: float = 0.08):
         self.num_ambientes = num_ambientes
+        self.penalidade_fixacao = float(penalidade_fixacao)
         self.alvo_avistado = [False] * num_ambientes
         self.area_anterior = [0.0] * num_ambientes
         self.passos_sem_ver = [0] * num_ambientes
@@ -144,19 +147,28 @@ class RastreadorVisualEpisodio:
         acao_exec: dict,
         estagio_atual: int = 0,
         shaping_geometrico: bool = True,
-        lambda_potencial: float = 0.10,
+        lambda_potencial: float = 0.15,
         dist_atual: float = 0.0,
         dist_anterior: float = 0.0
     ) -> Tuple[float, Dict[str, Any]]:
         """
-        Calcula a recompensa total: R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal.
+        Calcula a recompensa total:
+          R_total = R_visual + λ * [Φ(s') - Φ(s)] + R_terminal.
+
+        Garante que fixação estática sem locomoção não gera ganho líquido positivo.
         """
         r_visual = 0.0
         r_potencial = 0.0
         r_terminal = 0.0
+        r_stat_pen = 0.0
+        r_centermove = 0.0
 
         # Custo basal de tempo
         r_visual -= 0.04
+
+        # Identifica teclas ativas de locomoção
+        hold_keys = [str(k).upper() for k in acao_exec.get("hold", [])]
+        esta_movendo = ("W" in hold_keys) or ("A" in hold_keys) or ("D" in hold_keys) or ("S" in hold_keys)
 
         # 1. Percepção Visual Não-Privilegiada
         det = detectar_alvo_no_frame(frame_u8, cor_alvo)
@@ -164,24 +176,40 @@ class RastreadorVisualEpisodio:
         fracao = det["fracao_area"]
         cx = det["centro_x"]
         descoberta = False
+        estacionario_focado = False
 
         if visivel:
-            # Bônus de Descoberta Visual (Busca Ativa efetiva)
+            # Bônus de Descoberta Visual (mantido mesmo parado para permitir busca inicial)
             if not self.alvo_avistado[env_id]:
                 r_visual += 0.50
                 self.alvo_avistado[env_id] = True
                 descoberta = True
 
-            # Bônus de Centralização da Mira
-            if abs(cx) < 0.25:
-                r_visual += 0.23 * (1.0 - abs(cx) / 0.25)
-            elif abs(cx) < 0.55:
-                r_visual += 0.08 * (1.0 - (abs(cx) - 0.25) / 0.30)
+            # CENTRALIZAÇÃO CONDICIONADA AO MOVIMENTO
+            if esta_movendo:
+                if abs(cx) < 0.25:
+                    bon = 0.23 * (1.0 - abs(cx) / 0.25)
+                    r_visual += bon
+                    r_centermove += bon
+                elif abs(cx) < 0.55:
+                    bon = 0.08 * (1.0 - (abs(cx) - 0.25) / 0.30)
+                    r_visual += bon
+                    r_centermove += bon
+                else:
+                    # Desalinhado enquanto corre para frente/lado
+                    r_visual -= 0.05 * min(1.0, (abs(cx) - 0.55) / 0.45)
             else:
-                r_visual -= 0.05 * min(1.0, (abs(cx) - 0.55) / 0.45)
+                # PENALIDADE DE FIXAÇÃO ESTACIONÁRIA:
+                # Só é aplicada se o alvo JÁ havia sido avistado em passos anteriores (não no passo de descoberta),
+                # está centralizado (|cx| < 0.30), o agente está parado (hold=[]) e fora de cooldown de transição.
+                if (not descoberta) and self.alvo_avistado[env_id] and abs(cx) < 0.30 and self.cooldown_frenagem[env_id] == 0:
+                    pen = self.penalidade_fixacao
+                    r_visual -= pen
+                    r_stat_pen -= pen
+                    estacionario_focado = True
 
-            # Bônus de Expansão Aparente (Looming)
-            if self.area_anterior[env_id] > 0.0:
+            # Bônus de Expansão Aparente (Looming) — requer avanço ativo
+            if self.area_anterior[env_id] > 0.0 and esta_movendo:
                 delta_area = fracao - self.area_anterior[env_id]
                 if delta_area > 0:
                     r_visual += min(0.40, delta_area * 15.0)
@@ -193,8 +221,7 @@ class RastreadorVisualEpisodio:
             self.passos_sem_ver[env_id] += 1
             self.area_anterior[env_id] = 0.0
 
-            # Penalidade de Corrida Cega
-            hold_keys = acao_exec.get("hold", [])
+            # Penalidade de Corrida Cega (W sem ver o alvo)
             if "W" in hold_keys:
                 r_visual -= 0.25
 
@@ -214,11 +241,16 @@ class RastreadorVisualEpisodio:
             "rec_visual": r_visual,
             "rec_potencial": r_potencial,
             "rec_terminal": r_terminal,
+            "rec_stat_pen": r_stat_pen,
+            "rec_centermove": r_centermove,
             "rec_total": r_total,
             "visivel": visivel,
+            "centralizado": abs(cx) < 0.30 if visivel else False,
             "centro_x": cx if visivel else 0.0,
             "fracao_area": fracao if visivel else 0.0,
-            "descoberta": descoberta
+            "descoberta": descoberta,
+            "movendo": esta_movendo,
+            "estacionario_focado": estacionario_focado
         }
 
         return r_total, info

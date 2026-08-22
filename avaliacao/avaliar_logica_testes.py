@@ -36,11 +36,16 @@ from evaluation.scoring import score_response
 from evaluation.types import GenerationRecord
 
 
-def avaliar_checkpoint_corrigido(ckpt_path="checkpoints_vla/vla_fase4_merged.pt",
+def avaliar_checkpoint_corrigido(ckpt_path="checkpoints_vla/vla_fase5_ppo_bc_melhor.pt",
                                   categorias=("reasoning", "mathematics", "programming", "general_knowledge"),
-                                  saida_json="avaliacao/resultados_raciocinio_fase4.json",
-                                  saida_jsonl="avaliacao/responses_fase4.jsonl",
+                                  saida_json=None,
+                                  saida_jsonl=None,
                                   modo="direto"):
+    nome_base = os.path.splitext(os.path.basename(ckpt_path))[0]
+    if saida_json is None:
+        saida_json = f"avaliacao/resultados_raciocinio_{nome_base}.json"
+    if saida_jsonl is None:
+        saida_jsonl = f"avaliacao/responses_{nome_base}.jsonl"
     print("=" * 80)
     print(f" [BENCHMARK DE RACIOCINIO] PIPELINE LOCAL (MODO: {modo.upper()})")
     print(f"    Checkpoint:  {ckpt_path}")
@@ -92,7 +97,19 @@ def avaliar_checkpoint_corrigido(ckpt_path="checkpoints_vla/vla_fase4_merged.pt"
         )
         tokenizer = AutoTokenizer.from_pretrained(ckpt_path)
     else:
-        vla, _ = load_vla_agent(ckpt_path if ckpt_path != "base" else None)
+        vla, _ = load_vla_agent()
+        from modelo.lora_vla import aplicar_lora, CamadaLoRA
+        aplicar_lora(vla, r=16, alpha=32.0)
+        if ckpt_path != "base" and os.path.exists(ckpt_path):
+            dados = torch.load(ckpt_path, map_location="cpu")
+            if "treinaveis" in dados:
+                msg = vla.load_state_dict(dados["treinaveis"], strict=False)
+                print(f"[VLA] {len(dados['treinaveis'])} tensores restaurados do checkpoint (missing={len(msg.missing_keys)}).")
+            for modulo in vla.modules():
+                if isinstance(modulo, CamadaLoRA):
+                    modulo.mesclar()
+            print("[VLA] Adaptadores LoRA mesclados com sucesso no backbone!")
+
         causal_lm = Qwen3LoopForCausalLM.from_pretrained(
             backbone_dir,
             dtype=torch.bfloat16,

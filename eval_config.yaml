@@ -18,7 +18,7 @@ model:
   base_model_id: "Qwen/Qwen3-0.6B"
   num_loops: 2              # Must match model.num_loops in config.yaml
   dtype: "bfloat16"
-  enable_thinking: false    # Qwen3 chat template: suppress <think> blocks
+  enable_thinking: true    # Qwen3 chat template: suppress <think> blocks
   trust_remote_code: false
 
 # Applied identically to the base model and to every checkpoint, so the

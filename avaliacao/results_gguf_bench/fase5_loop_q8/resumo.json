@@ -1,0 +1,14 @@
+{
+  "modelo": "C:\\Users\\Nyx\\Desktop\\minecraft adapter\\models_gguf\\fase5_loop_q8_0.gguf",
+  "nome": "fase5_loop_q8",
+  "geral": 0.5333333333333333,
+  "por_categoria": {
+    "general_knowledge": 0.4,
+    "reasoning": 0.6,
+    "mathematics": 0.4,
+    "programming": 0.7333333333333333
+  },
+  "n": 40,
+  "minutos": 0.88562939564387,
+  "tokens": 6795
+}

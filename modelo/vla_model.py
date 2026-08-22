@@ -75,6 +75,8 @@ class StateEncoder(nn.Module):
         B = state_vec.size(0)
         if state_vec.size(1) < self.state_dim:      # compat com vetores antigos de 16
             state_vec = F.pad(state_vec, (0, self.state_dim - state_vec.size(1)))
+        elif state_vec.size(1) > self.state_dim:
+            state_vec = state_vec[:, :self.state_dim]
         out = self.mlp(state_vec)  # [B, 4 * hidden_size]
         return out.view(B, self.num_state_tokens, self.qwen_hidden_size)
 

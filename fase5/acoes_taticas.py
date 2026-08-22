@@ -74,29 +74,31 @@ def calcular_acao_otima_tatica(
     offset_lateral: float = 0.0
 ) -> int:
     """
-    Raciocínio de oráculo tático balanceado (36 classes):
-      1. Se está colidindo ou deu overshoot -> Recuo S (33..35) com micro-yaw [-5, 0, +5]
-      2. Se é spawn, transição entre submetas ou alinhamento com erro > 30° -> Giro Parado [] (0..8)
-      3. Se erro angular está entre 10° e 45° com distância média/curta -> Strafe A/D (27..32)
-         com micro-compensação angular cobrindo os 3 micro-bins por direção
-      4. Se deve pular relevo/obstáculo -> Sprint + Pulo (18..26)
-      5. Caso contrário -> Sprint frontal W (9..17)
+    Raciocínio de oráculo tático balanceado e coerente (36 classes):
+      1. Se está colidindo a curta distância (<1.0m) -> Recuo S (33..35)
+      2. Se grande desvio angular (>45° ou spawn/transição ampla) -> Giro Parado [] (0..8)
+      3. Se erro angular moderado (10° a 45°) com alvo visível -> Strafe W+A / W+D (27..32)
+      4. Se deve pular relevo -> Sprint + Pulo (18..26)
+      5. Caso contrário (aproximação normal ou final <2.5m com alvo na mira) -> Sprint Frontal W (9..17)
     """
     abs_erro = abs(erro_yaw_graus)
 
-    # 1. Situação de desengate / colisão / recuperação de overshoot
-    if esta_colidindo:
+    # 1. Situação de colisão genuína contra parede a curta distância
+    if esta_colidindo and distancia < 1.0:
         bin3 = calcular_bin_yaw_3(erro_yaw_graus + offset_lateral)
         return 33 + bin3
 
-    # 2. Alinhamento Estacionário (Spawn, Transição de Submeta ou Grande Desvio Angular)
-    if is_alinhar or is_spawn or is_transicao or (abs_erro > 40.0 and distancia < 4.0):
+    # 2. Alinhamento Estacionário (Spawn, Transição ou Grande Desvio Angular)
+    if (is_spawn or is_transicao or is_alinhar) and abs_erro > 35.0:
         bin9 = calcular_bin_yaw_9(erro_yaw_graus)
         return 0 + bin9
 
-    # 3. Strafe Lateral Tático (Manutenção de Fixação Visual + Deslocamento)
+    if abs_erro > 50.0:
+        bin9 = calcular_bin_yaw_9(erro_yaw_graus)
+        return 0 + bin9
+
+    # 3. Strafe Lateral Tático (Manutenção de Fixação Visual + Deslocamento com W)
     if 10.0 < abs_erro <= 45.0 and distancia < 9.0:
-        # Micro-compensação relativa de mira durante strafe
         compensacao = (erro_yaw_graus - (-25.0 if erro_yaw_graus < 0 else 25.0)) + offset_lateral
         bin3 = calcular_bin_yaw_3(compensacao)
         if erro_yaw_graus < 0:  # Alvo à esquerda -> Strafe Esquerda (W+A) (27, 28, 29)
@@ -109,7 +111,7 @@ def calcular_acao_otima_tatica(
         bin9 = calcular_bin_yaw_9(erro_yaw_graus)
         return 18 + bin9
 
-    # 5. Sprint Frontal padrão (9..17)
+    # 5. Sprint Frontal padrão (9..17) — cobre toda a aproximação e chegada final (< 2.5m)
     bin9 = calcular_bin_yaw_9(erro_yaw_graus)
     return 9 + bin9
 

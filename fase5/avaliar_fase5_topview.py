@@ -64,6 +64,7 @@ CORES_HEX = {
 
 def avaliar_fase5(
     modelo_ckpt: str = "checkpoints_vla/vla_fase5_coldstart.pt",
+    estagio: str = "A",
     num_lotes: int = 3,
     passos_max: int = 100,
     seed: int = 42,
@@ -134,11 +135,12 @@ def avaliar_fase5(
 
     t_inicio_total = time.time()
 
-    from fase5.treinar_ppo_bc_hibrido import gerar_tarefas_busca_ativa
+    from fase5.curriculo_fase5 import CurriculoFase5
+    curriculo = CurriculoFase5(modo_estagio=estagio)
 
     for lote_idx in range(num_lotes):
         print(f"\n--- Executando Lote {lote_idx + 1}/{num_lotes} ---", flush=True)
-        tarefas, blocos_tarefas = gerar_tarefas_busca_ativa(N, seed=seed + lote_idx * 17, nivel=2)
+        tarefas, blocos_tarefas = curriculo.gerar_tarefas(N, seed=seed + lote_idx * 17)
         post("/lote/reset", {"posicoes": [[t["largada"][0], t["largada"][2]] for t in tarefas]})
         post("/lote/colocar_bloco", {"blocos": blocos_tarefas})
         r = post("/lote/passo", {"acoes": [{"hold": [], "mouse": [0, 0], "duration_ms": 50}] * N, "frames": True})
@@ -362,6 +364,13 @@ def gerar_grafico_topview(logs, output_png, taxa_s1, taxa_tot, raio_chegada=2.0,
             ax.add_patch(c2)
             ax.plot(p2["x"], p2["z"], "o", color=CORES_HEX.get(p2["cor"], "#a855f7"), markersize=8, label="Submeta 2")
 
+        # Desenha Submeta 3 se existir
+        p3 = log.get("pilar3")
+        if p3:
+            c3 = Circle((p3["x"], p3["z"]), raio_chegada, color=CORES_HEX.get(p3["cor"], "#3b82f6"), alpha=0.3)
+            ax.add_patch(c3)
+            ax.plot(p3["x"], p3["z"], "o", color=CORES_HEX.get(p3["cor"], "#3b82f6"), markersize=8, label="Submeta 3")
+
         # Traçado do agente
         cor_rastro = "#10b981" if log["resultado"] == "sucesso_total" else ("#f59e0b" if log["resultado"] == "sucesso_parcial" else "#ef4444")
         ax.plot(xs, zs, "-", color=cor_rastro, linewidth=2, label="Trajetória")
@@ -483,9 +492,12 @@ if __name__ == "__main__":
     ap.add_argument("--ckpt", default="checkpoints_vla/vla_fase5_coldstart.pt")
     ap.add_argument("--lotes", type=int, default=3)
     ap.add_argument("--passos", type=int, default=100)
+    ap.add_argument("--usar-cerebro", action="store_true", default=True, help="Ativa o Cerebro Supervisor")
+    ap.add_argument("--sem-cerebro", dest="usar_cerebro", action="store_false")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--amostrar", action="store_true")
     ap.add_argument("--raio", type=float, default=1.5)
+    ap.add_argument("--estagio", default="A", choices=["A", "B", "C"])
     args = ap.parse_args()
 
     avaliar_fase5(
@@ -494,5 +506,6 @@ if __name__ == "__main__":
         passos_max=args.passos,
         seed=args.seed,
         amostrar=args.amostrar,
-        raio_chegada=args.raio
+        raio_chegada=args.raio,
+        estagio=args.estagio
     )

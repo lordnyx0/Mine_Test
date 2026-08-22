@@ -1,0 +1,21 @@
+{
+  "modelo": "models_gguf/fase5_loop_q8_0.gguf",
+  "nome": "fase5_loop_q8_pensamento",
+  "geral": 0.3900343642611684,
+  "por_categoria": {
+    "general_knowledge": 0.3,
+    "reasoning": 0.5,
+    "mathematics": 0.1,
+    "programming": 0.5833333333333333,
+    "writing": 0.75,
+    "translation": 0.31666666666666665,
+    "summarization": 0.19047619047619047,
+    "instruction_following": 0.1,
+    "creativity": 0.7142857142857143,
+    "context": 0.5,
+    "robustness": 0.375
+  },
+  "n": 97,
+  "minutos": 2.8019837697347003,
+  "tokens": 23067
+}

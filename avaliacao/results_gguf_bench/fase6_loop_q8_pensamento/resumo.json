@@ -1,0 +1,21 @@
+{
+  "modelo": "C:\\Users\\Nyx\\Desktop\\minecraft adapter\\models_gguf\\fase6_loop_q8_0.gguf",
+  "nome": "fase6_loop_q8_pensamento",
+  "geral": 0.661512027491409,
+  "por_categoria": {
+    "general_knowledge": 0.8,
+    "reasoning": 0.6,
+    "mathematics": 0.6,
+    "programming": 0.8666666666666666,
+    "writing": 0.875,
+    "translation": 0.6166666666666667,
+    "summarization": 0.4761904761904762,
+    "instruction_following": 0.25,
+    "creativity": 0.7142857142857143,
+    "context": 0.9285714285714286,
+    "robustness": 0.625
+  },
+  "n": 97,
+  "minutos": 4.867130819956461,
+  "tokens": 22609
+}
