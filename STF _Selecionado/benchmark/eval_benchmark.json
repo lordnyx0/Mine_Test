@@ -1,0 +1,818 @@
+{
+  "name": "Qwen3Loop capability-recovery benchmark",
+  "version": "1.0",
+  "description": "Balanced prompt suite comparing Qwen3Loop QLoRA checkpoints against the original Qwen3-0.6B. Items are graded by objective, checkable constraints; open-ended items carry no checks and are compared via the pairwise LLM-as-a-Judge export.",
+  "items": [
+    {
+      "id": "gk-001",
+      "category": "general_knowledge",
+      "prompt": "What is the capital of Australia?",
+      "tags": ["capitals", "geography"],
+      "expected": { "contains_any": ["Canberra"] },
+      "reference": "Canberra."
+    },
+    {
+      "id": "gk-002",
+      "category": "general_knowledge",
+      "prompt": "Who wrote the novel 'Dom Casmurro'?",
+      "tags": ["literature"],
+      "expected": { "contains_any": ["Machado de Assis"] },
+      "reference": "Machado de Assis."
+    },
+    {
+      "id": "gk-003",
+      "category": "general_knowledge",
+      "prompt": "What is the chemical symbol for gold?",
+      "tags": ["science", "chemistry"],
+      "expected": { "regex": "\\bAu\\b" },
+      "reference": "Au."
+    },
+    {
+      "id": "gk-004",
+      "category": "general_knowledge",
+      "prompt": "In which year did World War II end?",
+      "tags": ["history"],
+      "expected": { "contains_any": ["1945"] },
+      "reference": "1945."
+    },
+    {
+      "id": "gk-005",
+      "category": "general_knowledge",
+      "prompt": "Which is the largest ocean on Earth?",
+      "tags": ["geography"],
+      "expected": { "contains_any": ["Pacific"] },
+      "reference": "The Pacific Ocean."
+    },
+    {
+      "id": "gk-006",
+      "category": "general_knowledge",
+      "prompt": "What does the acronym HTTP stand for?",
+      "tags": ["technology"],
+      "expected": { "contains_any": ["hypertext transfer protocol", "hyper text transfer protocol"] },
+      "reference": "HyperText Transfer Protocol."
+    },
+    {
+      "id": "gk-007",
+      "category": "general_knowledge",
+      "prompt": "Which planet is known as the Red Planet?",
+      "tags": ["science", "astronomy"],
+      "expected": { "contains_any": ["Mars"] },
+      "reference": "Mars."
+    },
+    {
+      "id": "gk-008",
+      "category": "general_knowledge",
+      "prompt": "Who developed the theory of general relativity?",
+      "tags": ["science", "history"],
+      "expected": { "contains_any": ["Einstein"] },
+      "reference": "Albert Einstein."
+    },
+    {
+      "id": "gk-009",
+      "category": "general_knowledge",
+      "prompt": "What is the longest river in South America?",
+      "tags": ["geography"],
+      "expected": { "contains_any": ["Amazon", "Amazonas"] },
+      "reference": "The Amazon River."
+    },
+    {
+      "id": "gk-010",
+      "category": "general_knowledge",
+      "prompt": "Name the two main protocols that make up the TCP/IP suite and say in one line what each does.",
+      "tags": ["technology"],
+      "expected": { "contains_all": ["TCP", "IP"] },
+      "reference": "TCP (reliable ordered delivery) and IP (addressing and routing)."
+    },
+
+    {
+      "id": "rsn-001",
+      "category": "reasoning",
+      "prompt": "All roses are flowers. Some flowers fade quickly. Can we conclude that some roses fade quickly? Answer yes or no, then explain in one sentence.",
+      "tags": ["logic", "deduction"],
+      "expected": { "regex": "\\b(no|cannot conclude|can not conclude|does not follow|doesn't follow|invalid)\\b" },
+      "reference": "No — the premises do not license that conclusion."
+    },
+    {
+      "id": "rsn-002",
+      "category": "reasoning",
+      "prompt": "Alice is taller than Bob. Bob is taller than Carol. Who is the shortest?",
+      "tags": ["logic", "comparison"],
+      "expected": { "contains_any": ["Carol"] },
+      "reference": "Carol."
+    },
+    {
+      "id": "rsn-003",
+      "category": "reasoning",
+      "prompt": "A train leaves at 14:00 and the journey takes 3 hours and 30 minutes. At what time does it arrive?",
+      "tags": ["multi-step"],
+      "expected": { "regex": "17\\s*[:h]\\s*30|5\\s*:\\s*30" },
+      "reference": "17:30."
+    },
+    {
+      "id": "rsn-004",
+      "category": "reasoning",
+      "prompt": "Today is Wednesday. What day of the week will it be in 10 days?",
+      "tags": ["multi-step"],
+      "expected": { "contains_any": ["Saturday"] },
+      "reference": "Saturday."
+    },
+    {
+      "id": "rsn-005",
+      "category": "reasoning",
+      "prompt": "List, in the correct order, the steps needed to make a cup of tea with an electric kettle. Number each step.",
+      "tags": ["planning"],
+      "expected": { "min_bullets": 4 },
+      "reference": "Fill kettle, boil, put tea in cup, pour water, steep, remove bag."
+    },
+    {
+      "id": "rsn-006",
+      "category": "reasoning",
+      "prompt": "Which is heavier: one kilogram of feathers or one kilogram of iron? Explain briefly.",
+      "tags": ["comparison"],
+      "expected": { "regex": "\\b(same|equal|equally|neither)\\b" },
+      "reference": "Neither — both weigh one kilogram."
+    },
+    {
+      "id": "rsn-007",
+      "category": "reasoning",
+      "prompt": "If 5 machines take 5 minutes to make 5 widgets, how long do 100 machines take to make 100 widgets?",
+      "tags": ["multi-step"],
+      "expected": { "regex": "\\b(5|five)\\s*minutes?\\b" },
+      "reference": "5 minutes."
+    },
+    {
+      "id": "rsn-008",
+      "category": "reasoning",
+      "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30? Explain the pattern.",
+      "tags": ["pattern"],
+      "expected": { "contains_any": ["42"] },
+      "reference": "42 — the differences increase by 2 each step."
+    },
+    {
+      "id": "rsn-009",
+      "category": "reasoning",
+      "prompt": "A laptop costs 3200 reais and a tablet costs 1800 reais. How much more expensive is the laptop in absolute terms?",
+      "tags": ["comparison", "multi-step"],
+      "expected": { "regex": "1[.,]?400" },
+      "reference": "1400 reais."
+    },
+    {
+      "id": "rsn-010",
+      "category": "reasoning",
+      "prompt": "Every student who passed the exam received a certificate. Maria did not receive a certificate. What can we conclude about Maria?",
+      "tags": ["logic", "deduction"],
+      "expected": { "regex": "did ?n[o']?t pass|didn't pass|failed|did not take" },
+      "reference": "Maria did not pass the exam."
+    },
+
+    {
+      "id": "mth-001",
+      "category": "mathematics",
+      "prompt": "Compute 17 x 24. Give the final number.",
+      "tags": ["arithmetic"],
+      "expected": { "contains_any": ["408"] },
+      "reference": "408."
+    },
+    {
+      "id": "mth-002",
+      "category": "mathematics",
+      "prompt": "Solve for x: 3x + 7 = 22. Show the final answer as 'x = ...'.",
+      "tags": ["algebra"],
+      "expected": { "regex": "x\\s*=\\s*5\\b" },
+      "reference": "x = 5."
+    },
+    {
+      "id": "mth-003",
+      "category": "mathematics",
+      "prompt": "What is 2/3 + 1/4? Give the result as a simplified fraction.",
+      "tags": ["fractions"],
+      "expected": { "regex": "11\\s*/\\s*12" },
+      "reference": "11/12."
+    },
+    {
+      "id": "mth-004",
+      "category": "mathematics",
+      "prompt": "Find the derivative of f(x) = 3x^4 - 5x^2 + 7.",
+      "tags": ["calculus", "derivatives"],
+      "expected": { "regex": ["12\\s*\\*?\\s*x", "10\\s*\\*?\\s*x"] },
+      "reference": "f'(x) = 12x^3 - 10x."
+    },
+    {
+      "id": "mth-005",
+      "category": "mathematics",
+      "prompt": "A car travels 240 km at a constant speed of 80 km/h. How long does the trip take?",
+      "tags": ["word-problem"],
+      "expected": { "regex": "\\b(3|three)\\s*(hours?|h)\\b" },
+      "reference": "3 hours."
+    },
+    {
+      "id": "mth-006",
+      "category": "mathematics",
+      "prompt": "What is 15% of 240?",
+      "tags": ["arithmetic", "percentages"],
+      "expected": { "contains_any": ["36"] },
+      "reference": "36."
+    },
+    {
+      "id": "mth-007",
+      "category": "mathematics",
+      "prompt": "What is the area of a circle with radius 5? Use pi = 3.14 and give a number.",
+      "tags": ["geometry"],
+      "expected": { "regex": "78[.,]5" },
+      "reference": "78.5."
+    },
+    {
+      "id": "mth-008",
+      "category": "mathematics",
+      "prompt": "Compute the square root of 144 plus the square root of 81.",
+      "tags": ["arithmetic"],
+      "expected": { "contains_any": ["21"] },
+      "reference": "21."
+    },
+    {
+      "id": "mth-009",
+      "category": "mathematics",
+      "prompt": "Simplify the expression (x^2 - 9) / (x - 3), assuming x is not equal to 3.",
+      "tags": ["algebra"],
+      "expected": { "regex": "x\\s*\\+\\s*3" },
+      "reference": "x + 3."
+    },
+    {
+      "id": "mth-010",
+      "category": "mathematics",
+      "prompt": "A shop sells pens for 3 reais each. Ana buys 7 pens and pays with a 50 reais note. How much change does she receive?",
+      "tags": ["word-problem"],
+      "expected": { "contains_any": ["29"] },
+      "reference": "29 reais."
+    },
+
+    {
+      "id": "prg-001",
+      "category": "programming",
+      "prompt": "Write a Python function called reverse_words that takes a sentence and returns it with the word order reversed. Include a short docstring.",
+      "tags": ["python", "generation"],
+      "expected": { "contains_any": ["def reverse_words"], "contains_code": true },
+      "reference": "def reverse_words(s): return ' '.join(s.split()[::-1])"
+    },
+    {
+      "id": "prg-002",
+      "category": "programming",
+      "prompt": "Complete the following Python function so that it returns the n-th Fibonacci number:\n\ndef fib(n):\n    if n < 2:\n        return n\n    # complete here",
+      "tags": ["python", "completion"],
+      "expected": { "regex": "fib\\s*\\(\\s*n\\s*-\\s*1", "contains_code": true },
+      "reference": "return fib(n - 1) + fib(n - 2)"
+    },
+    {
+      "id": "prg-003",
+      "category": "programming",
+      "prompt": "The Python function below is supposed to return the average of a list of numbers, but it crashes when the list is empty. Fix the bug and show the corrected function.\n\ndef average(values):\n    return sum(values) / len(values)",
+      "tags": ["python", "bugfix"],
+      "expected": {
+        "contains_any": ["if not values", "len(values) == 0", "if values", "if len(values)", "== 0"],
+        "contains_code": true
+      },
+      "reference": "Guard the empty case and return 0 (or None) instead of dividing by zero."
+    },
+    {
+      "id": "prg-004",
+      "category": "programming",
+      "prompt": "Explain what this Python code does, in plain English:\n\nresult = [x**2 for x in range(10) if x % 2 == 0]",
+      "tags": ["python", "explanation"],
+      "expected": { "contains_all": ["square"], "contains_any": ["even", "divisible by 2", "divisible by two"] },
+      "reference": "Builds a list of the squares of the even numbers from 0 to 9."
+    },
+    {
+      "id": "prg-005",
+      "category": "programming",
+      "prompt": "Write a C++ function that takes a std::vector<int> and returns the sum of its elements.",
+      "tags": ["cpp", "generation"],
+      "expected": { "contains_any": ["vector<int>", "vector <int>"], "contains_code": true },
+      "reference": "int sum(const std::vector<int>& v) { return std::accumulate(v.begin(), v.end(), 0); }"
+    },
+    {
+      "id": "prg-006",
+      "category": "programming",
+      "prompt": "This C++ code leaks memory. Fix it and explain the fix in one sentence.\n\nint* make_array(int n) {\n    int* a = new int[n];\n    return a;\n}\n\nvoid use() {\n    int* a = make_array(10);\n}",
+      "tags": ["cpp", "bugfix"],
+      "expected": { "contains_any": ["delete[]", "delete []", "unique_ptr", "std::vector", "vector<int>"] },
+      "reference": "Free with delete[] or, better, return a std::vector<int> / std::unique_ptr<int[]>."
+    },
+    {
+      "id": "prg-007",
+      "category": "programming",
+      "prompt": "Write a JavaScript function debounce(fn, delay) that returns a debounced version of fn.",
+      "tags": ["javascript", "generation"],
+      "expected": { "contains_any": ["setTimeout"], "contains_code": true },
+      "reference": "Returns a wrapper that clears and resets a setTimeout on every call."
+    },
+    {
+      "id": "prg-008",
+      "category": "programming",
+      "prompt": "Explain what this JavaScript code prints and why:\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+      "tags": ["javascript", "explanation"],
+      "expected": {
+        "regex": "\\b3\\b",
+        "contains_any": ["closure", "scope", "hoist", "var", "same variable"]
+      },
+      "reference": "Prints 3 three times, because var is function-scoped and all callbacks share one i."
+    },
+    {
+      "id": "prg-009",
+      "category": "programming",
+      "prompt": "Write a Python function is_prime(n) that returns True when n is prime. Output only the code: no explanation, no markdown fences.",
+      "tags": ["python", "generation", "format"],
+      "expected": { "code_only": true, "contains_any": ["def is_prime"], "not_contains": ["```"] },
+      "reference": "A bare function definition with a trial-division loop."
+    },
+    {
+      "id": "prg-010",
+      "category": "programming",
+      "prompt": "Complete this JavaScript function so that it removes duplicate values from an array:\n\nfunction unique(arr) {\n  // complete here\n}",
+      "tags": ["javascript", "completion"],
+      "expected": { "contains_any": ["Set", "filter", "indexOf", "includes"], "contains_code": true },
+      "reference": "return [...new Set(arr)];"
+    },
+
+    {
+      "id": "wrt-001",
+      "category": "writing",
+      "prompt": "Explain the theory of relativity to a curious 12-year-old. Keep it under 150 words.",
+      "tags": ["explanation"],
+      "expected": { "min_words": 40, "max_words": 190 },
+      "reference": "An age-appropriate explanation of relative motion and spacetime."
+    },
+    {
+      "id": "wrt-002",
+      "category": "writing",
+      "prompt": "Explain what recursion is in programming, and give one concrete example.",
+      "tags": ["explanation"],
+      "expected": { "min_words": 40 },
+      "reference": "A function that calls itself with a smaller input, plus a base case."
+    },
+    {
+      "id": "wrt-003",
+      "category": "writing",
+      "prompt": "Write a short story of about 100 words about a lighthouse keeper who receives an unexpected letter.",
+      "tags": ["story"],
+      "expected": { "min_words": 60, "max_words": 220 }
+    },
+    {
+      "id": "wrt-004",
+      "category": "writing",
+      "prompt": "Write a professional email to your manager requesting a two-week extension on a project deadline. Include a subject line.",
+      "tags": ["email"],
+      "expected": { "contains_any": ["subject"], "min_words": 60 }
+    },
+    {
+      "id": "wrt-005",
+      "category": "writing",
+      "prompt": "Explain the difference between HTTP and HTTPS to someone with no technical background.",
+      "tags": ["explanation"],
+      "expected": { "contains_any": ["encrypt", "secure", "certificate"] },
+      "reference": "HTTPS adds TLS encryption so traffic cannot be read or tampered with."
+    },
+    {
+      "id": "wrt-006",
+      "category": "writing",
+      "prompt": "Write a product description for a stainless steel water bottle that keeps drinks cold for 24 hours.",
+      "tags": ["marketing"],
+      "expected": { "min_words": 40 }
+    },
+    {
+      "id": "wrt-007",
+      "category": "writing",
+      "prompt": "Explain photosynthesis in three short paragraphs, suitable for a school textbook.",
+      "tags": ["explanation"],
+      "expected": { "min_words": 60 }
+    },
+    {
+      "id": "wrt-008",
+      "category": "writing",
+      "prompt": "Write a polite reply declining a meeting invitation because of a scheduling conflict, and propose an alternative time.",
+      "tags": ["email"],
+      "expected": { "min_words": 30 }
+    },
+
+    {
+      "id": "trn-001",
+      "category": "translation",
+      "prompt": "Translate the following English sentence into Portuguese. Reply with the translation only.\n\n\"Hey, are you coming to the party tonight? Let me know!\"",
+      "tags": ["en-pt", "casual"],
+      "expected": { "language": "pt", "contains_any": ["festa"] },
+      "reference": "Ei, você vem à festa hoje à noite? Me avisa!"
+    },
+    {
+      "id": "trn-002",
+      "category": "translation",
+      "prompt": "Translate the following Portuguese sentence into English. Reply with the translation only.\n\n\"Bom dia! Você já tomou café da manhã?\"",
+      "tags": ["pt-en", "casual"],
+      "expected": { "language": "en", "contains_any": ["breakfast"] },
+      "reference": "Good morning! Have you had breakfast yet?"
+    },
+    {
+      "id": "trn-003",
+      "category": "translation",
+      "prompt": "Translate the following into Portuguese, keeping the technical terms accurate. Reply with the translation only.\n\n\"The model was fine-tuned using low-rank adaptation with 4-bit quantization.\"",
+      "tags": ["en-pt", "technical"],
+      "expected": { "language": "pt", "contains_any": ["quantizacao", "quantização", "4 bits", "4-bit"] },
+      "reference": "O modelo foi ajustado usando adaptação de baixo posto com quantização de 4 bits."
+    },
+    {
+      "id": "trn-004",
+      "category": "translation",
+      "prompt": "Translate the following into English. Reply with the translation only.\n\n\"A camada de atenção multi-cabeça permite que o modelo capture dependências de longo alcance.\"",
+      "tags": ["pt-en", "technical"],
+      "expected": { "language": "en", "contains_any": ["attention"] },
+      "reference": "The multi-head attention layer lets the model capture long-range dependencies."
+    },
+    {
+      "id": "trn-005",
+      "category": "translation",
+      "prompt": "Translate this English idiom into a natural Portuguese equivalent, then explain it in one short sentence.\n\n\"It's raining cats and dogs.\"",
+      "tags": ["en-pt", "idiom"],
+      "expected": { "language": "pt", "contains_any": ["chovendo", "chove", "canivete", "cantaros", "cântaros", "baldes"] },
+      "reference": "Está chovendo canivetes / a cântaros — it is raining very heavily."
+    },
+    {
+      "id": "trn-006",
+      "category": "translation",
+      "prompt": "Translate this Portuguese idiom into a natural English equivalent, then explain it in one short sentence.\n\n\"Matar dois coelhos com uma cajadada só.\"",
+      "tags": ["pt-en", "idiom"],
+      "expected": { "language": "en", "contains_any": ["two birds", "one stone"] },
+      "reference": "To kill two birds with one stone."
+    },
+    {
+      "id": "trn-007",
+      "category": "translation",
+      "prompt": "Translate the following into Portuguese, preserving every number and unit exactly. Reply with the translation only.\n\n\"The flight departs at 6:45 AM and takes 11 hours and 20 minutes.\"",
+      "tags": ["en-pt", "numbers"],
+      "expected": { "language": "pt", "contains_all": ["6:45", "11", "20"] },
+      "reference": "O voo parte às 6:45 da manhã e dura 11 horas e 20 minutos."
+    },
+    {
+      "id": "trn-008",
+      "category": "translation",
+      "prompt": "Translate the following paragraph into English. Reply with the translation only.\n\n\"A cidade acordou coberta de neblina. Os pescadores saíram cedo, como sempre, mas desta vez o mar estava estranhamente silencioso e nenhum barco voltou antes do meio-dia.\"",
+      "tags": ["pt-en", "narrative"],
+      "expected": { "language": "en", "min_words": 20, "contains_any": ["fog", "mist"] },
+      "reference": "The town woke up covered in fog..."
+    },
+    {
+      "id": "trn-009",
+      "category": "translation",
+      "prompt": "Translate the following into formal Portuguese. Reply with the translation only.\n\n\"We regret to inform you that your application was not successful on this occasion.\"",
+      "tags": ["en-pt", "formal"],
+      "expected": { "language": "pt", "contains_any": ["lamentamos", "informar", "infelizmente", "comunicar"] },
+      "reference": "Lamentamos informar que sua candidatura não foi bem-sucedida nesta ocasião."
+    },
+    {
+      "id": "trn-010",
+      "category": "translation",
+      "prompt": "Translate the following into English. Reply with the translation only.\n\n\"Nossa, que legal! Valeu mesmo pela ajuda, você me salvou.\"",
+      "tags": ["pt-en", "slang"],
+      "expected": { "language": "en", "contains_any": ["thanks", "thank you", "help"] },
+      "reference": "Wow, that's great! Thanks a lot for the help, you saved me."
+    },
+
+    {
+      "id": "sum-001",
+      "category": "summarization",
+      "prompt": "Summarize the text below in a single paragraph.\n\nThe Industrial Revolution began in Britain in the late eighteenth century and spread across Europe and North America over the following hundred years. It replaced hand production with machines, introduced new chemical and iron production processes, and made steam power central to manufacturing. Cities grew rapidly as workers left the countryside for factory jobs, which changed family structures and created entirely new social classes. Living conditions in the early industrial cities were often severe: housing was crowded, air and water were polluted, and working hours were long, including for children. Over time, labour movements and legislation improved conditions, while continued mechanisation raised average incomes and life expectancy across industrialised nations.",
+      "tags": ["paragraph"],
+      "expected": { "min_words": 25, "max_words": 140 }
+    },
+    {
+      "id": "sum-002",
+      "category": "summarization",
+      "prompt": "Summarize the text below in exactly 4 bullet points.\n\nRenewable energy sources now supply a growing share of global electricity. Solar photovoltaic costs have fallen by roughly ninety percent since 2010, making solar the cheapest source of new generation in many markets. Wind power, both onshore and offshore, has followed a similar trajectory, with turbines growing steadily larger and more efficient. The main remaining obstacle is intermittency: solar and wind generate power only when the sun shines or the wind blows, which forces grid operators to balance supply and demand across the day. Battery storage, long-distance transmission and demand-response programmes are the three approaches most often used to address this, and all three are expanding quickly.",
+      "tags": ["bullets"],
+      "expected": { "bullet_count": 4 }
+    },
+    {
+      "id": "sum-003",
+      "category": "summarization",
+      "prompt": "Read the text and list the three key takeaways.\n\nRemote work moved from a niche arrangement to a mainstream practice during the early 2020s. Companies that adopted it reported lower office costs and access to a wider hiring pool, while employees reported saving commuting time and gaining flexibility. The drawbacks appeared more slowly: onboarding new staff proved harder without informal contact, junior employees received less incidental mentoring, and the boundary between work and personal time blurred for many. Most large organisations eventually settled on hybrid schedules, typically two or three days in the office, as a compromise that preserved some flexibility while restoring face-to-face collaboration.",
+      "tags": ["takeaways"],
+      "expected": { "min_bullets": 3 }
+    },
+    {
+      "id": "sum-004",
+      "category": "summarization",
+      "prompt": "Summarize the text below in exactly one sentence.\n\nThe Amazon rainforest covers about 5.5 million square kilometres across nine countries and holds roughly ten percent of all known species on Earth. It plays a major role in regulating regional rainfall and in storing carbon. Deforestation, driven mainly by cattle ranching, soy cultivation and logging, has removed close to a fifth of the original forest cover. Scientists warn that continued clearing could push parts of the ecosystem past a tipping point, after which the forest would gradually transition into drier savannah, releasing large quantities of stored carbon.",
+      "tags": ["one-sentence"],
+      "expected": { "sentence_count": 1 }
+    },
+    {
+      "id": "sum-005",
+      "category": "summarization",
+      "prompt": "Summarize the technical text below for a non-technical reader, in under 60 words.\n\nA transformer processes a sequence by mapping each token to a vector and repeatedly refining those vectors through self-attention and feed-forward sublayers. Self-attention computes, for every position, a weighted average over all other positions, where the weights come from the similarity between learned query and key projections. Because these weights are computed for all pairs simultaneously, the operation parallelises well on modern accelerators but scales quadratically with sequence length.",
+      "tags": ["technical", "length-constrained"],
+      "expected": { "max_words": 85, "min_words": 15 }
+    },
+    {
+      "id": "sum-006",
+      "category": "summarization",
+      "prompt": "Extract the action items from these meeting notes as a bullet list. Include who is responsible for each one.\n\nNotes: The team reviewed the release schedule. Marina said the API documentation is still missing the authentication section and will finish it by Thursday. Rafael raised that the staging environment has been unstable since the last deploy; he agreed to investigate and report back on Wednesday. There was a longer discussion about whether to postpone the mobile release; no decision was made, and Ana will collect crash statistics before the next meeting so the team can decide with data. Everyone agreed to keep the weekly meeting at the same time.",
+      "tags": ["action-items"],
+      "expected": { "min_bullets": 3, "contains_all": ["Marina", "Rafael", "Ana"] }
+    },
+    {
+      "id": "sum-007",
+      "category": "summarization",
+      "prompt": "Resuma o texto abaixo em um parágrafo, em português.\n\nO Pantanal é a maior planície alagável do planeta e se estende pelo Brasil, pela Bolívia e pelo Paraguai. Durante a estação chuvosa, os rios transbordam e cobrem grande parte da região, criando um ciclo anual de cheia e seca que sustenta uma fauna extremamente rica, incluindo onças-pintadas, ariranhas e centenas de espécies de aves. A pecuária extensiva convive com o ecossistema há mais de dois séculos, mas queimadas cada vez mais intensas e o assoreamento dos rios vêm alterando esse equilíbrio nas últimas décadas.",
+      "tags": ["portuguese"],
+      "expected": { "language": "pt", "max_words": 120, "min_words": 20 }
+    },
+
+    {
+      "id": "ifl-001",
+      "category": "instruction_following",
+      "prompt": "Name three benefits of regular exercise. Answer in exactly three bullet points and nothing else.",
+      "tags": ["format", "bullets"],
+      "expected": { "bullet_count": 3 }
+    },
+    {
+      "id": "ifl-002",
+      "category": "instruction_following",
+      "prompt": "Describe the ocean in exactly 50 words.",
+      "tags": ["length"],
+      "expected": { "word_count": 50, "word_count_tolerance": 5 }
+    },
+    {
+      "id": "ifl-003",
+      "category": "instruction_following",
+      "prompt": "Reply with a JSON object describing the Python programming language, containing exactly the keys \"name\", \"paradigm\" and \"year\". Output only the JSON, with no explanation and no markdown fences.",
+      "tags": ["format", "json"],
+      "expected": { "json_valid": true, "json_keys": ["name", "paradigm", "year"] }
+    },
+    {
+      "id": "ifl-004",
+      "category": "instruction_following",
+      "prompt": "Write a Python one-liner that sums the integers from 1 to 100. Output only the code, with no explanation and no markdown fences.",
+      "tags": ["format", "code-only"],
+      "expected": { "code_only": true, "not_contains": ["```"] }
+    },
+    {
+      "id": "ifl-005",
+      "category": "instruction_following",
+      "prompt": "Explain what a database index is, in exactly one sentence.",
+      "tags": ["length", "sentences"],
+      "expected": { "sentence_count": 1 }
+    },
+    {
+      "id": "ifl-006",
+      "category": "instruction_following",
+      "prompt": "Answer the following question in ALL CAPITAL LETTERS: what is the capital of France?",
+      "tags": ["format", "casing"],
+      "expected": { "uppercase": true, "contains_any": ["paris"] }
+    },
+    {
+      "id": "ifl-007",
+      "category": "instruction_following",
+      "prompt": "List exactly five programming languages, numbered 1 to 5, one per line, with no other text.",
+      "tags": ["format", "count"],
+      "expected": { "bullet_count": 5 }
+    },
+    {
+      "id": "ifl-008",
+      "category": "instruction_following",
+      "prompt": "Answer with exactly two words: what colour is a clear daytime sky?",
+      "tags": ["length"],
+      "expected": { "word_count": 2, "word_count_tolerance": 1 }
+    },
+    {
+      "id": "ifl-009",
+      "category": "instruction_following",
+      "prompt": "Explain how gravity works without ever using the word 'force'.",
+      "tags": ["constraint", "negative"],
+      "expected": { "not_contains": ["force"], "min_words": 25 }
+    },
+    {
+      "id": "ifl-010",
+      "category": "instruction_following",
+      "prompt": "Reply with a JSON array containing exactly three strings, each naming a fruit. Output only the JSON.",
+      "tags": ["format", "json"],
+      "expected": { "json_valid": true, "not_contains": ["explanation"] }
+    },
+
+    {
+      "id": "crt-001",
+      "category": "creativity",
+      "prompt": "Write a short science-fiction story of about 120 words about the first message received from another galaxy.",
+      "tags": ["sci-fi", "story"],
+      "expected": { "min_words": 60 }
+    },
+    {
+      "id": "crt-002",
+      "category": "creativity",
+      "prompt": "Invent a fantasy creature. Describe its appearance, its habitat and one unusual ability.",
+      "tags": ["fantasy"],
+      "expected": { "min_words": 50 }
+    },
+    {
+      "id": "crt-003",
+      "category": "creativity",
+      "prompt": "Write a four-line poem about rain falling on a city street at night.",
+      "tags": ["poem"],
+      "expected": { "min_words": 12 }
+    },
+    {
+      "id": "crt-004",
+      "category": "creativity",
+      "prompt": "Write a short dialogue between a lighthouse keeper and a sailor who is lost at sea.",
+      "tags": ["dialogue"],
+      "expected": { "min_words": 40 }
+    },
+    {
+      "id": "crt-005",
+      "category": "creativity",
+      "prompt": "Invent a slogan for a coffee shop that only opens at night.",
+      "tags": ["slogan"],
+      "expected": { "max_words": 45 }
+    },
+    {
+      "id": "crt-006",
+      "category": "creativity",
+      "prompt": "Describe loneliness using a single original metaphor, in no more than two sentences.",
+      "tags": ["metaphor"],
+      "expected": { "max_sentences": 3 }
+    },
+    {
+      "id": "crt-007",
+      "category": "creativity",
+      "prompt": "Write the opening paragraph of a mystery novel set in a train station.",
+      "tags": ["story"],
+      "expected": { "min_words": 30 }
+    },
+
+    {
+      "id": "ctx-001",
+      "category": "context",
+      "prompt": "What was the second number?",
+      "tags": ["recall"],
+      "history": [
+        { "role": "user", "content": "Remember these numbers for me: 18, 52, 91." },
+        { "role": "assistant", "content": "Got it — I'll remember 18, 52 and 91." },
+        { "role": "user", "content": "Great, thanks." },
+        { "role": "assistant", "content": "You're welcome!" }
+      ],
+      "expected": { "contains_any": ["52"] },
+      "reference": "52."
+    },
+    {
+      "id": "ctx-002",
+      "category": "context",
+      "prompt": "What is my profession, and what is my name?",
+      "tags": ["recall"],
+      "history": [
+        { "role": "user", "content": "Hi! My name is Beatriz and I work as a marine biologist." },
+        { "role": "assistant", "content": "Nice to meet you, Beatriz! Marine biology sounds fascinating." },
+        { "role": "user", "content": "It is. I mostly study coral reefs." },
+        { "role": "assistant", "content": "Coral reef ecosystems are remarkably complex." }
+      ],
+      "expected": { "contains_all": ["biologist", "Beatriz"] },
+      "reference": "Beatriz, a marine biologist."
+    },
+    {
+      "id": "ctx-003",
+      "category": "context",
+      "prompt": "Suggest one dinner recipe for me.",
+      "tags": ["constraint-recall"],
+      "history": [
+        { "role": "user", "content": "Just so you know, I'm vegetarian and I'm allergic to nuts." },
+        { "role": "assistant", "content": "Understood — no meat, no fish and no nuts in anything I suggest." }
+      ],
+      "expected": { "not_contains": ["chicken", "beef", "pork", "bacon", "peanut", "almond", "cashew"] },
+      "reference": "Any vegetarian, nut-free dish."
+    },
+    {
+      "id": "ctx-004",
+      "category": "context",
+      "prompt": "Who wrote it?",
+      "tags": ["reference-resolution"],
+      "history": [
+        { "role": "user", "content": "I just finished reading 'The Hobbit'." },
+        { "role": "assistant", "content": "Great choice! How did you like it?" },
+        { "role": "user", "content": "I loved it, especially the riddles in the dark chapter." },
+        { "role": "assistant", "content": "That's a favourite for many readers." }
+      ],
+      "expected": { "contains_any": ["Tolkien"] },
+      "reference": "J.R.R. Tolkien."
+    },
+    {
+      "id": "ctx-005",
+      "category": "context",
+      "prompt": "How many items are on my shopping list, and what are they?",
+      "tags": ["accumulation"],
+      "history": [
+        { "role": "user", "content": "Add milk to my shopping list." },
+        { "role": "assistant", "content": "Added milk." },
+        { "role": "user", "content": "Add eggs and bread too." },
+        { "role": "assistant", "content": "Added eggs and bread." }
+      ],
+      "expected": { "contains_all": ["milk", "eggs", "bread"], "regex": "\\b(3|three)\\b" },
+      "reference": "Three items: milk, eggs and bread."
+    },
+    {
+      "id": "ctx-006",
+      "category": "context",
+      "prompt": "So, what is the capital of Brazil?",
+      "tags": ["correction"],
+      "history": [
+        { "role": "user", "content": "The capital of Brazil is Rio de Janeiro, right?" },
+        { "role": "assistant", "content": "Actually, no — the capital of Brazil is Brasília. Rio was the capital until 1960." },
+        { "role": "user", "content": "Oh, you're right, my mistake." }
+      ],
+      "expected": { "contains_any": ["Brasilia", "Brasília"] },
+      "reference": "Brasília."
+    },
+    {
+      "id": "ctx-007",
+      "category": "context",
+      "prompt": "What is the largest planet in our solar system?",
+      "tags": ["persistent-instruction"],
+      "system": "Follow the user's formatting instructions from earlier turns for the rest of the conversation.",
+      "history": [
+        { "role": "user", "content": "From now on, answer every question with a single word." },
+        { "role": "assistant", "content": "Understood." },
+        { "role": "user", "content": "What is the capital of Italy?" },
+        { "role": "assistant", "content": "Rome." }
+      ],
+      "expected": { "max_words": 3, "contains_any": ["Jupiter"] },
+      "reference": "Jupiter."
+    },
+
+    {
+      "id": "rob-001a",
+      "category": "robustness",
+      "prompt": "What is the capital of Japan?",
+      "variant_group": "capital-japan",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["Tokyo", "Toquio", "Tóquio"] },
+      "reference": "Tokyo."
+    },
+    {
+      "id": "rob-001b",
+      "category": "robustness",
+      "prompt": "Which city serves as the seat of government of Japan?",
+      "variant_group": "capital-japan",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["Tokyo", "Toquio", "Tóquio"] },
+      "reference": "Tokyo."
+    },
+    {
+      "id": "rob-002a",
+      "category": "robustness",
+      "prompt": "What is 12 times 12?",
+      "variant_group": "multiply-12",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["144"] },
+      "reference": "144."
+    },
+    {
+      "id": "rob-002b",
+      "category": "robustness",
+      "prompt": "If I multiply twelve by twelve, what do I get?",
+      "variant_group": "multiply-12",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["144"] },
+      "reference": "144."
+    },
+    {
+      "id": "rob-003a",
+      "category": "robustness",
+      "prompt": "At what temperature does water boil at sea level?",
+      "variant_group": "boiling-point",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["100"] },
+      "reference": "100 degrees Celsius."
+    },
+    {
+      "id": "rob-003b",
+      "category": "robustness",
+      "prompt": "Under standard pressure at sea level, what is the boiling point of water?",
+      "variant_group": "boiling-point",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["100"] },
+      "reference": "100 degrees Celsius."
+    },
+    {
+      "id": "rob-004a",
+      "category": "robustness",
+      "prompt": "What is photosynthesis?",
+      "variant_group": "photosynthesis",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["light", "sunlight", "sun"] },
+      "reference": "The process by which plants convert light into chemical energy."
+    },
+    {
+      "id": "rob-004b",
+      "category": "robustness",
+      "prompt": "Could you explain, in simple terms, how plants make their own food?",
+      "variant_group": "photosynthesis",
+      "tags": ["paraphrase"],
+      "expected": { "contains_any": ["light", "sunlight", "sun"] },
+      "reference": "The process by which plants convert light into chemical energy."
+    }
+  ]
+}
